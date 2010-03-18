@@ -46,9 +46,9 @@ jQuery(document).ready(function($)
             imageEditorLoader();
             $.ajax(
             {
-                url: imageEditorUpdateURL+'?'+$('#imageEditorCropForm').serialize()+imageEditorDelimeter+'page=img-crop'+imageEditorDelimeter+'ImageID='+imageEditorId+imageEditorQueryAppend,
+                url: imageEditorUpdateURL+'?CropX1='+$('#imageEditorCropX').val()+imageEditorDelimeter+'CropY1='+$('#imageEditorCropY').val()+imageEditorDelimeter+'CropX2='+$('#imageEditorCropX2').val()+imageEditorDelimeter+'CropY2='+$('#imageEditorCropY2').val()+imageEditorDelimeter+'page=img-crop'+imageEditorDelimeter+'ImageID='+imageEditorId+imageEditorQueryAppend,
                 type: 'POST',
-                data: $('#imageEditorCropForm').serialize()+'&zetaprints-action=img-crop&zetaprints-ImageID='+imageEditorId+imageEditorQueryAppend,
+                data: 'zetaprints-CropX='+$('#imageEditorCropX').val()+imageEditorDelimeter+'zetaprints-CropY='+$('#imageEditorCropY').val()+imageEditorDelimeter+'zetaprints-CropX2='+$('#imageEditorCropX2').val()+imageEditorDelimeter+'zetaprints-CropY2='+$('#imageEditorCropY2').val()+imageEditorDelimeter+'zetaprints-action=img-crop'+imageEditorDelimeter+'zetaprints-ImageID='+imageEditorId+imageEditorQueryAppend,
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert(zetaprints_trans('Can\'t crop image:') + ' ' + textStatus);
                 },
@@ -187,14 +187,18 @@ jQuery(document).ready(function($)
                 );
 
             tmp = $('#imageEditorRight #imageEditorPreview').attr("src");
+            tmp1 = jQuery("a[href*="+imageEditorId+"]", top.document).find('img:first');
+            if (tmp1.length==0){
+            tmp1 = jQuery('#img'+imageEditorId, top.document);
+            }
 
             if (tmp.match(/\.jpg/m)) {
 
-                jQuery("a[href*="+imageEditorId+"]", top.document).find('img:first').attr('src', tmp.replace(/\.(jpg|gif|png|jpeg|bmp)/i, "_0x100.jpg"));
+                tmp1.attr('src', tmp.replace(/\.(jpg|gif|png|jpeg|bmp)/i, "_0x100.jpg"));
 
 
             } else {
-                jQuery("a[href*="+imageEditorId+"]", top.document).find('img:first').attr('src', tmp);
+                tmp1.attr('src', tmp);
                 }
 
             $('#imageEditorRight #imageEditorPreview').attr("src", tmp);
@@ -231,9 +235,9 @@ jQuery(document).ready(function($)
         function imageEditorInfoBox(msg) {
         $('#imageEditorCaption').show();
           if ($.browser.msie)
-            $('#imageEditorCaption').width(parseFloat($('#imageEditorRight #imageEditorPreview').css('width')));
+            $('#imageEditorCaption').width($('#imageEditorRight #imageEditorPreview').width());
           else
-            $('#imageEditorCaption').width(parseFloat($('#imageEditorRight #imageEditorPreview').css('width')-10));
+            $('#imageEditorCaption').width($('#imageEditorRight #imageEditorPreview').width()-10);
           $('#imageEditorInfo').html(zetaprints_trans(msg));
           $('#imageEditorInfo').show('fast', function()
             {
@@ -244,7 +248,7 @@ jQuery(document).ready(function($)
                 }
               );
               if (cw<280)cw = 280;
-              if (parseFloat($('#imageEditorRight #imageEditorPreview').css('width'))<cw)
+              if ($('#imageEditorRight #imageEditorPreview').width()<cw)
               {
                 $('#imageEditorCaption').width(cw);
                 imageEditorApplySize(cw, $('#imageEditorRight #imageEditorPreview').height());
