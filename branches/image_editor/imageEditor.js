@@ -26,27 +26,45 @@ function initJQuery() {
         includeCSS('http://www.zetaprints.com/mageimage/skin/frontend/default/zptheme/css/jquery.fancybox-1.2.6.css');
         $.getScript('http://www.zetaprints.com/mageimage/skin/frontend/default/zptheme/js/jquery.fancybox-1.2.6.pack.js', function()
           {
-            $('.middle img').load(function()
-              {
-                $('.middle a').click(function()
-                  {
-                    $.cookie('imageEditorUpdateURL', 'http://realestate.zetaprints.com/');
-                    $.cookie('imageEditorId', $(this).children().attr('id').substring(3));
-                    $.cookie('imageEditorZpURL', 'http://realestate.zetaprints.com/');
-                  }
-                );
-                $('.middle a').attr('href', 'http://realestate.zetaprints.com/java/test/text.html?iframe');
-                $('.middle a').fancybox(
-                  {
-                  'padding': 0,
-                  'hideOnOverlayClick': false,
-                  'hideOnContentClick': false,
-                  'centerOnScroll': false
-                  }
-                );
 
-              }
-            )
+            if ($('.middle a').length>0) {
+              $('.middle a').click(function()
+                {
+                  $.cookie('imageEditorUpdateURL', 'http://realestate.zetaprints.com/');
+                  $.cookie('imageEditorId', $(this).children().attr('id').substring(3));
+                  $.cookie('imageEditorZpURL', 'http://realestate.zetaprints.com/');
+                }
+              );
+              $('.middle a').attr('href', 'http://realestate.zetaprints.com/java/test/text.html?iframe');
+              $('.middle a').fancybox(
+                {
+                'padding': 0,
+                'hideOnOverlayClick': false,
+                'hideOnContentClick': false,
+                'centerOnScroll': false
+                }
+              );
+            }else
+              if($(".image-content input:radio").length>0) {
+              $(".image-content input:radio").next().next().find('a').click(function()
+                {
+                  $.cookie('imageEditorUpdateURL', 'http://realestate.zetaprints.com/');
+                  $.cookie('imageEditorId', $(this).parents().find('input:radio').first().attr('value'));
+                  $.cookie('imageEditorZpURL', 'http://realestate.zetaprints.com/');
+                }
+              );
+              $(".image-content input:radio").next().next().find('a').attr('href', 'http://realestate.zetaprints.com/java/test/text.html?iframe');
+              $(".image-content input:radio").next().next().find('a').fancybox(
+                {
+                'padding': 0,
+                'hideOnOverlayClick': false,
+                'hideOnContentClick': false,
+                'centerOnScroll': false
+                }
+              );
+
+            }
+
           }
         );
       }

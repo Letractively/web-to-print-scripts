@@ -191,6 +191,9 @@ jQuery(document).ready(function($)
             if (tmp1.length==0){
             tmp1 = jQuery('#img'+imageEditorId, top.document);
             }
+            if (tmp1.length==0){
+            tmp1 = jQuery('input[value='+imageEditorId+']', top.document).next().next().find('img');
+            }
 
             if (tmp.match(/\.jpg/m)) {
 
