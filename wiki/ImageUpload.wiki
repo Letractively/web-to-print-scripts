@@ -1,0 +1,3 @@
+= Image Upload Activity Diagramm =
+
+http://www.zetaprints.com/magento-docs/upload-triggered.png
