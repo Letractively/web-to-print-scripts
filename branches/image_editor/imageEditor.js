@@ -19,54 +19,128 @@ function initJQuery() {
     $(function()
       {
 
+        function imageEditorAssignFancybox() {
+          if ($('.middle a').length>0) {
+            $('.middle a').click(function()
+              {
+                $.cookie('imageEditorUpdateURL', 'http://realestate.zetaprints.com/');
+                $.cookie('imageEditorId', $(this).children().attr('id').substring(3));
+                $.cookie('imageEditorZpURL', 'http://realestate.zetaprints.com/');
+              }
+            );
+            $('.middle a').attr('href', 'http://realestate.zetaprints.com/java/test/text.html?iframe');
+            $('.middle a').fancybox(
+              {
+              'padding': 0,
+              'hideOnOverlayClick': false,
+              'hideOnContentClick': false,
+              'centerOnScroll': false,
+              'type': 'iframe',
+              'titleShow': false
+              }
+            );
+          }else
+            if($(".image-content input:radio").length>0) {
+            $(".image-content input:radio").next().next().find('a').has('img').click(function()
+              {
+                $.cookie('imageEditorUpdateURL', 'http://realestate.zetaprints.com/', {path: '/'});
+                $.cookie('imageEditorId', $(this).parents().find('input:radio').first().attr('value'), {path: '/'});
+                $.cookie('imageEditorZpURL', 'http://realestate.zetaprints.com/', {path: '/'});
+              }
+            );
+            $(".image-content input:radio").next().next().find('a').has('img').attr('href', 'http://realestate.zetaprints.com/java/test/text.html?iframe');
+            $(".image-content input:radio").next().next().find('a').has('img').fancybox(
+              {
+              'padding': 0,
+              'hideOnOverlayClick': false,
+              'hideOnContentClick': false,
+              'centerOnScroll': false,
+              'type': 'iframe',
+              'titleShow': false
+              }
+            );
+
+          }
+        }
+
         //loading cookie plugin to pass variables to iframe
         $.getScript('http://www.pro24.lv/jquery.cookie.js');
         //loading fancybox
         //css first
-        includeCSS('http://www.zetaprints.com/mageimage/skin/frontend/default/zptheme/css/jquery.fancybox-1.2.6.css');
-        $.getScript('http://www.zetaprints.com/mageimage/skin/frontend/default/zptheme/js/jquery.fancybox-1.2.6.pack.js', function()
+        includeCSS('http://www.pro24.lv/fancybox/jquery.fancybox-1.3.1.css');
+        $.getScript('http://www.pro24.lv/fancybox/jquery.fancybox-1.3.1.pack.js', function()
           {
-
-            if ($('.middle a').length>0) {
-              $('.middle a').click(function()
-                {
-                  $.cookie('imageEditorUpdateURL', 'http://realestate.zetaprints.com/');
-                  $.cookie('imageEditorId', $(this).children().attr('id').substring(3));
-                  $.cookie('imageEditorZpURL', 'http://realestate.zetaprints.com/');
-                }
-              );
-              $('.middle a').attr('href', 'http://realestate.zetaprints.com/java/test/text.html?iframe');
-              $('.middle a').fancybox(
-                {
-                'padding': 0,
-                'hideOnOverlayClick': false,
-                'hideOnContentClick': false,
-                'centerOnScroll': false
-                }
-              );
-            }else
-              if($(".image-content input:radio").length>0) {
-              $(".image-content input:radio").next().next().find('a').click(function()
-                {
-                  $.cookie('imageEditorUpdateURL', 'http://realestate.zetaprints.com/');
-                  $.cookie('imageEditorId', $(this).parents().find('input:radio').first().attr('value'));
-                  $.cookie('imageEditorZpURL', 'http://realestate.zetaprints.com/');
-                }
-              );
-              $(".image-content input:radio").next().next().find('a').attr('href', 'http://realestate.zetaprints.com/java/test/text.html?iframe');
-              $(".image-content input:radio").next().next().find('a').fancybox(
-                {
-                'padding': 0,
-                'hideOnOverlayClick': false,
-                'hideOnContentClick': false,
-                'centerOnScroll': false
-                }
-              );
-
-            }
-
+            imageEditorAssignFancybox();
           }
         );
+        //if upload file found
+        if ($('.file').length>0) {
+          $.getScript('http://www.pro24.lv/ajaxupload.js', function()
+            {
+
+              var uploadStripCounter = 1;
+              while ($('#divImgStripUpload'+uploadStripCounter).length>0) {
+                //for each upload strip create own upload function
+                $('#divImgStripUpload'+uploadStripCounter).find('.tab-img-u').html('<input name="" id="inputUploadFile'+uploadStripCounter+'" disabled=true/><span id="spanUploadButton'+uploadStripCounter+'" class="spanUploadButton">Upload</span>  <span id="spanUploadProgress'+uploadStripCounter+'" style="display:none" class="spanUploadProgress">Uploading... please wait</span>');
+                new AjaxUpload('spanUploadButton'+uploadStripCounter,
+                  {
+                  action: '?page=img-new',
+                  data: {
+                    Xml: '1'
+                    },
+                  autoSubmit: true,
+                  onChange: function(file, extension) {
+                      $(this._button).prev().val(file);
+                      $(this._button).next().show('slow');
+                      $('input:submit').attr('disabled','true');
+                    },
+                  onComplete: function(file, response) {
+                      $(this._button).prev().val('');
+                      $(this._button).next().hide();
+                      var currentStripCounter = $(this._button).prev().attr('id').substring($(this._button).prev().attr('id').length-1);
+                      $.ajax(
+                        {
+                        url: window.location.href,
+                        type: 'GET',
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert('Can\'t load page:' + ' ' + textStatus);
+                            $('input:submit').removeAttr('disabled');
+                          },
+                        success: function (data, textStatus) {
+                            $('input:submit').removeAttr('disabled');
+                            tmp = $(data);
+                            var i = 1;
+                            while ($('#divImgStripLibrary'+i).length>0) {
+                              currentCheckedImage=$('#divImgStripLibrary'+i).find('input:checked').val();
+                              $('#divImgStripLibrary'+i).html(tmp.find('#divImgStripLibrary'+i).html());
+                              $('#divImgStripLibrary'+i).find('input[value='+currentCheckedImage+']').attr('checked','true');
+                              i++;
+                            }
+                            imageEditorAssignFancybox();
+/*
+                            //if image strip doesn't exists, overwrite whole form from ajax
+                            if ($('#divImgStripLibrary'+currentStripCounter).length==0){
+                            $('#formPreviewUpdate').html(tmp.find('#formPreviewUpdate').html());
+                            alert(tmp.find('.image-field').html());
+                            }
+*/
+                            $('#divImgStripLibrary'+currentStripCounter).find('input[value*=-]:radio').first().attr('checked', 'true');
+                            tabToggleTabbedMenuBlockImg('liTabImgLibrary'+currentStripCounter, 'divImgStripLibrary'+currentStripCounter);
+                          }
+                        }
+                      );
+
+                    }
+                  }
+                );
+                uploadStripCounter++;
+              }
+
+            }
+          );
+
+
+        }
       }
     );
   }
