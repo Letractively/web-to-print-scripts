@@ -97,6 +97,7 @@ function initJQuery() {
                   onComplete: function(file, response) {
                       $(this._button).prev().val('');
                       $(this._button).next().hide();
+                      $('input:submit').removeAttr('disabled');
                       var currentStripCounter = $(this._button).prev().attr('id').substring($(this._button).prev().attr('id').length-1);
                       $.ajax(
                         {
@@ -104,10 +105,8 @@ function initJQuery() {
                         type: 'GET',
                         error: function (XMLHttpRequest, textStatus, errorThrown) {
                             alert('Can\'t load page:' + ' ' + textStatus);
-                            $('input:submit').removeAttr('disabled');
                           },
                         success: function (data, textStatus) {
-                            $('input:submit').removeAttr('disabled');
                             tmp = $(data);
                             var i = 1;
                             while ($('#divImgStripLibrary'+i).length>0) {
