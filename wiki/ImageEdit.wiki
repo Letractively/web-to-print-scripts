@@ -1,0 +1,3 @@
+= Image Edit Activity Diagramm =
+
+http://www.zetaprints.com/magento-docs/editor-triggered.png
