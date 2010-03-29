@@ -142,10 +142,7 @@ jQuery(document).ready(function($)
                         w = $(this).attr('ThumbWidth');
 
                         uh = $(this).attr('ImageHeightUndo');
-                        if (typeof(uh)=="undefined")uh = $(this).attr('ImageHeight');
                         uw = $(this).attr('ImageWidthUndo');
-                        if (typeof(uw)=="undefined")uw = $(this).attr('ImageWidth');
-
                     }
                 );
             }
@@ -165,13 +162,13 @@ jQuery(document).ready(function($)
                         w = $(this).attr('thumbwidth');
 
                         uh = $(this).attr('imageheightundo');
-                        if (typeof(uh)=="undefined")uh = $(this).attr('imageheight');
                         uw = $(this).attr('imagewidthundo');
-                        if (typeof(uw)=="undefined")uw = $(this).attr('imagewidth');
-
                     }
                 );
             }
+            if (typeof(uh)=="undefined" || typeof(uw)=="undefined")$('#imageEditorRestore').hide();
+            else
+            $('#imageEditorRestore').show();
             $('#imageEditorLeft #imageEditorRestore').attr('title', zetaprints_trans('Undo all changes')+'. '+zetaprints_trans('Original size')+': '+uw+' x '+uh+' px.');
 
             $('#imageEditorRight #imageEditorPreview')

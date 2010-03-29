@@ -1,4 +1,6 @@
 var jQueryScriptOutputted = false;
+var imageEditorHost = 'http://realestate.zetaprints.com';
+var imageEditorPath = '/java/dev';
 
 function initJQuery() {
 
@@ -23,12 +25,10 @@ function initJQuery() {
           if ($('.middle a').length>0) {
             $('.middle a').click(function()
               {
-                $.cookie('imageEditorUpdateURL', 'http://realestate.zetaprints.com/');
                 $.cookie('imageEditorId', $(this).children().attr('id').substring(3));
-                $.cookie('imageEditorZpURL', 'http://realestate.zetaprints.com/');
               }
             );
-            $('.middle a').attr('href', 'http://realestate.zetaprints.com/java/test/text.html?iframe');
+            $('.middle a').attr('href', imageEditorHost+imageEditorPath+'/imageEditor.html?iframe');
             $('.middle a').fancybox(
               {
               'padding': 0,
@@ -43,12 +43,10 @@ function initJQuery() {
             if($(".image-content input:radio").length>0) {
             $(".image-content input:radio").next().next().find('a').has('img').click(function()
               {
-                $.cookie('imageEditorUpdateURL', 'http://realestate.zetaprints.com/', {path: '/'});
                 $.cookie('imageEditorId', $(this).parents().find('input:radio').first().attr('value'), {path: '/'});
-                $.cookie('imageEditorZpURL', 'http://realestate.zetaprints.com/', {path: '/'});
               }
             );
-            $(".image-content input:radio").next().next().find('a').has('img').attr('href', 'http://realestate.zetaprints.com/java/test/text.html?iframe');
+            $(".image-content input:radio").next().next().find('a').has('img').attr('href', imageEditorHost+imageEditorPath+'/imageEditor.html?iframe');
             $(".image-content input:radio").next().next().find('a').has('img').fancybox(
               {
               'padding': 0,
@@ -64,18 +62,18 @@ function initJQuery() {
         }
 
         //loading cookie plugin to pass variables to iframe
-        $.getScript('http://www.pro24.lv/jquery.cookie.js');
+        $.getScript(imageEditorHost+imageEditorPath+'/jquery.cookie.js');
         //loading fancybox
         //css first
-        includeCSS('http://www.pro24.lv/fancybox/jquery.fancybox-1.3.1.css');
-        $.getScript('http://www.pro24.lv/fancybox/jquery.fancybox-1.3.1.pack.js', function()
+        includeCSS(imageEditorHost+imageEditorPath+'/fancybox/jquery.fancybox-1.3.1.css');
+        $.getScript(imageEditorHost+imageEditorPath+'/fancybox/jquery.fancybox-1.3.1.pack.js', function()
           {
             imageEditorAssignFancybox();
           }
         );
         //if upload file found
         if ($('.file').length>0) {
-          $.getScript('http://www.pro24.lv/ajaxupload.js', function()
+          $.getScript(imageEditorHost+imageEditorPath+'/ajaxupload.js', function()
             {
 
               var uploadStripCounter = 1;
