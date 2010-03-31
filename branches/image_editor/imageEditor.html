@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="content-type" content="text/html; charset=windows-1250">
   <title>Editor</title>
-<script>
-var imageEditorHost = 'http://realestate.zetaprints.com';
+<script type="text/javascript">
+var imageEditorHost = location.href.match(/(http:\/\/[^\/]*)/).pop();
 var imageEditorPath = '/java/dev';
 var imageEditorUpdateURL = imageEditorHost;
 var imageEditorId='';
