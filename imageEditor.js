@@ -1,5 +1,5 @@
 var jQueryScriptOutputted = false;
-var imageEditorHost = 'http://realestate.zetaprints.com';
+var imageEditorHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop();
 var imageEditorPath = '/java/dev';
 
 function initJQuery() {
@@ -61,6 +61,23 @@ function initJQuery() {
           }
         }
 
+        function scroll_strip(panel,currentCheckedImage) {
+
+$(panel).find('img:first').load(function(){
+          $(panel).scrollLeft(0);
+          var position = $('input[value='+currentCheckedImage+']',panel).parent('td').position();
+          if (position)
+            $(panel).scrollLeft(position.left-100);
+});
+         
+
+
+
+
+
+          return true;
+        }
+
         //loading cookie plugin to pass variables to iframe
         $.getScript(imageEditorHost+imageEditorPath+'/jquery.cookie.js');
         //loading fancybox
@@ -97,37 +114,24 @@ function initJQuery() {
                       $(this._button).next().hide();
                       $('input:submit').removeAttr('disabled');
                       var currentStripCounter = $(this._button).prev().attr('id').substring($(this._button).prev().attr('id').length-1);
-                      $.ajax(
-                        {
-                        url: window.location.href,
-                        type: 'GET',
-                        error: function (XMLHttpRequest, textStatus, errorThrown) {
-                            alert('Can\'t load page:' + ' ' + textStatus);
-                          },
-                        success: function (data, textStatus) {
-                            tmp = $(data);
-                            var i = 1;
-                            while ($('#divImgStripLibrary'+i).length>0) {
-                              currentCheckedImage=$('#divImgStripLibrary'+i).find('input:checked').val();
-                              $('#divImgStripLibrary'+i).html(tmp.find('#divImgStripLibrary'+i).html());
-                              $('#divImgStripLibrary'+i).find('input[value='+currentCheckedImage+']').attr('checked','true');
-                              i++;
-                            }
-                            imageEditorAssignFancybox();
-/*
-                            //if image strip doesn't exists, overwrite whole form from ajax
-                            if ($('#divImgStripLibrary'+currentStripCounter).length==0){
-                            $('#formPreviewUpdate').html(tmp.find('#formPreviewUpdate').html());
-                            alert(tmp.find('.image-field').html());
-                            }
-*/
-                            $('#divImgStripLibrary'+currentStripCounter).find('input[value*=-]:radio').first().attr('checked', 'true');
-                            tabToggleTabbedMenuBlockImg('liTabImgLibrary'+currentStripCounter, 'divImgStripLibrary'+currentStripCounter);
-                          }
+                      var src = imageEditorHost + '/photothumbs/' + getRegexpValue(response, /thumb="([^"]*?)"/i);
+                      src = src.replace(/\.(jpg)/i, "_0x100.jpg");
+                      var imageid = getRegexpValue(response, /imageid="([^"]*?)"/i);
+                      var td='<td nowrap="nowrap"><input type="radio" value="' + imageid + '" name="#Logo"><span>#1</span><div><a href="" target="_blank"><img height="100px" src="'+src+'"/></a></div></td>';
+                      $("div[id*=divImgStripLibrary]").each( function() {
+                        var currentStrip = $(this).parent();
+                        var pos = $(currentStrip).scrollLeft();
+                        $(td).insertBefore($(this).find('td:eq(1)'));
+                        if ($(this).attr('id')!="divImgStripLibrary"+currentStripCounter) {
+                          $('img', td).load( function () {
+                            $(currentStrip).scrollLeft(pos + $('img', td).attr('width') + 10);
+                          });
                         }
-                      );
-
-                    }
+                      });
+                      imageEditorAssignFancybox();
+                      $('#divImgStripLibrary'+currentStripCounter).find('input[value*=-]:radio').first().attr('checked', 'true');
+                      tabToggleTabbedMenuBlockImg('liTabImgLibrary'+currentStripCounter, 'divImgStripLibrary'+currentStripCounter);
+                   }
                   }
                 );
                 uploadStripCounter++;
@@ -150,4 +154,15 @@ function includeCSS(p_file) {
   v_css.type = 'text/css';
   v_css.href = p_file;
   document.getElementsByTagName('head')[0].appendChild(v_css);
+}
+function getRegexpValue (subject, exp) {
+  match = subject.match(exp);
+  if (match != null) {
+    if (match.length > 2)
+      return match;
+    else
+      return match[1];
+  }
+  else
+    return false;
 }
