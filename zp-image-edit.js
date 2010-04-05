@@ -122,14 +122,13 @@ jQuery(document).ready(function ($) {
       alert(zetaprints_trans('Unknown error occured'));
       return false;
     }
-    $('#imageEditorRight #imageEditorPreview').attr("src", src);
-    $('#imageEditorRight #imageEditorPreview').height(h);
-    $('#imageEditorRight #imageEditorPreview').width(w);
+    $('#imageEditorPreview').attr("src", src);
+    $('#imageEditorPreview').height(h);
+    $('#imageEditorPreview').width(w);
     $('#imageEditorHeightInfo').html(h + ' px');
     $('#imageEditorWidthInfo').html(w + ' px');
-    $('#imageEditorRight #imageEditorPreview')
-    .load( function() {
-      $('#imageEditorRight #imageEditorPreview').fadeIn().ready( function () {
+    $('#imageEditorPreview').load(function() {
+      $('#imageEditorPreview').fadeIn().ready( function () {
         //old fancybox
         parent.jQuery('#fancy_loading').fadeOut();
         //new fancybox

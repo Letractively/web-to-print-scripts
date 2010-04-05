@@ -7,20 +7,12 @@
 var imageEditorHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop();
 var imageEditorPath = '/java/dev';
 var imageEditorUpdateURL = imageEditorHost;
-var imageEditorId='';
+var imageEditorId = window.location.href.match(/imageId=([^?]*?)\?/).pop();
 var imageEditorZpURL=imageEditorHost;
 var imageEditorDelimeter=';';
 var imageEditorQueryAppend=';Xml=1';
 </script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script type="text/javascript" src="jquery.cookie.js"></script>
-<script>
-jQuery(document).ready(function($)
-    {
-        imageEditorId= $.cookie('imageEditorId');
-        $.cookie('imageEditorId',null);
-    });
-</script>
 <script type="text/javascript" src="jcrop/jquery-jcrop.min.js"></script>
 <script type="text/javascript" src="zp-image-edit.js"></script>
 
