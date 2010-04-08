@@ -253,7 +253,7 @@ div#feedback div { text-align:right; margin-left:15px;}
 
 
 /*** content container ***/
-div#container-top { width: 100%; margin: 0 auto; overflow: hidden; height: auto;}
+div#container-top { width: 100%; margin: 0 auto; overflow: hidden; height: auto; min-width: 1170px; }
 div#container { float: right; width: 80%; background: #FFFFFF; padding: 0; margin-bottom: -100000px; padding-bottom: 100000px;}
 
 div#container hr {border-top:1px solid #000000; border-bottom:1px solid transparent; clear:both;}
