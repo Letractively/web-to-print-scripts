@@ -65,7 +65,7 @@ div#lost-info {margin: 10px 0px 10px 0px; font-size:95%;}
 tr.even, td.even, th.even {background-color:#f2f2f2; }
 p#upload { line-height:1.5em; font-size:0.9em;}
 h4.message {margin:5px;}
-br.clear {clear:both;}
+.clear {clear:both;}
 a.calm {color:#000000;}
 a.calm:hover {color:#ff0000; }
 a.calm-padded {color:#000000;margin-right:10px;}
