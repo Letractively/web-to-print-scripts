@@ -148,8 +148,6 @@ div#linkHome a:hover, div#linkHome a:active {color:transparent;}
 
 
 /*** main menu ***/
-div#menu-fill {width:14.5em; background-color:#e0e0e0; border-collapse:collapse; padding:0 3px 30px 0; color:#333333;
-	      margin:0px; position:absolute; top:0; border-right: 1px solid #000000; height:100%;}
 div#menu {width:20%; position:static; float: left; background-color:#e0e0e0; border-collapse:collapse; padding:0; color:#333333; margin:0px; font-family:verdana; border: none; margin-bottom: -100000px; padding-bottom: 100000px;}
 #menu ul {margin:3px 0 0 0; padding:0 0 0 10px; }
 #menu li {padding:0; margin:0 0 0 0; list-style-type:none; font-size:0.9em;}
@@ -1392,7 +1390,7 @@ div.colorSelectorDiv .hc{position:absolute; left:257px; top:66px;font-size:0.8em
 
 @media print
 {
-		#menu, #menu-fill, #locator, #menuPrinter, sup.info, #tagsFound {display:none;}
+		#menu, #locator, #menuPrinter, sup.info, #tagsFound {display:none;}
 		div#container {padding-left:0;}
 		.noprn {display:none;}
 		div#container {padding-left: 1em}
