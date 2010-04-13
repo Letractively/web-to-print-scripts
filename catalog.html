@@ -20,28 +20,39 @@
   <body onload="Init('')">
     <div id="masthead"
     style="background-position: top left; background-repeat:no-repeat; background: #A2DAFB">
-
+      <noscript class="noscript">
+        <ul>
+          <li>Please, enable JavaScript. Help for</li>
+          <li>
+          <a href="userhelp/enable-javascript-in-mozilla-firefox/index.html">Firefox</a>|</li>
+          <li id="liNsIE">
+          <a href="userhelp/enable-javascript-in-internet-explorer-7/index.html">IE</a>|</li>
+          <li id="liNsSF">
+            <a href="userhelp/enable-javascript-in-apple-safari/index.html">Safari</a>
+          </li>
+        </ul>
+      </noscript>
+      <div class="clear"></div>
       <div id="linkHome">
         <a title="Back to the parent site" href="http://www.zetaprints.com">PRINTER</a>
       </div>
       <ul id="navlist">
-        <li id="idMenuTopHome">
-          <a title="Home page" href="?CorporateID=">Home</a>
-        </li> |
-        <li id="idMenuTopSearch">
-          <a title="Search graphic designs" href="?page=templates">Search</a>
-        </li> |
-        <li id="idMenuTopContact">
-          <a href="mailto:realestate@zetaprints.com" title="Email the printer">Contact Us</a>
-        </li> |
-        <li id="idMenuTopHelp">
-          <a title="Help and FAQ pages" target="_blank"
-          href="http://realestate.zetaprints.com/userhelp/">Help</a>
-        </li> |
-        <li id="idMenuTopLogout">
-          <a title="Log out" href="?page=logout">Log out</a>
-        </li>
-      </ul>
+      <li id="idMenuTopHome">
+        <a title="Home page" href="?CorporateID=">Home</a>
+      </li>|
+      <li id="idMenuTopSearch">
+        <a title="Search graphic designs" href="?page=templates">Search</a>
+      </li>|
+      <li id="idMenuTopContact">
+        <a href="mailto:realestate@zetaprints.com" title="Email the printer">Contact Us</a>
+      </li>|
+      <li id="idMenuTopHelp">
+        <a title="Help and FAQ pages" target="_blank"
+        href="http://realestate.zetaprints.com/userhelp/">Help</a>
+      </li>|
+      <li id="idMenuTopLogout">
+        <a title="Log out" href="?page=logout">Log out</a>
+      </li></ul>
       <table name="login-top" id="login-top">
         <tr>
           <td>
@@ -54,17 +65,23 @@
       <div id="container">
         <table class="pagination">
           <tr>
-            <td nowrap="nowrap" class="left"><a href="#" class="aFirstPage"><span class="firstSign">&laquo;</span> First</a> <a href="#" class="aPrevPage"><span class="prevSign">&lsaquo;</span> Previous</a></td>
+            <td nowrap="nowrap" class="left">
+              <a href="#" class="aFirstPage">
+              <span class="firstSign">«</span>First</a>
+              <a href="#" class="aPrevPage">
+              <span class="prevSign">‹</span>Previous</a>
+            </td>
             <td nowrap="nowrap" class="middle">
               <form method="post"
               action="?page=catalogue;CorporateID=D6022B77-7BFC-4B43-AD36-E97371033276;From=0">
-                <input type="submit" value="Show" class="submit inp-pagination" title="Change pagination">
+                <input type="submit" value="Show" class="submit inp-pagination"
+                title="Change pagination" />
                 <select title="Set optimal number of images per page" name="Qty" class="Qty">
                   <option value="10">10</option>
                   <option value="20">20</option>
                   <option value="30">30</option>
                   <option value="40">40</option>
-                  <option value="50" selected>50</option>
+                  <option value="50" selected="selected">50</option>
                   <option value="100">100</option>
                 </select>
                 <select title="Set optimal number of images per page" name="Type" class="Type">
@@ -74,7 +91,12 @@
                 <span class="pagebar-cnt">from 1 to 44 out of 44</span>
               </form>
             </td>
-            <td nowrap="nowrap" class="right"><a href="#" class="aNextPage">Next <span class="nextSign">&rsaquo;</span></a> <a href="#" class="aLastPage">Last <span class="lastSign">&raquo;</span></a></td>
+            <td nowrap="nowrap" class="right">
+              <a href="#" class="aNextPage">Next
+              <span class="nextSign">›</span></a>
+              <a href="#" class="aLastPage">Last
+              <span class="lastSign">»</span></a>
+            </td>
           </tr>
         </table>
         <div id="locator">:::
@@ -112,17 +134,18 @@
           </div>
           <table class="template odd">
             <tr>
-              <th class="prod" colspan="2"><a href="#">300x250-banner-ad-001</a></th>
+              <th class="prod" colspan="2">
+                <a href="#">300x250-banner-ad-001</a>
+              </th>
             </tr>
             <tr>
               <td class="menu" nowrap="nowrap">
                 <div class="tags">
-                  <b>JPEG, GIF, PNG</b>(300x250)
-                  <br/>
-                  <sup onclick="alert(this.title)" class="info"
-                  title="These files can be downloaded after personalising the design. The preview is real size.">
-                  more...</sup>
-                </div>
+                <b>JPEG, GIF, PNG</b>(300x250)
+                <br />
+                <sup onclick="alert(this.title)" class="info"
+                title="These files can be downloaded after personalising the design. The preview is real size.">
+                more...</sup></div>
                 <div class="place-order">
                   <a class="thumb-group"
                   href="http://realestate.zetaprints.com/Technique-testing-temporary/300x250-banner-ad-001.htm">
@@ -142,45 +165,47 @@
                   src="thumb/83402402-9042-48f5-9fc5-4ed1bb3c1f95-0.jpg"
                   alt="300x250-banner-ad-001"></img>
                 </a>
-          <div class="thumbTagsFound">
-            <ul>
-              <li>
-                <b>Categories:</b>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Badge">Badge</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Dynamic imaging">Dynamic imaging</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=simple">simple</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Web">Web</a>
-                <span>(1)</span>
-              </li>
-            </ul>
-          </div>
-                </td>
+                <div class="thumbTagsFound">
+                  <ul>
+                    <li>
+                      <b>Categories:</b>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Badge">Badge</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Dynamic imaging">Dynamic
+                      imaging</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=simple">simple</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Web">Web</a>
+                      <span>(1)</span>
+                    </li>
+                  </ul>
+                </div>
+              </td>
             </tr>
           </table>
           <table class="template">
             <tr>
-              <th class="prod" colspan="2"><a href="#">300x250-banner-ad-001</a></th>
+              <th class="prod" colspan="2">
+                <a href="#">300x250-banner-ad-001</a>
+              </th>
             </tr>
             <tr>
               <td class="menu" nowrap="nowrap">
                 <div class="tags">
-                  <b>JPEG, GIF, PNG</b>(300x250)
-                  <br/>
-                  <sup onclick="alert(this.title)" class="info"
-                  title="These files can be downloaded after personalising the design. The preview is real size.">
-                  more...</sup>
-                </div>
+                <b>JPEG, GIF, PNG</b>(300x250)
+                <br />
+                <sup onclick="alert(this.title)" class="info"
+                title="These files can be downloaded after personalising the design. The preview is real size.">
+                more...</sup></div>
                 <div class="place-order">
                   <a class="thumb-group"
                   href="http://realestate.zetaprints.com/Technique-testing-temporary/300x250-banner-ad-001.htm">
@@ -200,45 +225,47 @@
                   src="thumb/83402402-9042-48f5-9fc5-4ed1bb3c1f95-0.jpg"
                   alt="300x250-banner-ad-001"></img>
                 </a>
-          <div class="thumbTagsFound">
-            <ul>
-              <li>
-                <b>Categories:</b>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Badge">Badge</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Dynamic imaging">Dynamic imaging</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=simple">simple</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Web">Web</a>
-                <span>(1)</span>
-              </li>
-            </ul>
-          </div>
-                </td>
+                <div class="thumbTagsFound">
+                  <ul>
+                    <li>
+                      <b>Categories:</b>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Badge">Badge</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Dynamic imaging">Dynamic
+                      imaging</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=simple">simple</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Web">Web</a>
+                      <span>(1)</span>
+                    </li>
+                  </ul>
+                </div>
+              </td>
             </tr>
           </table>
           <table class="template odd">
             <tr>
-              <th class="prod" colspan="2"><a href="#">300x250-banner-ad-001</a></th>
+              <th class="prod" colspan="2">
+                <a href="#">300x250-banner-ad-001</a>
+              </th>
             </tr>
             <tr>
               <td class="menu" nowrap="nowrap">
                 <div class="tags">
-                  <b>JPEG, GIF, PNG</b>(300x250)
-                  <br/>
-                  <sup onclick="alert(this.title)" class="info"
-                  title="These files can be downloaded after personalising the design. The preview is real size.">
-                  more...</sup>
-                </div>
+                <b>JPEG, GIF, PNG</b>(300x250)
+                <br />
+                <sup onclick="alert(this.title)" class="info"
+                title="These files can be downloaded after personalising the design. The preview is real size.">
+                more...</sup></div>
                 <div class="place-order">
                   <a class="thumb-group"
                   href="http://realestate.zetaprints.com/Technique-testing-temporary/300x250-banner-ad-001.htm">
@@ -258,45 +285,47 @@
                   src="thumb/83402402-9042-48f5-9fc5-4ed1bb3c1f95-0.jpg"
                   alt="300x250-banner-ad-001"></img>
                 </a>
-          <div class="thumbTagsFound">
-            <ul>
-              <li>
-                <b>Categories:</b>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Badge">Badge</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Dynamic imaging">Dynamic imaging</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=simple">simple</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Web">Web</a>
-                <span>(1)</span>
-              </li>
-            </ul>
-          </div>
-                </td>
+                <div class="thumbTagsFound">
+                  <ul>
+                    <li>
+                      <b>Categories:</b>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Badge">Badge</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Dynamic imaging">Dynamic
+                      imaging</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=simple">simple</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Web">Web</a>
+                      <span>(1)</span>
+                    </li>
+                  </ul>
+                </div>
+              </td>
             </tr>
           </table>
           <table class="template">
             <tr>
-              <th class="prod" colspan="2"><a href="#">300x250-banner-ad-001</a></th>
+              <th class="prod" colspan="2">
+                <a href="#">300x250-banner-ad-001</a>
+              </th>
             </tr>
             <tr>
               <td class="menu" nowrap="nowrap">
                 <div class="tags">
-                  <b>JPEG, GIF, PNG</b>(300x250)
-                  <br/>
-                  <sup onclick="alert(this.title)" class="info"
-                  title="These files can be downloaded after personalising the design. The preview is real size.">
-                  more...</sup>
-                </div>
+                <b>JPEG, GIF, PNG</b>(300x250)
+                <br />
+                <sup onclick="alert(this.title)" class="info"
+                title="These files can be downloaded after personalising the design. The preview is real size.">
+                more...</sup></div>
                 <div class="place-order">
                   <a class="thumb-group"
                   href="http://realestate.zetaprints.com/Technique-testing-temporary/300x250-banner-ad-001.htm">
@@ -316,45 +345,47 @@
                   src="thumb/83402402-9042-48f5-9fc5-4ed1bb3c1f95-0.jpg"
                   alt="300x250-banner-ad-001"></img>
                 </a>
-          <div class="thumbTagsFound">
-            <ul>
-              <li>
-                <b>Categories:</b>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Badge">Badge</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Dynamic imaging">Dynamic imaging</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=simple">simple</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Web">Web</a>
-                <span>(1)</span>
-              </li>
-            </ul>
-          </div>
-                </td>
+                <div class="thumbTagsFound">
+                  <ul>
+                    <li>
+                      <b>Categories:</b>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Badge">Badge</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Dynamic imaging">Dynamic
+                      imaging</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=simple">simple</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Web">Web</a>
+                      <span>(1)</span>
+                    </li>
+                  </ul>
+                </div>
+              </td>
             </tr>
           </table>
           <table class="template odd">
             <tr>
-              <th class="prod" colspan="2"><a href="#">300x250-banner-ad-001</a></th>
+              <th class="prod" colspan="2">
+                <a href="#">300x250-banner-ad-001</a>
+              </th>
             </tr>
             <tr>
               <td class="menu" nowrap="nowrap">
                 <div class="tags">
-                  <b>JPEG, GIF, PNG</b>(300x250)
-                  <br/>
-                  <sup onclick="alert(this.title)" class="info"
-                  title="These files can be downloaded after personalising the design. The preview is real size.">
-                  more...</sup>
-                </div>
+                <b>JPEG, GIF, PNG</b>(300x250)
+                <br />
+                <sup onclick="alert(this.title)" class="info"
+                title="These files can be downloaded after personalising the design. The preview is real size.">
+                more...</sup></div>
                 <div class="place-order">
                   <a class="thumb-group"
                   href="http://realestate.zetaprints.com/Technique-testing-temporary/300x250-banner-ad-001.htm">
@@ -374,46 +405,53 @@
                   src="thumb/83402402-9042-48f5-9fc5-4ed1bb3c1f95-0.jpg"
                   alt="300x250-banner-ad-001"></img>
                 </a>
-          <div class="thumbTagsFound">
-            <ul>
-              <li>
-                <b>Categories:</b>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Badge">Badge</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Dynamic imaging">Dynamic imaging</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=simple">simple</a>
-                <span>(1) ,</span>
-              </li>
-              <li>
-                <a rel="tag" href="?page=templates;Keywords=Web">Web</a>
-                <span>(1)</span>
-              </li>
-            </ul>
-          </div>
-                </td>
+                <div class="thumbTagsFound">
+                  <ul>
+                    <li>
+                      <b>Categories:</b>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Badge">Badge</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Dynamic imaging">Dynamic
+                      imaging</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=simple">simple</a>
+                      <span>(1) ,</span>
+                    </li>
+                    <li>
+                      <a rel="tag" href="?page=templates;Keywords=Web">Web</a>
+                      <span>(1)</span>
+                    </li>
+                  </ul>
+                </div>
+              </td>
             </tr>
           </table>
           <br />
           <table class="pagination">
-           <tr>
-              <td nowrap="nowrap" class="left"><a href="#" class="aFirstPage"><span class="firstSign">&laquo;</span> First</a> <a href="#" class="aPrevPage"><span class="prevSign">&lsaquo;</span> Previous</a></td>
+            <tr>
+              <td nowrap="nowrap" class="left">
+                <a href="#" class="aFirstPage">
+                <span class="firstSign">«</span>First</a>
+                <a href="#" class="aPrevPage">
+                <span class="prevSign">‹</span>Previous</a>
+              </td>
               <td nowrap="nowrap" class="middle">
                 <form method="post"
                 action="?page=catalogue;CorporateID=D6022B77-7BFC-4B43-AD36-E97371033276;From=0">
-                  <input type="submit" value="Show" class="submit inp-pagination" title="Change pagination">
+                  <input type="submit" value="Show" class="submit inp-pagination"
+                  title="Change pagination"></input>
                   <select title="Set optimal number of images per page" name="Qty" class="Qty">
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
                     <option value="40">40</option>
-                    <option value="50" selected>50</option>
+                    <option value="50" selected="selected">50</option>
                     <option value="100">100</option>
                   </select>
                   <select title="Set optimal number of images per page" name="Type" class="Type">
@@ -423,7 +461,12 @@
                   <span class="pagebar-cnt">from 1 to 44 out of 44</span>
                 </form>
               </td>
-              <td nowrap="nowrap" class="right"><a href="#" class="aNextPage">Next <span class="nextSign">&rsaquo;</span></a> <a href="#" class="aLastPage">Last <span class="lastSign">&raquo;</span></a></td>
+              <td nowrap="nowrap" class="right">
+                <a href="#" class="aNextPage">Next
+                <span class="nextSign">›</span></a>
+                <a href="#" class="aLastPage">Last
+                <span class="lastSign">»</span></a>
+              </td>
             </tr>
           </table>
           <div class="clear"></div>
@@ -784,21 +827,23 @@
         </div>
       </div>
     </div>
-    <div>
-      <noscript class="noscript">
-        <ul>
-          <li>Please, enable JavaScript. Help for</li>
-          <li>
-            <a href="userhelp/enable-javascript-in-mozilla-firefox/index.html">Firefox</a>
-          </li>
-          <li id="liNsIE">
-            <a href="userhelp/enable-javascript-in-internet-explorer-7/index.html">IE</a>
-          </li>
-          <li id="liNsSF">
-            <a href="userhelp/enable-javascript-in-apple-safari/index.html">Safari</a>
-          </li>
-        </ul>
-      </noscript>
+    <div id="footer">
+      <ul class="foot-links">
+        <li>
+        <a href="#">For printers</a>|</li>
+        <li>
+        <a href="#">For publications</a>|</li>
+        <li>
+        <a href="#">For designers</a>|</li>
+        <li>
+        <a href="#">For businesses</a>|</li>
+        <li>
+        <a href="#">Upload a design</a>|</li>
+        <li>
+          <a href="#">About 'web to print'</a>
+        </li>
+      </ul>
+      <div class="copyright">©2006-2008 ZetaPrints Ltd. All rights reserved</div>
     </div>
   </body>
 </html>
