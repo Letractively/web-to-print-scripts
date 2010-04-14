@@ -1,0 +1,336 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  font-size: 12px;
+}
+img {
+  border: 0;
+}
+a {
+  text-decoration: none;
+  color: #3CB2F8;
+}
+a.bold {
+  font-weight: bold;
+}
+li, li a, .pagination a {
+  color: #868686;
+}
+input, textarea, select {
+  border: 1px solid #C5C3C4;
+}
+/*header*/
+div#masthead {
+  height: 89px;
+  width: 1000px;
+  margin: 0 auto;
+  border-bottom: 1px solid #FFFFFF;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background: #A2DAFB;
+}
+div#linkHome {
+}
+ul#navlist {
+  position: relative;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 0 0 0 780px;
+  padding: 0;
+  position: absolute;
+  color: #868686;
+  top: 69px;
+}
+ul#navlist li {
+  display: inline;
+  list-style-type: none;
+  margin: 0 5px;
+}
+div#container-top {
+  width: 1000px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  overflow: hidden;
+  height: auto;
+}
+div#container {
+  float: right;
+  width: 77%;
+  background: #FFFFFF;
+  padding: 0;
+}
+div#menu {
+  float: left;
+  width: 23%;
+  padding: 0;
+}
+div#menu p {
+  background-color: #fce9c1;
+  border: 1px solid #e0e0e0;
+  color: #86837e;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 5px;
+  white-space: nowrap;
+  width: 140px;
+}
+div#menu p span {
+  float: right;
+}
+div#menu ul {
+  border-top: 1px solid #e0e0e0;
+  margin: 0;
+  margin-top: -12px;
+  padding: 0 4px;
+  padding-top: 10px;
+}
+#feedback {
+  border-top: 1px solid #e0e0e0;
+  margin-top: -12px;
+  padding-top: 10px;
+}
+div#menu .menu-template {
+  margin-left: 10px;
+  border-top: 0;
+}
+.clear {
+  clear: both;
+}
+#tagsFound {
+  border: 1px solid #C5C3C4;
+  padding: 5px;
+  margin: 0 0 10px;
+}
+#tagsFound ul {
+  padding: 0;
+  margin: 0;
+}
+#tagsFound li {
+  list-style-type: none;
+  display: inline;
+}
+#tagsFound li a {
+  color: #3CB2F8;
+}
+input.submit {
+  width: 60px;
+  padding: 1px;
+  color: #FFFFFF;
+  font-weight: bold;
+  vertical-align: top;
+}
+input.text {
+  height: 19px;
+  font-size: 10px;
+  width: 150px;
+  color: #868686;
+  vertical-align: top;
+}
+#locator {
+  color: #be2922;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0 0 10px 10px;
+  padding: 5px;
+}
+#locator ul {
+  list-style-type: none;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+/*PAGINATION*/
+.pagination {
+  width: 100%;
+  color: #868686;
+  padding: 10px 0;
+}
+.pagination select {
+  height: 22px;
+  color: #868686;
+}
+.pagination .middle {
+  text-align: center;
+}
+.pagination .right {
+  text-align: right;
+}
+.pagination .aPrevPage {
+  margin-left: 20px;
+}
+.pagination .aNextPage {
+  margin-right: 20px;
+}
+.pagination .prevSign, .pagination .firstSign, .pagination .nextSign, .pagination .lastSign {
+  font-size: 15px;
+  font-weight: bold;
+}
+/*TEMPLATE*/
+.template {
+  width: 100%;
+  margin: 5px 0;
+}
+.template .menu {
+  width: 200px;
+}
+.template .prod {
+  text-align: left;
+}
+.template .thumbTagsFound ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.template .thumbTagsFound li {
+  display: inline;
+}
+.template .thumbTagsFound li a {
+  color: #3CB2F8;
+}
+.content .odd {
+  border: 1px solid #C5C3C4;
+  background: #F4F4F4;
+}
+/*FOOTER*/
+#footer {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #fce4b6;
+  border-top: 1px solid #fcd793;
+  height: 55px;
+  margin-top: 10px;
+}
+#footer .foot-links {
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: #929292;
+  font-weight: bold;
+  margin-top: 5px;
+}
+#footer .foot-links a {
+  color: #929292;
+  font-weight: bold;
+  margin: 0 5px;
+}
+#footer .foot-links li {
+  list-style-type: none;
+  display: inline;
+}
+#footer .copyright {
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
+  color: #929292;
+}
+/*NOSCRIPT*/
+.noscript {
+  float: left;
+  margin-top: -13px;
+}
+.noscript li {
+  list-style-type: none;
+  display: inline;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+.noscript ul {
+  border: 1px solid #FFFFFF;
+  background-color: #ba2a1f;
+  padding: 2px 5px;
+}
+.noscript a {
+  color: #bdece4;
+  font-weight: bold;
+}
+/*LOGOUT&LOGIN*/
+#idMenuTopLogout {
+  position: relative;
+  top: -50px;
+  left: -70px;
+  background-color: #c6c4c5;
+  padding: 3px 7px;
+}
+#idMenuTopLogout a {
+  color: #FFFFFF;
+}
+.tdLoginText {
+  width: 60px;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: right;
+}
+#fmLogin {
+  position: relative;
+  float: right;
+  margin-top: -16px;
+  margin-right:-63px;
+}
+#login-top{
+  float:right;
+  margin-right:63px;
+}
+#login-top td b {
+  color:#c02922;
+}
+#login-top #email {
+  border: 1px solid #e0e0e0;
+}
+#login-top #pwd {
+  width: 87px;
+  border: 1px solid #e0e0e0;
+}
+/*CATALOG LIST (ON HOME)*/
+.ulCatalogList {
+}
+.ulCatalogList li p {
+  color: #4f4f4f;
+  width: 100%;
+}
+.ulCatalogList li p a {
+  color: #05a8df;
+}
+.ulCatalogList li {
+  color: #05a8df;
+  margin: -7px 0;
+}
+.catalogListOdd {
+  background-color: #f2eeee;
+  padding: 5px 0;
+}
+/*SEARCH FORM*/
+.searchFormAdvanced {
+  float: left;
+  width: 56px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: -1px;
+  text-align: center;
+  height: 17px;
+  color: #939393;
+  cursor: pointer;
+}
+.searchFormBasic {
+  float: left;
+  border: 1px solid #e0e0e0;
+  margin-bottom: -1px;
+  margin-left: 2px;
+  background-color: #fceac2;
+  width: 40px;
+  text-align: center;
+  height: 17px;
+  color: #939393;
+  cursor: pointer;
+}
+.searchFormOptions {
+  float: left;
+  width: 145px;
+  border: 1px solid #e0e0e0;
+  margin-top: -1px;
+  background-color: #f4f4f4;
+  padding-left: 5px;
+}
