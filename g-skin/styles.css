@@ -1,0 +1,2396 @@
+@charset "utf-8";
+/* CSS Document */
+
+body 
+	{
+		font-family:Verdana; font-size:14px; 
+		margin:0; 
+		background:#ffffff; 
+		color:#000000;
+	}
+
+a /*default link properties*/
+	{
+		color:#2a5db0; 
+		font-family:Verdana; 
+	}
+	a:hover 
+		{
+			color:#2a5db0;
+		}
+
+div#container hr.red /* Horizontal separator override */
+	{
+		display:none;
+	}
+
+img.thumb
+	{
+		border-color:#c6c4c5;
+	}
+
+div#container h3
+	{
+		font-size:10pt;
+	}
+
+/*###################### HEADER Start ###########################*/
+
+#masthead /*header*/
+	{
+		width:100%; height:100px; 
+		border-color:#6694e3;
+	}
+
+#navlist /*Top menu*/
+	{
+		display:inline;
+		background-color:#6694e3;
+		position:relative;
+		top:77px;
+		padding:3px;
+		padding-left:0px;
+		margin:0px;
+	}
+	#navlist li
+		{
+			border-right:1px solid #ffffff;
+			border-left:none;
+			padding-left:8px;
+			padding-right:8px;
+		}
+	#navlist li a:link, #navlist li a:visited
+		{
+			font-weight:bold; 
+			text-decoration:none; 
+			font-size:8pt;
+			padding:0px;
+			color:#ffffff;
+		}
+	#navlist li a:hover 
+		{
+			text-decoration:underline;
+		}
+
+#login-top /* Login fields at the top of the page */
+	{
+		position:absolute;
+		top:10px; right:0;
+		color:#000000;
+	}
+	
+#login-top input#email /* Login input fields top */
+	{
+		border-top:1px solid #666666;
+		border-left:1px solid #666666;
+		border-bottom:1px solid #cccccc;
+		border-right:1px solid #cccccc;
+		background-color:#ffffff;
+		padding:3px;
+		height:22px;
+		width:164px;
+	}
+	#login-top input#pwd
+		{
+			border-top:1px solid #666666;
+			border-left:1px solid #666666;
+			border-bottom:1px solid #cccccc;
+			border-right:1px solid #cccccc;
+			background-color:#ffffff;
+			padding:3px;
+			height:22px;
+			width:100px;
+		}
+	#login-top input.submit
+		{
+			border:none;
+			background:url(img/btns.png) no-repeat;
+			background-position:0px 0px;
+			color:#000000;
+			font-weight:normal;
+			font-family: arial,sans-serif;
+			font-size:9pt;
+			width:60px;
+			height:22px;
+		}
+		#login-top input.submit:hover
+			{
+				background:url(img/btns.png) no-repeat;
+				background-position:0px -26px;
+			}
+
+/*###################### HEADER End ###########################*/
+
+/*###################### LEFT VERTICAL MENU > User -Start ###########################*/
+
+div#menuSearch select /* Search form text boxes */
+	{
+		border-color:#c6c4c5;
+		font-size:11px;
+	}
+	div#menuSearch input.small
+		{
+			border-color:#c6c4c5;
+			font-size:11px;
+			width:30px;
+		}
+	div#menuSearch input.text
+		{
+			border-color:#c6c4c5;
+			width:120px;
+			font-size:9pt;
+			margin-left:-2px;
+		}
+	div#menuSearch
+		{
+			border-color:#c6c4c5;
+			border-right:solid 1px #c6c4c5;
+			border-left:solid 1px #c6c4c5;
+			border-top:solid 1px #c6c4c5;
+			background:#6694e3;
+			padding:3px;
+			margin-top: 10px;
+			margin-bottom:5px;
+			margin-right:5px;
+			margin-left:5px;
+		}
+	div#menuSearch label
+		{
+			padding-left:0px;
+		}
+	#menuSearch span
+		{
+			margin-left: 1px;
+		}
+	div#menuSearch div
+		{
+			font-size:8pt;
+		}
+	div#menuSearch input.submit /* Search button */
+		{
+			background-color:#000000;
+			border:solid 1px #727272;
+			width:53px;
+			padding:0px;
+			text-decoration:none;
+			color:#ffffff;
+			font-size:8pt;
+			font-weight:bold;
+		}
+
+div#menu /*Left menu*/
+	{
+	background-color:#ffffff;
+	border:none;
+	}
+	div#menu-fill
+		{
+		background-color:#ffffff;
+		border:none;
+		}
+#menu p /*Left menu sections*/
+	{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		background-color:#e0ecff;
+		border:solid 1px #e0ecff;
+		color:#000000;
+		font-weight:normal;
+		font-size:9pt;
+		padding:0px;
+		padding-top:2px;
+		padding-bottom:2px;
+		padding-left:2px;
+		width:188px;
+	}
+	#menu p.collapsed
+		{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			background:url(img/icons.png) no-repeat;
+			background-position:175px 4px;
+			background-color:#e0ecff;
+			border:solid 1px #e0ecff;
+			color:#000000;
+			font-weight:normal;
+			font-size:9pt;
+			padding:0px;
+			padding-top:2px;
+			padding-bottom:2px;
+			padding-left:2px;
+		}
+	#menu p.toggle span
+		{
+			background:url(img/icons.png) no-repeat;
+			background-position:0px -16px;
+			font-size:0pt;
+			float: right;
+			color:#e0ecff;
+			width:10px;
+			height:10px;
+			position:relative;
+			top:2px;
+			right:3px;
+		}
+
+#idMenuAllCatalogs a /*ALL CATALOGS button in the left menu*/
+	{
+		background-color: #c3d9ff;
+		border:none;
+		padding:2px;
+		padding-left:34px;
+		padding-right:40px;
+		margin-left:-3px;
+	}
+	#idMenuAllCatalogs a:hover
+		{
+			text-decoration:underline;
+			background-color: #c3d9ff;
+		}
+
+#menuCatalogs1UL li.menu-customer /*Catalog titles in the left menu*/
+	{
+		color:#000000;
+		padding:1px;
+	}
+	#menuCatalogs1UL li.menu-customer:hover
+		{
+			color:#6694e3;
+		}
+
+#menu ul /* Left vertical menu section boxes */
+	{
+		border:1px solid #e0ecff;
+		width:188px;
+		margin-top:-10px;
+		position:relative;
+		left:5px;
+		padding-right:0px;
+		padding-top:5px;
+		padding-bottom:5px;
+		padding-left:2px;
+	}
+	#menu ul.menu-template
+		{
+			border:none;
+			width:175px;
+		}
+
+#menu ul.menu-template li /*Template titles in the left menu*/
+	{
+		color:#000000;
+		padding-left:0px;
+		list-style-type: disc;
+		border:none;
+	}
+	#menu ul.menu-template li:hover
+		{
+			color:#6694e3;
+		}
+
+#menuOrdersUL li /*Orders section in the left menu*/
+	{
+		color:#000000;
+		padding-left:3px;
+	}
+	#menuOrdersUL li:hover
+		{
+			color:#6694e3;
+		}
+	#menuOrdersUL a
+		{
+			color:#000000;
+		}
+		#menuOrdersUL a:hover
+			{
+				color:#6694e3;
+			}
+	#menuOrdersUL li.order-find /* Find orders in left menu */
+		{
+			list-style-type:none;
+		}
+		li.order-find input.text
+			{
+				height:22px;
+				width:100px;
+			}
+		#menuOrdersUL .submit
+			{
+				border:none;
+				background:url(img/btns.png) no-repeat;
+				background-position:0px 0px;
+				color:#000000;
+				font-weight:normal;
+				font-family: arial,sans-serif;
+				font-size:9pt;
+				width:60px;
+				height:22px;
+				position:relative;
+				top:1px;
+			}
+			#menuOrdersUL .submit:hover
+				{
+					background:url(img/btns.png) no-repeat;
+					background-position:0px -26px;
+				}
+
+#feedbackForm textarea /*Feedback form text field*/
+	{
+		border-top:1px solid #666666;
+		border-left:1px solid #666666;
+		border-bottom:1px solid #cccccc;
+		border-right:1px solid #cccccc;
+	}
+	#feedback span
+		{
+			width:140px;
+			border:none;
+			padding:3px;
+			color:#000000;
+			font-size:7pt;
+			margin-left:5px;
+		}
+	div#feedback
+		{
+			border:1px solid #e0ecff;
+			width:188px;
+			margin-top:-10px;
+			position:relative;
+			left:0px;
+			padding-right:0px;
+			padding-top:5px;
+			padding-bottom:5px;
+			padding-left:2px;
+		}
+	div#feedback div
+		{
+			position:relative;
+			left:-10px;
+		}
+
+#feedback input /* Send feedback button*/
+	{
+		background:url(img/btns.png) no-repeat;
+		background-position:0px 0px;
+		border:none;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:60px;
+		height:22px;
+	}
+	#feedback input:hover
+		{
+			text-decoration:none;
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -26px;
+		}
+
+#idMenuProfile a /* Housekeeping - [My details] link in left menu */
+	{
+		color:#000000;
+	}
+	#idMenuProfile a:hover
+		{
+			color:#2a5db0;
+		}
+#idMenuImages a /* Housekeeping - [My images] link in left menu */
+	{
+		color:#000000;
+	}
+	#idMenuImages a:hover
+		{
+			color:#2a5db0;
+		}
+#idMenuFileTransfer a /* Housekeeping - [File Transfer] link in left menu */
+	{
+		color:#000000;
+	}
+	#idMenuFileTransfer a:hover
+		{
+			color:#2a5db0;
+		}
+#idMenuPayNow a b /* My Balance - [Pay by Credit Card now] link in left menu */
+	{
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -112px;
+		border:none;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		height:29px;
+		width:168px;
+		padding:6px;
+		padding-left:7px;
+		position:relative;
+		left:18px;
+		top:0px;
+	}
+	#idMenuPayNow a b:hover
+		{
+			color:#000000;
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -142px;
+		}
+	#idMenuPayNow a:hover
+		{
+			text-decoration:none;
+		}
+	li#idMenuPayNow
+		{
+			padding:5px;
+			width:174px;
+			background:url(img/payment_options.png) no-repeat;
+			background-position:50% 0%;
+			border:none;
+			padding-top:35px;
+			padding-bottom:3px;
+		}
+
+h2#zetaprints1 /* Powered by bottom of left menu */
+	{
+		border-color:#c6c4c5;
+		color:#000000;
+	}
+	h2#zetaprints1 a
+	{
+		color:#6694e3;
+		border:none;
+	}
+
+div#register a /* Register now button - visible when logged out */
+	{
+		font-size:9pt;
+		border:solid 1px #c6c4c5;
+		color:#6694e3;
+		background:url(img/register_btn.png) no-repeat;
+		background-position:5px -18px;
+		padding:4px;
+		padding-left:25px;
+	}
+	div#register a:hover
+		{
+			text-decoration:none;
+			color:#6694e3;
+			background:url(img/register_btn.png) no-repeat;
+			background-position:5px -18px;
+		}
+	div#register
+		{
+			margin-top:10px;
+		}
+	div#register div
+		{
+			padding:3px;
+			padding-top:4px;
+			color:#000000;
+		}
+
+/*###################### LEFT VERTICAL MENU > User -End ###########################*/
+
+/*###################### PRINTER MENUS - Start ###########################*/
+
+#menuPrinter /* Top horizontal printer menu */
+	{
+		background-color:#efefef;
+		border-color:#d6d6d6;
+		color:#000000;
+	}
+	#menuPrinter a
+		{
+			color:#2a5db0;
+			font-family:arial,sans-serif;
+			font-size:10pt;
+			font-weight:bold;
+		}
+		.menuPrinter li
+		{
+			color:#d6d6d6;
+		}
+
+#idMenuOrders li /* Orders section */
+	{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		background-color:#e0ecff;
+		border:solid 1px #e0ecff;
+		width:189px;
+		position:relative;
+		left:-3px;
+		top:7px;
+	}
+	#idMenuOrders li a b
+		{
+			color:#000000;
+			font-weight:normal;
+			font-size:9pt;
+			padding:0px;
+			padding-top:2px;
+			padding-bottom:2px;
+			padding-left:2px;
+		}
+		#idMenuOrders li a b:hover
+			{
+				color:#000000;
+				text-decoration:underline;
+			}
+
+#menu hr /* horizontal line separator in printers left vertical menu */
+	{
+		border:solid 1px #ffffff;
+	}
+
+#idMenuCatalogs li.menu-customer /* Links (catalogs, templates...) printer left menu */
+	{
+		color:#000000;
+		padding:1px;
+		padding-left:5px;
+		background-color:#ffffff;
+	}
+	#idMenuCatalogs li.menu-customer:hover
+		{
+			color:#2a5db0;
+		}
+
+div#locator /* Horizontal catalog menu for printers */
+	{
+		color:#000000;
+		width:98%;
+		margin-left:20px;
+		border-width:1px;
+		border:none;
+		font-size:9pt;
+	}
+	div#locator ul li a
+		{
+			color:#2a5db0;
+		}
+
+.menu-order-find ul#divOrderFind /* Find Orders pop-up in top horizontal menu */
+	{
+		background:#f2f2f2;
+		border:solid 1px #c6c4c5;
+		color:#000000;
+		width:235px;
+	}
+	.menu-order-find ul#divOrderFind input.submit
+		{
+			padding:0px;
+			margin:5px;
+			margin-right:0px;
+			font-family:Arial;
+			font-size:9pt;
+		}
+	.menu-order-find ul#divOrderFind input.text
+		{
+			margin:5px;
+			margin-right:0px;
+			margin-left:0px;
+			width:150px;
+			font-size:9pt;
+		}
+	.menu-order-find ul#divOrderFind span.info
+		{
+			padding-left:6px;
+			margin:0px;
+		}
+
+/*###################### PRINTER MENUS - End ###########################*/
+
+/*###################### DESIGNER MENUS - Start ###########################*/
+
+#menuDesigner /* Top horizontal designer menu */
+	{
+		background-color:#efefef;
+		border-color:#d6d6d6;
+		color:#d6d6d6;
+	}
+	#menuDesigner a
+		{
+			color:#2a5db0;
+		}
+
+#menuCatalogs2UL li.menu-customer /*Catalog titles in the left menu*/
+	{
+		color:#000000;
+		padding:1px;
+	}
+	#menuCatalogs2UL li.menu-customer:hover
+		{
+			color:#2a5db0;
+		}
+
+#menu ul a /* Vertical menu links */
+	{
+		color:#000000;
+	}
+	#menu ul a:hover
+		{
+			color:#2a5db0;
+		}
+
+/*###################### DESIGNER MENUS - End ###########################*/
+
+/*###################### CONTENT - Start ###########################*/
+
+div#tagsTemplate li h2  /* Tags titles color */
+	{
+		color:#6694e3;
+	}
+
+div#content-news.content h1 /* printer All catalogs title */
+	{
+		position:relative;
+		top:-10px;
+		left:-10px;
+		margin:0px;
+		width:100%;
+	}
+
+div#container div.content /* Main content area */
+	{
+		border:1px solid #6694e3;
+		padding:10px;
+		padding-right:0px;
+	}
+div.login-page /* Login page content area */
+	{
+		border:1px solid #6694e3;
+		margin-left:15px;
+		margin-right:9px;
+		padding-bottom:20px;
+	}
+
+div#container h1 /* Titles h1 */
+	{
+		background-color:#6694e3;
+		margin-left:15px;
+		margin-bottom:0px;
+		padding:5px;
+		color:#ffffff;
+		width:98%;
+		font-size:10pt;
+	}
+	div#container h1 a
+		{
+			color:#ffffff;
+			font-size:13pt;
+		}
+		div#container h1 a:hover
+			{
+				color:#ffffff;
+				text-decoration:underline;
+			}
+div#container div.login-page h1 /* Forgot password page title */
+	{
+		margin-left:-65px;
+		margin-top:0px;
+		width:100%;
+	}
+
+h2.red
+	{
+		background-color:#6694e3;
+		margin-left:-10px;
+		margin-top:-10px;
+		margin-bottom:0px;
+		padding:5px;
+		color:#ffffff;
+		font-size:13pt;
+		width:100%;
+		clear:both;
+	}
+
+#tagsTemplate ul li /* Home page list of New/Popular templates */
+	{
+		border-color:#c6c4c5;
+	}
+
+form
+	{
+		color:000000;
+	}
+	div#container div.login-page form /* Forgot password page form */
+	{
+		position:relative;
+		left:-60px;
+		margin-right:0px;
+	}
+	
+table#tblBulkEdit /* Input form on Bulk edit page */
+	{
+		padding-right:0px;
+		margin-right: 0px;
+	}
+
+span.clickable
+	{
+		color:#2a5db0;
+		text-decoration:none;
+	}
+	span.clickable:hover
+		{
+			text-decoration:underline;
+		}
+
+sup.info /* [More...] link */
+	{
+		color:#6694e3;
+		border:none;
+	}
+	sup.info:hover
+		{
+		text-decoration:underline;
+		}
+
+table.pagination /* Next, Previous, Number of previews etc. stripe */
+	{
+		background-color:#ffffff;
+		border-color:#c6c4c5;
+		padding:3px;
+	}
+	table.pagination select /* Number of previews */
+		{
+			margin:3px;
+			border-color:#c6c4c5;
+			color:#000000;
+		}
+	span.pagebar-cnt /* Current number of displayed previews */
+		{
+			color:#000000;
+		}
+	span.embed
+		{
+			color:#6694e3;
+		}
+	table.pagination a /* Next, Previous, First, Last previews page */
+		{
+			color:#000000;
+			text-decoration:none;
+		}
+		table.pagination a:hover
+			{
+				color:#2a5db0;
+				text-decoration:none;
+			}
+
+.form tbody tr td i /* Italic help prompt text under text field */
+	{
+		font-size:8pt;
+	}
+
+div#tagsFound ul /* Categories & Tags box on top of results pages*/
+	{
+		border:solid 1px #c6c4c5;
+		padding:3px;
+	}
+	div#tagsFound li
+		{
+			font-size:8pt;
+		}
+div#tagsFound a:hover /* Tag links */
+	{
+		color:#000000;
+	}
+div.tags
+	{
+		margin-bottom:5px;
+	}
+
+div#hiddenKeywords span
+	{
+		color:#6694e3;
+	}
+	div#hiddenKeywords span:hover
+		{
+			text-decoration:underline;
+		}
+
+table.template th.prod /* Results list table */
+	{
+		color:#2a5db0;
+		background-color:#f4f4f4;
+		border:solid 1px #c6c4c5;
+		border-bottom:none;
+	}
+		table.template .even th.prod
+			{
+				background-color:#ffffff;
+				border-color:#ffffff;
+			}
+	table.template td.menu
+		{
+			background-color:#f4f4f4;
+			border:solid 1px #c6c4c5;
+			border-top:none;
+			border-right:none;
+		}
+		table.template .even td.menu
+			{
+				background-color:#ffffff;
+				border-color:#ffffff;
+			}
+
+	table.template td.thumb
+		{
+			background-color:#f4f4f4;
+			border:solid 1px #c6c4c5;
+			border-top:none;
+			border-left:none;
+		}
+		table.template .even td.thumb
+			{
+				background-color:#ffffff;
+				border-color:#ffffff;
+			}
+
+table.template img.thumb /* Image thumbs */
+	{
+		border-color:#c6c4c5;
+	}
+
+#tblOrderInputFields th /* Show order fields table */
+	{
+		border-color:#c6c4c5;
+	}
+	#tblOrderInputFields td
+		{
+			border-color:#c6c4c5;
+		}
+
+#idImgFolders a /* Folder names/links in Images tab */
+	{
+		font-weight:bold;
+		text-decoration:none;
+		font-size:8pt;
+	}
+
+div.tags a /* Tag links */
+	{
+		color:#6694e3;
+		text-decoration:none;
+	}
+	div.tags a:hover
+		{
+			color:#6694e3;
+			text-decoration:underline;
+		}
+
+div#container hr /* Horizontal line override */
+	{
+		display:none;
+	}
+
+ul.embed /* EMBED pop-up table on Catalog page*/
+	{
+		border-color:#c6c4c5;
+	}
+
+div#msg /*ERR message*/
+	{
+		background-color:#ffffff;
+		background:url(img/warning.png);
+		border-color:#c6c4c5;
+	}
+
+ul.user-catalogues li /* Home page catalogs grid */
+	{
+		clear:none;
+		background:url(img/grad.png) repeat-x;
+		background-color:#ffffff;
+		background-position:0% 0%;
+		float:left;
+		width: 180px;
+		border:1px solid #c6c4c5; 
+		margin: 5px; 
+		height:65px;
+		font-size:9pt;
+		font-weight:bold;
+		text-align:center;
+		padding:0px;
+		padding-top:10px;
+		padding-bottom:0px;
+	}
+	ul.user-catalogues li.user-catalogue-thumb /* Home page catalogs image thumbs grid */
+		{
+			height:170px;
+			width:180px;
+			padding:0px;
+		}
+		ul.user-catalogues li.user-catalogue-thumb .cat-outer
+			{
+				padding:0px;
+				margin:0px;
+				position:relative;
+				top:14px;
+				left:14px;
+			}
+		ul.user-catalogues li.user-catalogue-thumb .cat-outer img
+			{
+				border:solid 1px #c6c4c5;
+				float:none;
+				padding:0px;
+				margin:0px;
+			}
+
+div#popular-corporate-templates /* Top 10 templates - right vertical scroll */
+	{
+		border-color:#c6c4c5;
+	}
+
+table.email-list th /* Catalogs printer page table */
+	{
+		border-color:#c6c4c5;
+	}
+	table.email-list tfoot td
+		{
+			border-color:#c6c4c5;
+		}
+	table.email-list a
+		{
+			color:#2a5db0;
+		}
+		table.email-list a:hover
+			{
+				color:#2a5db0;
+			}
+
+input.delete /* Delete links */
+	{
+			cursor:pointer;
+			border:none;
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -172px;
+			color:#000000;
+			font-weight:normal;
+			font-family: arial,sans-serif;
+			font-size:8pt;
+			width:120px;
+			height:22px;
+			text-decoration:none;
+	}
+	input.delete:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -198px;
+		}
+	.menu-line input.delete
+		{
+			margin-left:5px;
+			padding:1px;
+		}
+
+#divCopyright /* Copyright options field box */
+	{
+		border:solid 1px #c6c4c5;
+	}
+
+#divTemplFieldsOuter .fields-change th /* Template fields table - Fields page */
+	{
+		border-color:#c6c4c5;
+		background-color:#6694e3;
+	}
+	#divTemplFieldsOuter .fields-change td
+		{
+			border-color:#c6c4c5;
+		}
+	#divTemplFieldsOuter table.fields-change
+		{
+			border-color:#c6c4c5;
+		}
+
+#divCatFieldsOuter .fields-change th /* Catalog fields table - Fields page */
+	{
+		border-color:#c6c4c5;
+		background-color:#6694e3;
+	}
+	#divCatFieldsOuter .fields-change td
+		{
+			border-color:#c6c4c5;
+		}
+	#divCatFieldsOuter table.fields-change
+		{
+			border-color:#c6c4c5;
+		}
+
+#divDatasetsOuter .fields-change th /* Datasets fields table - Fields page */
+	{
+		border-color:#c6c4c5;
+		background-color:#6694e3;
+	}
+	#divDatasetsOuter .fields-change td
+		{
+			border-color:#c6c4c5;
+		}
+	#divDatasetsOuter table.fields-change
+		{
+			border-color:#c6c4c5;
+		}
+
+#divShapes .fields-change th /* Shapes fields table - Fields page */
+	{
+		border-color:#c6c4c5;
+		background-color:#6694e3;
+	}
+	#divShapes .fields-change td
+		{
+			border-color:#c6c4c5;
+		}
+	#divShapes table.fields-change
+		{
+			border-color:#c6c4c5;
+		}
+
+div#floating-stuff /* Fonts content area */
+	{
+		width:600px;
+	}	
+
+th.more-templates a /* [More templates...] link on template list page */
+	{
+		font-size:10pt;
+		text-decoration:underline;
+	}
+	th.more-templates
+		{
+			border-bottom:solid 1px #c6c4c5;;
+		}
+
+input.next-page /* Next page and Checkoout buttons on multipage templates */
+	{
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -51px;
+		text-decoration:none;
+		width:120px;
+		height:28px;
+		font-size:11pt;
+		color:#000000;
+	}
+	input.next-page:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -81px;
+		}
+
+div#allPagesStrip input.next-page
+	{
+		background:none;
+		color:#2a5db0;
+		font-size:10pt;
+		text-decoration:underline;
+	}
+
+#divMoveSelectedForm /* [Move selected orders to] section on orders page in printer view*/
+	{
+		margin-bottom:5px;
+	}
+
+div#wwwMenu /*Footer menu*/
+	{
+		display:block;
+		clear:both;
+		position:relative;
+		top:95%;
+	}
+
+table.billing tr,table.billing th, table.billing td /* Billing table on printer's billing page */
+	{
+		border:solid 1px #f2f2f2;
+	}
+
+span.likeLink /* View log links */
+	{
+		color:#6694e3;
+	}
+
+/*###################### CONTENT - End ###########################*/
+
+/*###################### TEXT FIELDS - Start ######################*/
+
+input.text
+	{
+		border-top:1px solid #666666;
+		border-left:1px solid #666666;
+		border-bottom:1px solid #cccccc;
+		border-right:1px solid #cccccc;
+	}
+	table.user-fields textarea
+		{
+			background-color:#ffffff;
+		}
+	table.user-fields input
+		{
+			background-color:#ffffff;
+		}
+
+textarea.text
+	{
+		border-top:1px solid #666666;
+		border-left:1px solid #666666;
+		border-bottom:1px solid #cccccc;
+		border-right:1px solid #cccccc;
+	}
+
+textarea.text-large
+	{
+		border-top:1px solid #666666;
+		border-left:1px solid #666666;
+		border-bottom:1px solid #cccccc;
+		border-right:1px solid #cccccc;
+	}
+
+select.text
+	{
+		border-color:#c6c4c5;
+	}
+
+table#newUsersTable select
+	{
+		border-color:#c6c4c5;
+	}
+
+input.file
+	{
+		border-style:solid;
+		border-width:1px;
+		border-color:#c6c4c5;
+	}
+
+table.user-fields div.expand /* Expand text box */
+	{
+		border-color:#c3d9ff;
+		color:#ffffff;
+		font-size:0pt;
+		width:10px;
+		height:10px;
+		background:url(img/icons.png) no-repeat;
+		background-position:0px 0px;
+		background-color:#c3d9ff;
+		padding:0px;
+	}
+	table.user-fields div.collapse
+		{
+			border-color:#c3d9ff;
+			color:#ffffff;
+			font-size:0pt;
+			width:10px;
+			height:10px;
+			background:url(img/icons.png) no-repeat;
+			background-color:#c3d9ff;
+			background-position:0px -16px;
+			padding:0px;
+		}
+
+#selectMagnify /* Change image preview size in ordering page */
+	{
+		border-color:#c6c4c5;
+		color:#000000;
+	}
+
+div#thumbHandle /* Image preview manual handle in ordering page */
+	{
+		border-color:#6694e3;
+	}
+
+input.pdf /* PDF settings input fields */
+	{
+		border-color:#c6c4c5;
+	}
+
+input#photoURL, textarea#embed, table.links textarea /* Template links page text fields */
+	{
+		border-color:#c6c4c5;
+	}
+
+div#links-shared /* Links page content area div */
+	{
+		width:50%;
+	}
+
+td.field-report textarea /* Template logs page text fields */
+	{
+		border-color:#c6c4c5;
+	}
+
+table.form /* Input forms stretched vertically*/
+	{
+		padding-bottom:300px;
+	}
+
+table.fields-change th /* Dataset look-up table */
+	{
+		border-color:#c6c4c5;
+		background-color:#6694e3;
+	}
+	table.fields-change td
+		{
+			border-color:#c6c4c5;
+		}
+
+#FormPreviewUpdate div.field-params /* Field editor */
+	{
+		border-color:#c6c4c5;
+	}
+	#FormPreviewUpdate div.field-params input, #FormPreviewUpdate div.field-params textarea
+		{
+			border-color:#c6c4c5;
+		}
+	#FormPreviewUpdate div.field-params span.clickable
+		{
+			background: #000000;
+			color:#ffffff;
+			padding:2px;
+			font-family:Arial;
+			text-align:center;
+			border:solid 1px #727272;
+		}
+		#FormPreviewUpdate div.field-params span.clickable:hover
+			{
+				text-decoration:none;
+			}
+
+#FormPreviewUpdate table.user-fields b.clickable:hover /* Text field names form */
+	{
+		color:#6694e3;
+	}
+
+/*###################### TEXT FIELDS - End ######################*/
+
+/*###################### TABS - Start ######################*/
+
+ul.tabs
+	{
+		border:none;
+	}
+
+ul.tabs li
+	{
+		background-color:#e0ecff;
+		border-color:#e0ecff;
+		margin-left:-10px;
+		margin-right:20px;
+		padding:5px;
+	}
+	ul.tabs li.active
+		{
+			background-color:#c3d9ff;
+			border-color:#c3d9ff;
+			font-weight:normal;
+			padding:4px;
+			padding-top:5px;
+		}
+
+div.tab2-content, ul.tab2-content /* Tabs content */
+	{
+		border-color:#c3d9ff;
+		border-top:1px solid #c3d9ff;
+		position:relative;
+		top:5px;
+	}
+	
+#ulPreviewPageTabs .last /* Reset */
+	{
+		border:none;
+		font-weight:bold;
+	}
+	#ulPreviewPageTabs .last a
+		{
+			text-decoration:none;
+			color:#2a5db0;
+		}
+
+#ulImageLibTabs .last /* Hide All */
+	{
+		border-color:#c6c4c5;
+		font-weight:bold;
+	}
+	#ulImageLibTabs .last-hidden
+		{
+			border-color:#c6c4c5;
+		}
+
+	#ulImageLibTabs .last span
+		{
+			text-decoration:none;
+			color:#6694e3;
+		}
+
+div#tabLinks input.text /* URLs table in SHARE tab*/
+	{
+		border-color:#c6c4c5;
+	}
+
+#tabDescription .prod-descr th /* Description tab table */
+	{
+		border-color:#c6c4c5;
+	}
+	#tabDescription .prod-descr td
+		{
+			border-color:#c6c4c5;
+		}
+	#tabDescription .prod-descr
+		{
+			border-color:#c6c4c5;
+		}
+
+#tabCheckout /* Chekout tab */
+	{
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+
+ul.tabs li.last, ul.tabs li.last-hidden /* Template images page tabs */
+	{
+		border-color:#c6c4c5;
+	}
+
+#newFileFormForm table.form /* Input form in Upload tab on images page*/
+	{
+		padding-bottom:0px;
+	}
+	#copyFileForm table.form /* Input form in Copy tab on images page*/
+		{
+			padding-bottom:0px;
+		}
+
+#tblUploadBanner /* Banner settings page input form */
+	{
+		padding-bottom:0px;
+	}
+
+/*###################### TABS - End ######################*/
+
+/*###################### BUTTONS - Start ######################*/
+
+input.order /* All other buttons */
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px 0px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:60px;
+		height:22px;
+		padding-bottom:2px;
+	}
+	input.order:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -26px;
+		}
+	input.submit /* All other buttons */
+		{
+			cursor:pointer;
+			border:none;
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -51px;
+			color:#000000;
+			font-weight:normal;
+			font-family: arial,sans-serif;
+			font-size:9pt;
+			width:120px;
+			height:27px;
+		}
+		input.submit:hover
+			{
+				background:url(img/btns.png) no-repeat;
+				background-position:0px -81px;
+				text-decoration:none;
+			}
+		input.submit-padded-left
+			{
+				cursor:pointer;
+				border:none;
+				background:url(img/btns.png) no-repeat;
+				background-position:0px -51px;
+				color:#000000;
+				font-weight:normal;
+				font-family: arial,sans-serif;
+				font-size:9pt;
+				width:120px;
+				height:27px;
+			}
+			input.submit-padded-left:hover
+				{
+					background:url(img/btns.png) no-repeat;
+					background-position:0px -81px;
+					text-decoration:none;
+				}
+		input.submit-padded /* All other buttons */
+		{
+			cursor:pointer;
+			border:none;
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -172px;
+			color:#000000;
+			font-weight:normal;
+			font-family: arial,sans-serif;
+			font-size:9pt;
+			width:120px;
+			height:22px;
+		}
+		input.submit-padded:hover
+			{
+				background:url(img/btns.png) no-repeat;
+				background-position:0px -198px;
+			}
+
+span#designed-by a.padded /* [Catalog] & [Designed by] button*/
+	{
+		border:none;
+		text-decoration:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px 0px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:60px;
+		height:22px;
+		position:absolute; top: -4px; right: -5px;
+	}
+	span#designed-by a.padded:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -26px;
+		}
+
+span#designed-by a /* [Previous orders] button*/
+	{
+		border:none;
+		text-decoration:none;
+		text-align:center;
+		padding-top:3px;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px 0px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:60px;
+		height:22px;
+		position:absolute; top: -4px; right: 70px;
+	}
+	span#designed-by a:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -26px;
+		}
+
+#onePagePreviewButton /*Regenerate Preview button*/
+	{
+		cursor:pointer;
+		border:none;
+		text-align:center;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -51px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:11pt;
+		width:120px;
+		height:27px;
+	}
+	#onePagePreviewButton:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -81px;
+		}
+
+#newFileFormForm .submit /* Upload new file */
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -50px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:120px;
+		height:28px;
+		position:relative;
+		top:1px;
+	}
+	#newFileFormForm .submit:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -80px;
+		}
+
+#CopyFileForm .submit /* Copy-Move images buttons*/
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px 0px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:60px;
+		height:22px;
+		margin:1px;
+		position:relative; top:1px; right:0px;
+	}
+	#CopyFileForm .submit:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -26px;
+		}
+
+#CopyFileForm span.clickable /* Select All-Reset All files buttons in COPY images tab*/
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px 0px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:62px;
+		height:22px;
+		margin:1px;
+		padding:4px;
+		padding-left:6px;
+		padding-right:5px;
+		position:relative; top:0px; right:0px;
+	}
+	#CopyFileForm span.clickable:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -26px;
+			text-decoration:none;
+		}
+
+#CopyFileForm th
+	{
+		margin-top:10px;
+		padding-top:10px;
+		padding-right:0px;
+	}
+
+#deleteFileForm span.clickable /* Select All-Reset All files buttons in DELETE images tab*/
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px 0px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:62px;
+		height:22px;
+		padding:4px;
+		padding-left:6px;
+		padding-right:5px;
+		margin:1px;
+	}
+	#deleteFileForm span.clickable:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -26px;
+			text-decoration:none;
+		}
+
+#deleteFileForm .submit /* Delete images button*/
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -110px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:142px;
+		height:28px;
+		margin-left:50px;
+	}
+	#deleteFileForm .submit:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -140px;
+			text-decoration:none;
+		}
+
+#tabCheckout span.clickable /* Open the Checkout */
+	{
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -110px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:10pt;
+		padding-bottom:6px;
+		padding-top:7px;
+		padding-left:15px;
+		padding-right:15px;
+	}
+	#tabCheckout span.clickable:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -140px;
+			text-decoration:none;
+		}
+	div#tabCheckout1
+		{
+			font-family:arial,sans-serif;
+			font-size:10pt;
+		}
+
+input#orderButton /* Order button */
+	{
+		background:url(img/btns.png) no-repeat;
+		border:none;
+		background-position:0px 4px;
+		font-family:arial, sans-serif;
+		margin:0px;
+		padding:3px;
+		width:60px;
+		height:28px;
+		color:#000000;
+	}
+	input#orderButton:hover
+	{
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -22px;
+		text-decoration:none;
+	}
+
+a#idPayNow /* Pay now button */
+	{
+		background:url(img/checkout_btn.png) no-repeat;
+		background-color:#c4261d;
+		border:solid 1px #9d0a02;
+		background-position:4px 6px;
+		font-family:Arial;
+		padding:6px;
+		padding-left:25px;
+		color:#ffffff;
+		text-decoration:none;
+	}
+	a#idPayNow:hover
+	{
+		background:url(img/checkout_btn.png) no-repeat;
+		background-color:#c4261d;
+		background-position:4px -21px;
+		color:#ffffff;
+		text-decoration:none;
+	}
+
+#tblOrderInputFieldsShow /* Show fields in order final page */
+	{
+		background:url(img/icons.png) no-repeat;
+		background-position:4px 6px;
+		background-color:#c3d9ff;
+		color:#2a5db0;
+		border:none;
+		padding:4px;
+		font-family:arial,sans-serif;
+		font-size:8pt;
+		font-weight:bold;
+		padding-left:17px;
+		text-decoration:none;
+	}
+
+.quoteTerms span.clickable /* Add comment to order */
+	{
+		background:url(img/icons.png) no-repeat;
+		background-position:4px 6px;
+		background-color:#c3d9ff;
+		color:#2a5db0;
+		border:none;
+		padding:4px;
+		font-family:arial,sans-serif;
+		font-size:8pt;
+		font-weight:bold;
+		padding-left:17px;
+		text-decoration:none;
+	}
+	div.quoteTerms
+		{
+			margin-bottom:20px;
+			margin-top:13px;
+		}
+
+input.copy /* Copy template to... button */
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -172px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:8pt;
+		width:120px;
+		height:22px;
+		text-decoration:none;
+	}
+	input.copy:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -198px;
+		}
+
+input.font-button /* Assign/Remove fonts buttons */
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -172px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:8pt;
+		width:120px;
+		height:22px;
+		text-decoration:none;
+	}
+	input.font-button:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -198px;
+		}
+
+span.help-show /* Printer PDF settings page help show/hide */
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/icons.png) no-repeat;
+		background-position:3px 5px;
+		background-color:#c3d9ff;
+		color:#2a5db0;
+		font-weight:bold;
+		font-family: arial,sans-serif;
+		font-size:8pt;
+		text-align:center;
+		padding:3px;
+		padding-left:18px;
+		text-decoration:none;
+	}
+	span.help-show:hover
+		{
+			background:url(img/icons.png) no-repeat;
+			background-position:3px -11px;
+			text-decoration:none;
+			background-color:#c3d9ff;
+			color:#2a5db0;
+		}
+
+#divDataSet /* Dataset position*/
+	{
+		margin-left:20px;
+		margin-top:35px;
+	}
+	#divDataSet a /* Dataset button - Open */
+		{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -172px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:8pt;
+		padding:4px;
+		padding-left:19px;
+		padding-right:19px;
+		text-decoration:none;
+		}
+		#divDataSet a:hover
+			{
+				background:url(img/btns.png) no-repeat;
+				background-position:0px -198px;
+			}
+	#aDbClose /* Dataset button - Close */
+		{
+			cursor:pointer;
+			border:none;
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -172px;
+			color:#000000;
+			font-weight:normal;
+			font-family: arial,sans-serif;
+			font-size:8pt;
+			padding:4px;
+			padding-left:15px;
+			padding-right:15px;
+			text-decoration:none;
+		}
+		#aDbClose:hover
+			{
+				background:url(img/btns.png) no-repeat;
+				background-position:0px -198px;
+			}
+	#aDbLookUp
+		{
+			cursor:pointer;
+			border:none;
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -172px;
+			color:#000000;
+			font-weight:normal;
+			font-family: arial,sans-serif;
+			font-size:8pt;
+			padding:4px;
+			padding-left:18px;
+			padding-right:18px;
+			text-decoration:none;
+		}
+		#aDbLookUp:hover
+			{
+				background:url(img/btns.png) no-repeat;
+				background-position:0px -198px;
+			}
+
+.dataset-show div#divDatasetContent /* Dataset content position */
+	{
+		margin:5px;
+	}
+
+input.finalise-order /* Checkout button on a multipage template Preview page */
+	{
+		color:#ffffff;
+		width:100px;
+		font-size:10pt;
+		background:url(img/checkout_btn.png) no-repeat;
+		background-color:#be2a20;
+		border:solid 1px #9d0a02;
+		background-position:4px 6px;
+		padding:5px;
+		padding-left:25px;
+		font-family:Arial;
+		text-decoration:none;
+	}
+	input.finalise-order:hover
+		{
+			background:url(img/checkout_btn.png) no-repeat;
+			background-color:#be2a20;
+			background-position:4px -21px;
+		}
+
+#tblBulkEdit .clickable /* Update butons on Bulk Edit page */
+	{
+		background:#000000;
+		border:solid 1px #727272;
+		font-family:Arial;
+		font-weight:bold;
+		padding:2px;
+		width:40px;
+		float:right;
+		color:#ffffff;
+		display:block;
+		margin-top:3px;
+	}
+	#tblBulkEdit span.clickable:hover
+		{
+			text-decoration:none;
+		}
+
+input.status /* Change status button */
+	{
+		cursor:pointer;
+		color:#ffffff;
+		font-family:Arial;
+		background:#000000;
+		border:solid 1px #727272;
+	}
+
+/*###################### BUTTONS - End ######################*/
+
+/*###################### HELP boxes - Start ######################*/
+
+div.help /* Help generic */
+	{
+		border:solid 1px #e0ecff;
+		padding:8px;
+		font-size:9pt;
+		background-color:#ffffff;
+	}
+
+div.help5 h4 /* My details page - prompt boxes */
+	{
+		border:solid 1px #e0ecff;
+		display:inline;
+		width:150px;
+		padding:8px;
+		padding-top:2px;
+		font-size:8pt;
+		position:relative; left:0px; top:48px;
+		background-color:#e0ecff;
+		color:#000000;
+	}
+	div.help5 p
+		{
+			border:solid 1px #e0ecff;
+			display:table;
+			padding:8px;
+			font-size:8pt;
+			margin-bottom:20px;
+			position:relative; left:0px; top:50px;
+			width:350px;
+			background-color:#ffffff;
+			color:#000000;
+		}
+
+div.help5 h3
+	{
+		padding-top:30px;
+		margin-bottom:-30px;
+	}
+
+#idImgFolders .help
+	{
+		background-color:#ffffff;
+		border:none;
+	}
+
+	#idImgFolders .help p
+		{
+			border:solid 1px #c6c4c5;
+			background:url(img/prompt_icon.png) no-repeat;
+			background-position:100% 100%;
+			height:30px;
+			width:400px;
+			padding:8px;
+		}
+
+div.pad
+	{
+		border:solid 1px #c6c4c5;
+		padding:5px;
+	}
+	div.pad a
+	{
+		font-size:9pt;
+		text-decoration:none;
+		font-weight:bold;
+	}
+		div.pad a:hover
+		{
+			text-decoration:underline;
+		}
+
+div#divCatFieldsOuter .help5 p /* Help boxes in Catalog fields tab on fields page */
+	{
+		top:10px;
+	}
+
+div#help5 /* Help boxes position - visible on bulk edit catalog page */
+	{
+		width:35%;
+		border:none;
+		margin:0px;
+		display:inline;
+	}
+
+div.aged /* Old-archived orders prompt */
+	{
+		border-color:#c6c4c5;
+		background:url(img/prompt_icon.png) no-repeat;
+		background-position:100% 100%;
+	}
+
+/*###################### HELP boxes - End ######################*/
+
+/*###################### IMAGES - Start ###########################*/
+
+table.image-thumb /* My images table grid */
+	{
+		border:solid 1px #c6c4c5;
+		width:210px;
+		height:300px;
+	}
+
+ul.image-menu li span /* Edit image link */
+	{
+		color:#2a5db0;
+		border:solid 1px #c3d9ff;
+		background-color:#c3d9ff;
+		padding:3px;
+	}
+	ul.image-menu li span:hover
+	{
+		text-decoration:underline;
+	}
+	ul.image-menu li ul li span
+		{
+			border:none;
+		}
+
+ul.image-menu ul /* Edit image drop-down menu */
+	{
+		border:solid 1px #c6c4c5;
+	}
+
+table.image-thumb td.bottom /* Image file name */
+	{
+		font-size:7pt;
+	}
+
+.img-size /* Image size inside thumbs on My Images page*/
+	{
+		position:relative;
+		top:20px;
+		right:3px;
+	}
+
+.date span.info /* Date inside thumbs on My Images page*/
+	{
+		position:relative;
+		top:-272px;
+		right:3px;
+	}
+
+table.image-thumb td.title-folder a /* Image folder inside thumbs on My Images page*/
+	{
+		position:relative;
+		display:inline;
+		background-color:#c3d9ff;
+		top:225px;
+		right:1px;
+		color:#2a5db0;
+		text-decoration:none;
+		border:solid 1px #c3d9ff;
+		padding:3px;
+	}
+	table.image-thumb td.title-folder a:hover
+		{
+			color:#2a5db0;
+		}
+
+table.image-thumb td.title input /* Image title field inside thumbs on My Images page */
+	{
+		color:#000000;
+	}
+	table.image-thumb td.title input.edit
+		{
+			border-color:#c6c4c5;
+		}
+
+ul.drop ul /* Images folders drop-down */
+	{
+		color:#6694e3;
+		border:solid 1px #c6c4c5;
+	}
+	ul.drop li
+		{
+			color:#6694e3;
+		}
+
+ul.image-tabs li /* Image tabs on test order page */
+	{
+		color:#000000;
+		font-size:8pt;
+		font-weight:normal;
+		background-color:#e0ecff;
+		border-color:#ffffff;
+	}
+	ul.image-tabs li:hover
+		{
+			color:#000000;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+	ul.image-tabs li.active
+		{
+			color:#000000;
+			font-weight:bold;
+			background-color:#c3d9ff;
+			border-right:#c3d9ff;
+			text-decoration:none;
+		}	
+	ul.image-tabs li.last
+		{
+			background:none;
+			border-color:#ffffff;
+		}
+	div.image-prep-out div.image-prep /* Image selection-Upload-Picker box */
+		{
+			border-color:#ffffff;
+			background-color:#c3d9ff;
+		}
+		div.image-prep-out div.image-prep a
+			{
+				color:#6694e3;
+				text-decoration:none;
+			}
+
+#formPreviewUpdate div.image-title /* Image title on Test Order page */
+	{
+		background-color:#e0ecff;
+		width:90.8%;
+		position:relative;
+		left:101px;
+		margin-right:20px;
+	}
+div.tab-img-u, div.image-prep table /* Image fields content */
+	{
+		background-color:#ffffff;
+	}
+
+/*###################### IMAGES - End ###########################*/
+
+/*###################### ORDERS - Start ###########################*/
+
+table.pagination td.filter /* Orders page pagination */
+	{
+		border: solid 1px #d6d6d6;
+	}
+	table.pagination td
+		{
+			color:#000000;
+			background-color:#efefef;
+		}
+
+.pagArr /* Remove original HTML Next, Last etc. >> arrows */
+	{
+	display:none;
+	}
+
+.pagTxt
+	{
+		font-weight:normal;
+		color:#6694e3;
+	}
+	span.pagTxt:hover
+		{
+			color:#2a5db0;
+		}
+
+.pageFirst /* First page icons pagination*/
+	{
+		background:url(img/icons.png) no-repeat;
+		background-position:0px -141px;
+		padding-left:20px;
+	}
+	.pageFirst:hover
+		{
+			background:url(img/icons.png) no-repeat;
+			background-position:0px -158px;
+		}
+.pagePrev /* Previous page icons pagination */
+	{
+		background:url(img/icons.png) no-repeat;
+		background-position:0px -33px;
+		padding-left:20px;
+	}
+	.pagePrev:hover
+		{
+			background:url(img/icons.png) no-repeat;
+			background-position:0px -51px;
+		}
+
+.pageNext /* Next page icons pagination */
+	{
+		background:url(img/icons.png) no-repeat;
+		background-position:31px -69px;
+		padding-right:20px;
+	}
+	.pageNext:hover
+		{
+		background:url(img/icons.png) no-repeat;
+			background-position:31px -87px;
+		}
+
+.pageLast /* Last page icons pagination */
+	{
+		background:url(img/icons.png) no-repeat;
+		background-position:29px -105px;
+		padding-right:23px;
+	}
+	.pageLast:hover
+		{
+			background:url(img/icons.png) no-repeat;
+			background-position:29px -123px;
+		}
+
+table.pagination td.filter input.submit-padded-left /* Search button on orders page */
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px 0px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:60px;
+		height:22px;
+	}
+	table.pagination td.filter input.submit-padded-left:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -26px;
+		}
+
+input.qty /* Input fields in orders pagination form */
+	{
+		border-color:#c6c4c5;
+	}
+
+table.pagination td.filter a.report /* [Download report] link in orders pagination*/
+	{
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -172px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		padding:4px;
+		padding-bottom:5px;
+		padding-left:15px;
+		padding-right:15px;
+		text-align:center;
+		display:inline;
+		position:relative;
+		top:-1px;
+	}
+	table.pagination td.filter a.report:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -198px;
+		}
+
+div.order-list-item hr
+	{
+		margin-top:30px;
+	}
+	div.order-list-item /* Order boxes in the list on Orders page */
+		{
+			border:solid 1px #c3d9ff;
+			padding:5px;
+			margin-bottom:5px;
+		}
+	.odrlTitle a /* Order Title on Orders page */
+		{
+			color:#6694e3;
+		}
+		.odrlTitle a:hover
+			{
+				color:#6694e3;
+			}
+
+div.order-list-item div.order-list-menu .quoteTerms
+	{
+		margin-bottom:0px;
+	}
+
+div.order-list-thumbs /* Order preview thumbs on orders page */
+	{
+		height:160px;
+		overflow-x:auto;
+		clear:both;
+		position:relative;
+		bottom:25px;
+	}
+
+div.order-list-item div.mnuOder /* Order menu on Orders page */
+	{
+		float:right;
+		position:relative;
+		top:181px;
+		right:-6px;
+		background:#c3d9ff;
+		border:solid 1px #c3d9ff;
+		padding:5px;
+	}
+
+.mnuPay, .mnuOdrView, .mnuReo, .mnuCat, .mnuSim, .mnuStatCancel, .mnuStatOnHold, .mnuStatDelete, .mnuCpl, .mnuRet, .mnuTplView /* Orders menu links */
+	{
+		color:#000000;
+		border-right:solid 1px #000000;
+		text-decoration:none;
+		padding-right:8px;
+		padding-left:4px;
+		font-size:8pt;
+		font-weight:normal;
+	}
+	.mnuPay:hover, .mnuOdrView:hover, .mnuReo:hover, .mnuCat:hover, .mnuSim:hover, .mnuStatCancel:hover, .mnuStatOnHold:hover, .mnuStatDelete:hover, .mnuCpl:hover, .mnuRet:hover, .mnuTplView:hover
+		{
+			color:#000000;
+			text-decoration:underline;
+		}
+		.mnuPay b
+			{
+				font-weight:normal;
+			}
+	.mnuDld a
+		{
+			color:#000000;
+			border-right:solid 1px #000000;
+			text-decoration:none;
+			padding-right:8px;
+			padding-left:4px;
+			font-size:8pt;
+			font-weight:normal;
+		}
+		.mnuDld a:hover
+			{
+				text-decoration:underline;
+			}
+
+div#orderMenu a /* Order menu on order details page */
+	{
+		color:#2a5db0;
+		border:none;
+		text-decoration:none;
+	}
+	div#orderMenu a:hover
+		{
+			text-decoration:underline;
+		}
+	div#orderMenu #idPayNow
+		{
+			border:none;
+			background:url(img/btns.png) no-repeat;
+			background-position:0px 0px;
+			color:#000000;
+			font-weight:normal;
+			font-family: arial,sans-serif;
+			font-size:9pt;
+			width:60px;
+			height:22px;
+			padding:5px;
+			padding-top:3px;
+			padding-left:7px;
+		}
+		div#orderMenu #idPayNow:hover
+			{
+				background:url(img/btns.png) no-repeat;
+				background-position:0px -26px;
+				text-decoration:none;
+			}
+
+fieldset#order-fs-rego /* "New user registration" box in order form */
+	{
+		border-color:#c6c4c5;
+	}
+	table#order-rego span.clickable
+		{
+			background:none;
+			padding:0px;
+			color:#6694e3;
+			border:none;
+		}
+		table#order-rego span.clickable:hover
+		{
+			background:none;
+			padding:0px;
+			color:#6694e3;
+			border:none;
+			text-decoration:underline;
+		}
+
+/*###################### ORDERS - End ###########################*/
