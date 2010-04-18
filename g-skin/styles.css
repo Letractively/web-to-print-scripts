@@ -7,7 +7,6 @@ body
 		margin:0; 
 		background:#ffffff; 
 		color:#000000;
-    min-width:1170px;
 	}
 
 a /*default link properties*/
@@ -653,7 +652,7 @@ div#content-news.content h1 /* printer All catalogs title */
 div#container div.content /* Main content area */
 	{
 		border:1px solid #6694e3;
-		padding:10px;
+		padding:10px 5px;
     overflow:hidden;
     width:97%;
     margin-left:5px;
@@ -676,7 +675,7 @@ div#container h1 /* Titles h1 */
 		width:97%;
 		font-size:10pt;
     margin-left:5px;
-    padding:5px 0 5px 22px;
+    padding:6px;
 	}
 	div#container h1 a
 		{
@@ -698,9 +697,9 @@ div#container div.login-page h1 /* Forgot password page title */
 h2.red
 	{
 		background-color:#6694e3;
-		margin-left:-10px;
+		margin-left:-5px;
 		margin-top:-10px;
-		margin-bottom:0px;
+		margin-bottom:5px;
 		padding:5px;
 		color:#ffffff;
 		font-size:13pt;
@@ -2093,6 +2092,14 @@ ul.drop ul /* Images folders drop-down */
 			color:#6694e3;
 		}
 
+div.image-content
+  {
+    width:100%;
+  }
+ul.image-tabs
+  {
+    top:-1px;
+  }
 ul.image-tabs li /* Image tabs on test order page */
 	{
 		color:#000000;
@@ -2122,8 +2129,9 @@ ul.image-tabs li /* Image tabs on test order page */
 		}
 	div.image-prep-out div.image-prep /* Image selection-Upload-Picker box */
 		{
-			border-color:#ffffff;
-			background-color:#c3d9ff;
+			border:2px solid #C3D9FF;
+      margin:2px 0 2px 1px;
+      padding:0;
 		}
 		div.image-prep-out div.image-prep a
 			{
@@ -2134,15 +2142,20 @@ ul.image-tabs li /* Image tabs on test order page */
 #formPreviewUpdate div.image-title /* Image title on Test Order page */
 	{
 		background-color:#e0ecff;
-		width:90.8%;
 		position:relative;
 		left:101px;
-		margin-right:20px;
+		margin-right:96px;
+    position:relative;
+    width:auto;
 	}
 div.tab-img-u, div.image-prep table /* Image fields content */
 	{
 		background-color:#ffffff;
 	}
+div.image-prep div
+  {
+    width:97%;
+  }
 
 /*###################### IMAGES - End ###########################*/
 
