@@ -1225,11 +1225,6 @@ td.field-report textarea /* Template logs page text fields */
 		border-color:#c6c4c5;
 	}
 
-table.form /* Input forms stretched vertically*/
-	{
-		padding-bottom:300px;
-	}
-
 table.fields-change th /* Dataset look-up table */
 	{
 		border-color:#c6c4c5;
@@ -2004,6 +1999,12 @@ div#help5 /* Help boxes position - visible on bulk edit catalog page */
 		border:none;
 		margin:0px;
 		display:inline;
+	}
+
+div.help5
+	{
+		width:368px;
+		float:left;
 	}
 
 div.aged /* Old-archived orders prompt */
