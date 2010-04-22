@@ -57,7 +57,8 @@ $(document).ready(function() {
     createIframeOnload(randomFormId);
     //adding randomFormId to array of forms
     uploadQueue.push(randomFormId);
-
+    //clear main form
+    SubmitNewFile();
     return true;
   }
 
