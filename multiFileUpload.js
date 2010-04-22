@@ -24,6 +24,7 @@ $(document).ready(function() {
       var Nr = parseInt(currentNr.replace('cancelUpload',''));
       uploadQueue=removeArrayElement(uploadQueue,Nr);
       $('#uploadQueue'+Nr).remove();
+      $('iframe[name=hiddenFileUploadIframe'+Nr+']').attr('src','about:blank');
     });
     cloneUploadForm(e,randomFormId);
     startUpload();
@@ -52,7 +53,7 @@ $(document).ready(function() {
 
     //creating iframe
     $('body').append('<iframe name="hiddenFileUploadIframe'+randomFormId+'" style="display:none"></iframe>');
-
+    addCss();
     //add iframe onload event handler
     createIframeOnload(randomFormId);
     //adding randomFormId to array of forms
@@ -76,8 +77,12 @@ $(document).ready(function() {
         //image uploaded, remove it from queue
         uploadQueue=removeArrayElement(uploadQueue,iframeId);
         //remove file name from list
-        $('.uploadQueue').first().remove();
+        $('.uploadQueue').first().hide('slow',function(){
+          $(this).remove();
+        });
+        
         uploadInProgress = false;
+
         //start next file upload
         startUpload();
       }
@@ -96,13 +101,17 @@ $(document).ready(function() {
 
   function startUpload() {
     if (!uploadInProgress&&uploadQueue.length>0) {
-      //hide cancel button
-      $('#cancelUpload'+uploadQueue[0]).remove();
       $('.uploadQueue').first().append(' <span class="queueUploading">Uploading...</span>');
+      addCss();
       $('#hiddenFileUpload'+uploadQueue[0]).submit();
       }
   }
 
+  function addCss() {
+  /*css stuff*/
+  $('.cancelUpload').css({'color':'red','font-weight':'bold'});
+  $('.queueUploading').css({'font-style':'italic','font-weight':'bold'});
+  }
 
 });
 
