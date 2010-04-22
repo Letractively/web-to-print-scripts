@@ -34,6 +34,23 @@ div#container h3
 		font-size:10pt;
 	}
 
+form .submit.inp-apply
+	{
+		background:url("img/btns.png") no-repeat scroll 0 2px transparent;
+		width:60px;
+	}
+
+form .submit.inp-apply:hover
+	{
+		background:url("img/btns.png") no-repeat scroll 0 -24px transparent;
+		width:60px;
+	}
+
+form
+	{
+		font-size:90%;
+	}
+
 /*###################### HEADER Start ###########################*/
 
 #masthead /*header*/
@@ -1952,8 +1969,8 @@ div.help5 h4 /* My details page - prompt boxes */
 
 div.help5 h3
 	{
-		padding-top:30px;
-		margin-bottom:-30px;
+		margin:0;
+		padding:0 0 10px;
 	}
 
 #idImgFolders .help
