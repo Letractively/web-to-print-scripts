@@ -103,11 +103,6 @@ $(document).ready(function() {
       }
   }
 
-  function cancelPressed(e) {
-    alert('cancel');
-  }
-
-
 
 });
 
