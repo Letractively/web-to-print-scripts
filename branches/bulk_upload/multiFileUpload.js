@@ -1,5 +1,5 @@
 /*
-<li class="uploadQueue">filename <span class="cancelUpload">X</span> <span class="queueUploading">Uploading...</span></li>
+<li class="uploadQueue"><span class="uploadStatus">Waiting: </span>filename <span class="cancelUpload">X</span></li>
 */
 //Global variables
 //array of Queue id's
@@ -9,7 +9,8 @@ var uploadInProgress = false;
 $(document).ready(function() {
   //assign onclick event to submit button
   $('#newFileFormForm .submit').click(function(){
-    addToQueue($(this).parents('#newFileFormForm'));
+    if ($('#newFileFormForm .file').val().length>0)
+      addToQueue($(this).parents('#newFileFormForm'));
     //do not submit form
     return false;
   });
@@ -17,7 +18,7 @@ $(document).ready(function() {
   function addToQueue(e) {
     randomFormId=Math.floor(Math.random()*1000001);
     //add file name to list
-    $('#newFileFormInfo .list').append('<li class="uploadQueue" id="uploadQueue'+randomFormId+'">Queue: '+$('.file',e).val()+' <span class="cancelUpload" id="cancelUpload'+randomFormId+'">X</span></li>');
+    $('#newFileFormInfo .list').append('<li class="uploadQueue" id="uploadQueue'+randomFormId+'"><span class="uploadStatus" id="uploadStatus'+randomFormId+'">Waiting: </span>'+$('.file',e).val()+' <span class="cancelUpload" id="cancelUpload'+randomFormId+'">X</span></li>');
     //cancel handler
     $('#cancelUpload'+randomFormId).click(function(){
       var currentNr=$(this).attr('id');
@@ -101,8 +102,7 @@ $(document).ready(function() {
 
   function startUpload() {
     if (!uploadInProgress&&uploadQueue.length>0) {
-      $('.uploadQueue').first().append(' <span class="queueUploading">Uploading...</span>');
-      addCss();
+      $('#uploadStatus'+uploadQueue[0]).html("Uploading: ");
       $('#hiddenFileUpload'+uploadQueue[0]).submit();
       }
   }
@@ -110,7 +110,7 @@ $(document).ready(function() {
   function addCss() {
   /*css stuff*/
   $('.cancelUpload').css({'color':'red','font-weight':'bold'});
-  $('.queueUploading').css({'font-style':'italic','font-weight':'bold'});
+  $('.uploadStatus').css({'font-style':'italic','font-weight':'bold'});
   }
 
 });
