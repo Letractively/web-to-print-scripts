@@ -84,6 +84,8 @@ $(document).ready(function() {
         
         uploadInProgress = false;
 
+        imageEditorAssignFancybox();
+
         //start next file upload
         startUpload();
       }
@@ -91,30 +93,50 @@ $(document).ready(function() {
   }
 
   //function removes el from array arr
-  function removeArrayElement(arr,el){
+  function removeArrayElement(arr,el) {
     var r = new Array();
     for (var i = 0; i<arr.length;i++) {
       if(!(arr[i]==el))
         r.push(arr[i]);
     }
-  return r;
+    return r;
   }
 
   function startUpload() {
     if (!uploadInProgress&&uploadQueue.length>0) {
       $('#uploadStatus'+uploadQueue[0]).html("Uploading: ");
       $('#hiddenFileUpload'+uploadQueue[0]).submit();
-      }
+    }
   }
 
   function addCss() {
-  /*css stuff*/
-  $('.cancelUpload').css({'color':'red','font-weight':'bold'});
-  $('.uploadStatus').css({'font-style':'italic','font-weight':'bold'});
+    /*css stuff*/
+    $('.cancelUpload').css({'color':'red','font-weight':'bold'});
+    $('.uploadStatus').css({'font-style':'italic','font-weight':'bold'});
+  }
+
+  function imageEditorAssignFancybox() {
+    if (typeof(imageEditorHost)=="undefined")
+      return false;
+    if ($('.middle a').length > 0) {
+      $('.middle a').click(function () {
+        $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).children().attr('id').substring(3) + '?iframe');
+      });
+      $('.middle a').attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?iframe');
+      $('.middle a').fancybox( {
+        'padding': 0,
+        'hideOnOverlayClick': false,
+        'hideOnContentClick': false,
+        'centerOnScroll': false,
+        'type': 'iframe',
+        'titleShow': false
+      });
+    }
   }
 
 });
 
+//overwrite existing function
 function SubmitNewFile() {
 document.getElementById('newFileFormForm').reset();
 }
