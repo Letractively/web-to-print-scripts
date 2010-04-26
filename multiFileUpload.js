@@ -16,6 +16,11 @@ $(document).ready(function() {
   });
 
   function addToQueue(e) {
+    if (uploadQueue.length == 0 && $('#uploadInfobox').length ==0) {
+      $('#newFileFormInfo').append('<div id="uploadInfobox"><strong>You can select another image now.</strong></div>');
+    } else if (uploadQueue.length == 0) {
+      $('#uploadInfobox').show();
+    }
     randomFormId=Math.floor(Math.random()*1000001);
     //add file name to list
     $('#newFileFormInfo .list').append('<li class="uploadQueue" id="uploadQueue'+randomFormId+'"><span class="uploadStatus" id="uploadStatus'+randomFormId+'">Waiting: </span>'+$('.file',e).val()+' <span class="cancelUpload" id="cancelUpload'+randomFormId+'">X</span></li>');
@@ -25,7 +30,14 @@ $(document).ready(function() {
       var Nr = parseInt(currentNr.replace('cancelUpload',''));
       uploadQueue=removeArrayElement(uploadQueue,Nr);
       $('#uploadQueue'+Nr).remove();
+      //remove infobox on last upload only
+      if(!uploadQueue.length)
+        $('#uploadInfobox').fadeOut(1000);
       $('iframe[name=hiddenFileUploadIframe'+Nr+']').attr('src','about:blank');
+      //upload not in progress anymore
+      uploadInProgress = false;
+      //start next upload
+      startUpload();
     });
     cloneUploadForm(e,randomFormId);
     startUpload();
@@ -47,8 +59,7 @@ $(document).ready(function() {
     real.appendTo($(newForm));
     }
 
-    $(newForm).css('position','absolute');
-    $(newForm).css('left','-100000');
+    $(newForm).css('display','none');
     $(newForm).attr('target','hiddenFileUploadIframe'+randomFormId);
     $('body').append($(newForm));
 
@@ -81,6 +92,9 @@ $(document).ready(function() {
         $('.uploadQueue').first().hide('slow',function(){
           $(this).remove();
         });
+        //remove infobox on last upload only
+        if(!uploadQueue.length)
+          $('#uploadInfobox').fadeOut(1000);
         
         uploadInProgress = false;
 
