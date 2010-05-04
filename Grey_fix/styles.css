@@ -2,7 +2,7 @@
 /* CSS Document */
 
 
-body {f ont-family:Verdana; font-size:14px; margin:0; background:#FFF; color:#333 }
+body {font-family:Verdana; font-size:14px; margin:0; background:#FFF; color:#333 }
 
 a { color:#336699; font-family:Verdana; outline:none }
 a:hover { color:#000 }
@@ -291,7 +291,8 @@ a:hover { color:#000 }
 			{
 				list-style-type:none; 
 				display:inline; 
-				padding:5px 
+				padding:5px;
+				line-height: normal;
 			}
 		div#tagsFound a 
 			{ 

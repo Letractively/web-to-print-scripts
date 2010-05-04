@@ -291,7 +291,8 @@ a:hover { color:#000 }
 			{
 				list-style-type:none; 
 				display:inline; 
-				padding:5px 
+				padding:5px;
+				line-height: normal;
 			}
 		div#tagsFound a 
 			{ 

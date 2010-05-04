@@ -89,7 +89,7 @@ table.pagination .right a:hover { color:#000; text-decoration:none }
 div#tagsFound { margin:0; width:97%; padding:15px; background:#f7f7e6; border-bottom:1px solid #caca97 }
 div#tagsFound .tags { padding:10px 10px 0 10px; border:none; line-height:18px }
 div#tagsFound ul { margin:0; padding:0; background:#f7f7e6; border:none }
-div#tagsFound li { list-style-type:none; display:inline; padding:5px }
+div#tagsFound li { list-style-type:none; display:inline; padding:5px; line-height: normal;  }
 div#tagsFound a { color:#336633; font-size:14px; margin:15px 0; font-weight:normal; text-decoration:none }
 div#tagsFound a:hover { color:#000; text-decoration:none }
 div#tagsFound span { color:#336633; font-size:12px; font-weight:normal }
