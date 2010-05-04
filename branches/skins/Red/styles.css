@@ -95,7 +95,7 @@ table.pagination .right a:hover { color:#FFF; text-decoration:underline }
 div#tagsFound { margin:0; width:97%; padding:15px; color:#EEE; background:#7c2525; border-bottom:1px solid #993333 }
 div#tagsFound .tags { padding:10px 10px 0 10px; border:none; line-height:18px }
 div#tagsFound ul { margin:0; padding:0; background:#7c2525; border:none }
-div#tagsFound li { list-style-type:none; display:inline; padding:5px }
+div#tagsFound li { list-style-type:none; display:inline; padding:5px; line-height: normal; }
 div#tagsFound a { color:#99cc99; font-size:14px; margin:15px 0; font-weight:normal; text-decoration:none }
 div#tagsFound a:hover { color:#FFF; text-decoration:none }
 div#tagsFound span { color:#99cc99; font-size:12px; font-weight:normal }
