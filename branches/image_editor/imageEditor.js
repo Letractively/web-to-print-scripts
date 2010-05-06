@@ -1,5 +1,5 @@
 var imageEditorHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop();
-var imageEditorPath = '/java/dev';
+var imageEditorPath = '/java/test/1';
 
 jQuery(document).ready(function ($) {
   function imageEditorAssignFancybox() {
@@ -77,10 +77,25 @@ jQuery(document).ready(function ($) {
             src = src.replace(/\.(jpg)/i, "_0x100.jpg");
             var imageid = response.match(/imageid="([^"]*?)"/i).pop();
             var td = '<td nowrap="nowrap"><input type="radio" value="' + imageid + '" name="#Logo"><span>#1</span><div><a href="" target="_blank"><img height="100px" src="' + src + '"/></a></div></td>';
+            if ($("div[id*=divImgStripLibrary]").length==0) {
+              //1st time upload, need to create image container first
+              var currentStripCounter1 = 0;
+              $("div[id*=divImageContentContainer]").each(function () {
+                currentStripCounter1=$(this).attr('id').substring($(this).attr('id').length - 1);
+                //creating blank image container
+                $(this).append('<div id="divImgStripLibrary' + currentStripCounter1 + '" class="tab3-content" style="display:none"><table><tbody><tr><td nowrap="nowrap" class="blank-img-l"><input type="radio" checked="checked" name="#Main image" value=""><b>BLANK <\/b><div><span class="info"><a href="?page=images" title="Manage my image library" class="calm-padded">Manage images<\/a><\/span><\/div><\/td><\/tr><\/tbody><\/table><\/div>');
+                //creating my images tab (only if upload tab exists)
+                $('#liTabImgLibrary' + currentStripCounter1).show();
+                //make upload tab class active
+                if (currentStripCounter1 != currentStripCounter)
+                  $('#liTabImgUpload' + currentStripCounter1).addClass('active');
+              });
+              $('#liTabImgLibrary' + currentStripCounter).addClass('active');
+            }
             $("div[id*=divImgStripLibrary]").each(function () {
               var currentStrip = $(this).parent();
               var pos = $(currentStrip).scrollLeft();
-              $(td).insertBefore($(this).find('td:eq(1)'));
+              $(td).insertAfter($(this).find('td:eq(0)'));
               if ($(this).attr('id') != "divImgStripLibrary" + currentStripCounter) {
                 $('img', td).load(function () {
                   $(currentStrip).scrollLeft(pos + $('img', td).attr('width') + 10);
