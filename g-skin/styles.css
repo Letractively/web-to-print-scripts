@@ -52,8 +52,9 @@ table.form
 	{
 		*margin-right: 40px;
 	}
-.content form:first-child {
-		float:right;
+table.form div.info
+	{
+		padding-right:0;
 	}
 /*###################### HEADER Start ###########################*/
 
@@ -1331,6 +1332,7 @@ div.tab2-content, ul.tab2-content /* Tabs content */
 		border-top:1px solid #c3d9ff;
 		position:relative;
 		top:5px;
+		overflow:hidden;
 	}
 
 #ulPreviewPageTabs .last /* Reset */
@@ -1412,19 +1414,19 @@ input.order /* All other buttons */
 		cursor:pointer;
 		border:none;
 		background:url(img/btns.png) no-repeat;
-		background-position:0px 0px;
+		background-position:0px -51px;
 		color:#000000;
 		font-weight:normal;
 		font-family: arial,sans-serif;
 		font-size:9pt;
-		width:60px;
-		height:22px;
+		width:120px;
+		height:27px;
 		padding-bottom:2px;
 	}
 	input.order:hover
 		{
 			background:url(img/btns.png) no-repeat;
-			background-position:0px -26px;
+			background-position:0px -81px;
 		}
 	input.submit /* All other buttons */
 		{
