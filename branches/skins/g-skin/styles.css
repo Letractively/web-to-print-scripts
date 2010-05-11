@@ -774,14 +774,29 @@ table#tblBulkEdit /* Input form on Bulk edit page */
 		margin-right: 0px;
 	}
 
+#folderDestination
+	{
+		width: 400px;
+	}
 span.clickable
 	{
-		color:#2a5db0;
-		text-decoration:none;
+		background: url("img/btns.png") no-repeat scroll 0 -51px transparent;
+		color: #000000;
+		display: inline-block;
+		font-weight :normal;
+		height: 20px;
+		text-align: center;
+		text-decoration: none;
+		vertical-align: top;
+		width: 120px;
+		font-family: arial,sans-serif;
+		font-size: 9pt;
+		padding-top: 7px;
 	}
 	span.clickable:hover
 		{
-			text-decoration:underline;
+			text-decoration: none;
+			background: url("img/btns.png") no-repeat scroll 0 -81px transparent;
 		}
 
 sup.info /* [More...] link */
