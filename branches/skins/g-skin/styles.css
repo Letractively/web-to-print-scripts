@@ -2149,13 +2149,13 @@ ul.drop ul /* Images folders drop-down */
 		}
 
 div.image-content
-  {
-    width:100%;
-  }
+	{
+		width:100%;
+	}
 ul.image-tabs
-  {
-    top:-1px;
-  }
+	{
+		top:-1px;
+	}
 ul.image-tabs li /* Image tabs on test order page */
 	{
 		color:#000000;
@@ -2186,8 +2186,8 @@ ul.image-tabs li /* Image tabs on test order page */
 	div.image-prep-out div.image-prep /* Image selection-Upload-Picker box */
 		{
 			border:2px solid #C3D9FF;
-      margin:2px 0 2px 1px;
-      padding:0;
+			margin:2px 0 2px 1px;
+			padding:0;
 		}
 		div.image-prep-out div.image-prep a
 			{
@@ -2201,18 +2201,32 @@ ul.image-tabs li /* Image tabs on test order page */
 		position:relative;
 		left:101px;
 		margin-right:96px;
-    position:relative;
-    width:auto;
+		position:relative;
+		width:auto;
 	}
 div.tab-img-u, div.image-prep table /* Image fields content */
 	{
 		background-color:#ffffff;
 	}
 div.image-prep div
-  {
-    width:97%;
-  }
+	{
+		width:97%;
+	}
 
+div.img-controls
+	{
+		padding-top: 23px;
+		width: 170px !important;
+	}
+ul.img-controls
+	{
+		padding: 0 5px;
+	}
+ul.img-controls li
+	{
+		height: 20px;
+		margin: 0;
+	}
 /*###################### IMAGES - End ###########################*/
 
 /*###################### ORDERS - Start ###########################*/
