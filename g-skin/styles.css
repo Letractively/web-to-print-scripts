@@ -774,6 +774,10 @@ table#tblBulkEdit /* Input form on Bulk edit page */
 		margin-right: 0px;
 	}
 
+#folderDestination
+  {
+    width: 400px;
+  }
 	span.clickable:hover
 		{
 			text-decoration:underline;
@@ -1602,7 +1606,7 @@ span#designed-by a /* [Previous orders] button*/
 		padding-left:6px;
 		padding-right:5px;
 		position:relative; top:0px; right:0px;
-		text-decoration:none;
+    text-decoration:none;
 	}
 	#copyFileForm span.clickable:hover
 		{
@@ -1634,6 +1638,7 @@ span#designed-by a /* [Previous orders] button*/
 		padding-left:6px;
 		padding-right:5px;
 		margin:1px;
+    text-decoration:none;
 	}
 	#deleteFileForm span.clickable:hover
 		{
