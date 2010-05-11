@@ -114,9 +114,9 @@ div#linkHome a
 		border-right:1px solid #cccccc;
 		background-color:#ffffff;
 		padding:0px;
-		height:26px;
+		height:auto;
 		width:164px;
-		font-size: 22px;
+		font-size: 13px;
 	}
 	#login-top input#pwd
 		{
@@ -126,9 +126,9 @@ div#linkHome a
 			border-right:1px solid #cccccc;
 			background-color:#ffffff;
 			padding:0px;
-			height:26px;
+			height:auto;
 			width:100px;
-			font-size: 22px;
+			font-size: 13px;
 		}
 	#login-top input.submit
 		{
