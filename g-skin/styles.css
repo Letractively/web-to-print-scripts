@@ -774,29 +774,9 @@ table#tblBulkEdit /* Input form on Bulk edit page */
 		margin-right: 0px;
 	}
 
-#folderDestination
-	{
-		width: 400px;
-	}
-span.clickable
-	{
-		background: url("img/btns.png") no-repeat scroll 0 -51px transparent;
-		color: #000000;
-		display: inline-block;
-		font-weight :normal;
-		height: 20px;
-		text-align: center;
-		text-decoration: none;
-		vertical-align: top;
-		width: 120px;
-		font-family: arial,sans-serif;
-		font-size: 9pt;
-		padding-top: 7px;
-	}
 	span.clickable:hover
 		{
-			text-decoration: none;
-			background: url("img/btns.png") no-repeat scroll 0 -81px transparent;
+			text-decoration:underline;
 		}
 
 sup.info /* [More...] link */
@@ -1584,7 +1564,7 @@ span#designed-by a /* [Previous orders] button*/
 			background-position:0px -80px;
 		}
 
-#CopyFileForm .submit /* Copy-Move images buttons*/
+#copyFileForm .submit /* Copy-Move images buttons*/
 	{
 		cursor:pointer;
 		border:none;
@@ -1599,13 +1579,13 @@ span#designed-by a /* [Previous orders] button*/
 		margin:1px;
 		position:relative; top:1px; right:0px;
 	}
-	#CopyFileForm .submit:hover
+	#copyFileForm .submit:hover
 		{
 			background:url(img/btns.png) no-repeat;
 			background-position:0px -26px;
 		}
 
-#CopyFileForm span.clickable /* Select All-Reset All files buttons in COPY images tab*/
+#copyFileForm span.clickable /* Select All-Reset All files buttons in COPY images tab*/
 	{
 		cursor:pointer;
 		border:none;
@@ -1622,15 +1602,16 @@ span#designed-by a /* [Previous orders] button*/
 		padding-left:6px;
 		padding-right:5px;
 		position:relative; top:0px; right:0px;
+		text-decoration:none;
 	}
-	#CopyFileForm span.clickable:hover
+	#copyFileForm span.clickable:hover
 		{
 			background:url(img/btns.png) no-repeat;
 			background-position:0px -26px;
 			text-decoration:none;
 		}
 
-#CopyFileForm th
+#copyFileForm th
 	{
 		margin-top:10px;
 		padding-top:10px;
