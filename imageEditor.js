@@ -1,5 +1,5 @@
 var imageEditorHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop();
-var imageEditorPath = '/java/test/1';
+var imageEditorPath = '/java/dev';
 
 jQuery(document).ready(function ($) {
   function imageEditorAssignFancybox() {
@@ -55,8 +55,10 @@ jQuery(document).ready(function ($) {
     $.getScript(imageEditorHost + imageEditorPath + '/ajaxupload.js', function () {
       var uploadStripCounter = 1;
       while ($('#divImgStripUpload'+uploadStripCounter).length > 0) {
+        //get ID of future radio button
+        var radioID = $('.file', '#divImgStripUpload' + uploadStripCounter).attr('name');
         //for each upload strip create own upload function
-        $('#divImgStripUpload' + uploadStripCounter).find('.tab-img-u').html('<input name="" id="inputUploadFile' + uploadStripCounter + '" disabled=true/><span id="spanUploadButton' + uploadStripCounter+'" class="spanUploadButton">Upload</span>  <span id="spanUploadProgress' + uploadStripCounter + '" style="display:none" class="spanUploadProgress">Uploading... please wait</span>');
+        $('#divImgStripUpload' + uploadStripCounter).find('.tab-img-u').html('<input name="" id="inputUploadFile' + uploadStripCounter + '" disabled=true/><span id="spanUploadButton' + uploadStripCounter+'" class="spanUploadButton">Upload</span>  <span id="spanUploadProgress' + uploadStripCounter + '" style="display:none" class="spanUploadProgress">Uploading... please wait</span><span id="radioID" style="display:none">' + radioID + '</span>');
         new AjaxUpload('spanUploadButton' + uploadStripCounter, {
           action: '?page=img-new',
           data: {
@@ -76,14 +78,14 @@ jQuery(document).ready(function ($) {
             var src = imageEditorHost + '/photothumbs/' + response.match(/thumb="([^"]*?)"/i).pop();
             src = src.replace(/\.(jpg)/i, "_0x100.jpg");
             var imageid = response.match(/imageid="([^"]*?)"/i).pop();
-            var td = '<td nowrap="nowrap"><input type="radio" value="' + imageid + '" name="#Logo"><span>#1</span><div><a href="" target="_blank"><img height="100px" src="' + src + '"/></a></div></td>';
+            var td = '<td nowrap="nowrap"><input type="radio" value="' + imageid + '"><span>#1</span><div><a href="" target="_blank"><img height="100px" src="' + src + '"/></a></div></td>';
             if ($("div[id*=divImgStripLibrary]").length==0) {
               //1st time upload, need to create image container first
               var currentStripCounter1 = 0;
               $("div[id*=divImageContentContainer]").each(function () {
                 currentStripCounter1=$(this).attr('id').substring($(this).attr('id').length - 1);
                 //creating blank image container
-                $(this).append('<div id="divImgStripLibrary' + currentStripCounter1 + '" class="tab3-content" style="display:none"><table><tbody><tr><td nowrap="nowrap" class="blank-img-l"><input type="radio" checked="checked" name="#Main image" value=""><b>BLANK <\/b><div><span class="info"><a href="?page=images" title="Manage my image library" class="calm-padded">Manage images<\/a><\/span><\/div><\/td><\/tr><\/tbody><\/table><\/div>');
+                $(this).append('<div id="divImgStripLibrary' + currentStripCounter1 + '" class="tab3-content" style="display:none"><table><tbody><tr><td nowrap="nowrap" class="blank-img-l"><input type="radio" checked="checked" name="' + $('#radioID', '#divImgStripUpload' + currentStripCounter1).html() + '" value=""><b>BLANK <\/b><div><span class="info"><a href="?page=images" title="Manage my image library" class="calm-padded">Manage images<\/a><\/span><\/div><\/td><\/tr><\/tbody><\/table><\/div>');
                 //creating my images tab (only if upload tab exists)
                 $('#liTabImgLibrary' + currentStripCounter1).show();
                 //make upload tab class active
@@ -96,6 +98,7 @@ jQuery(document).ready(function ($) {
               var currentStrip = $(this).parent();
               var pos = $(currentStrip).scrollLeft();
               $(td).insertAfter($(this).find('td:eq(0)'));
+              $('input[type=radio]',currentStrip).attr('name',$('#radioID', currentStrip).html());
               if ($(this).attr('id') != "divImgStripLibrary" + currentStripCounter) {
                 $('img', td).load(function () {
                   $(currentStrip).scrollLeft(pos + $('img', td).attr('width') + 10);
