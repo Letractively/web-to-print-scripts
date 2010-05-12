@@ -117,6 +117,7 @@ div#linkHome a
 		height:auto;
 		width:164px;
 		font-size: 13px;
+		padding: 1px;
 	}
 	#login-top input#pwd
 		{
@@ -129,6 +130,7 @@ div#linkHome a
 			height:auto;
 			width:100px;
 			font-size: 13px;
+			padding: 1px;
 		}
 	#login-top input.submit
 		{
@@ -1606,7 +1608,8 @@ span#designed-by a /* [Previous orders] button*/
 		padding-left:6px;
 		padding-right:5px;
 		position:relative; top:0px; right:0px;
-    text-decoration:none;
+		text-decoration:none;
+		*top:-2px;
 	}
 	#copyFileForm span.clickable:hover
 		{
@@ -2148,6 +2151,10 @@ ul.drop ul /* Images folders drop-down */
 			color:#6694e3;
 		}
 
+ul.drop, ul.drop1 
+	{
+		display: block;
+	}
 div.image-content
 	{
 		width:100%;
