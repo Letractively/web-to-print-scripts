@@ -1591,7 +1591,7 @@ span#designed-by a /* [Previous orders] button*/
 			background-position:0px -26px;
 		}
 
-#copyFileForm span.clickable /* Select All-Reset All files buttons in COPY images tab*/
+#copyFileForm span.clickable, .spanUploadButton /* Select All-Reset All files buttons in COPY images tab*/
 	{
 		cursor:pointer;
 		border:none;
@@ -1601,15 +1601,17 @@ span#designed-by a /* [Previous orders] button*/
 		font-weight:normal;
 		font-family: arial,sans-serif;
 		font-size:9pt;
-		width:62px;
-		height:22px;
+		width:50px;
+		height:18px;
 		margin:1px;
 		padding:4px;
 		padding-left:6px;
 		padding-right:5px;
 		position:relative; top:0px; right:0px;
 		text-decoration:none;
-		*top:-2px;
+		display: inline-block;
+		*top:6px;
+		text-align: center;
 	}
 	#copyFileForm span.clickable:hover
 		{
