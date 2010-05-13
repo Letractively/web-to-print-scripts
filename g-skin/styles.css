@@ -2230,6 +2230,8 @@ div.img-controls
 ul.img-controls
 	{
 		padding: 0 5px;
+		background-color:#E0ECFF;
+		border:1px solid #C3D9FF;
 	}
 ul.img-controls li
 	{
