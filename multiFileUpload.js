@@ -1,5 +1,5 @@
 /*
-<li class="uploadQueue"><span class="uploadStatus">Waiting: </span>filename <span class="cancelUpload">X</span></li>
+<li class="uploadQueue"><span class="uploadStatus">Waiting: </span>filename <span class="cancelUpload">Cancel</span></li>
 */
 //Global variables
 //array of Queue id's
@@ -23,7 +23,7 @@ $(document).ready(function() {
     }
     randomFormId=Math.floor(Math.random()*1000001);
     //add file name to list
-    $('#newFileFormInfo .list').append('<li class="uploadQueue" id="uploadQueue'+randomFormId+'"><span class="uploadStatus" id="uploadStatus'+randomFormId+'">Waiting: </span>'+$('.file',e).val()+' <span class="cancelUpload" id="cancelUpload'+randomFormId+'">X</span></li>');
+    $('#newFileFormInfo .list').append('<li class="uploadQueue" id="uploadQueue'+randomFormId+'"><span class="uploadStatus" id="uploadStatus'+randomFormId+'">Waiting: </span>'+$('.file',e).val()+' <span class="cancelUpload" id="cancelUpload'+randomFormId+'">Cancel</span></li>');
     //cancel handler
     $('#cancelUpload'+randomFormId).click(function(){
       var currentNr=$(this).attr('id');
@@ -62,7 +62,6 @@ $(document).ready(function() {
 
     //creating iframe
     $('body').append('<iframe name="hiddenFileUploadIframe'+randomFormId+'" style="display:none"></iframe>');
-    addCss();
     //add iframe onload event handler
     createIframeOnload(randomFormId);
     //adding randomFormId to array of forms
@@ -118,12 +117,6 @@ $(document).ready(function() {
       $('#uploadStatus'+uploadQueue[0]).html("Uploading: ");
       $('#hiddenFileUpload'+uploadQueue[0]).submit();
     }
-  }
-
-  function addCss() {
-    /*css stuff*/
-    $('.cancelUpload').css({'color':'red','font-weight':'bold'});
-    $('.uploadStatus').css({'font-style':'italic','font-weight':'bold'});
   }
 
   function imageEditorAssignFancybox() {
