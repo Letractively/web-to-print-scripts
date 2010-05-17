@@ -711,8 +711,8 @@ var ColorPicker = function() {
             _init(sReturnId, isCmyk, relaDivId);
             ColorPicker.setColor();
 
-            var x = parseInt(e.clientX, 10) + parseInt(document.body.scrollLeft, 10) + 100;
-            var y = parseInt(e.clientY, 10) + parseInt(document.body.scrollTop, 10) - 200;
+            var x = parseInt(e.clientX, 10) + parseInt(getScrollWidth(), 10) + 100;
+            var y = parseInt(e.clientY, 10) + parseInt(getScrollHeight(), 10) - 200;
             ColorPicker.setContainerPosition(x, y);
             swithCmyk(isCmyk)
             ColorPicker.showContain();
@@ -819,4 +819,19 @@ XDragDrop.prototype = {
             }
         }
     }
+}
+function getScrollWidth() {
+    var w = window.pageXOffset ||
+        document.body.scrollLeft ||
+        document.documentElement.scrollLeft;
+
+    return w ? w : 0;
+}
+
+function getScrollHeight() {
+    var h = window.pageYOffset ||
+        document.body.scrollTop ||
+        document.documentElement.scrollTop;
+
+    return h ? h : 0;
 }
