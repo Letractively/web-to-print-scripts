@@ -2493,3 +2493,39 @@ fieldset#order-fs-rego /* "New user registration" box in order form */
 		}
 
 /*###################### ORDERS - End ###########################*/
+
+/*###################### Image Uploading Start ###########################*/
+.uploadStatus
+	{
+		font-style: italic;
+		font-weight: bold;
+	}
+.cancelUpload
+	{
+		cursor:pointer;
+		border:none;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px 0px;
+		color:#000000;
+		font-weight:normal;
+		font-family: arial,sans-serif;
+		font-size:9pt;
+		width:50px;
+		height:18px;
+		margin:1px;
+		padding:4px;
+		padding-left:6px;
+		padding-right:5px;
+		position:relative; top:0px; right:0px;
+		text-decoration:none;
+		display: inline-block;
+		*top:6px;
+		text-align: center;
+	}
+	.cancelUpload:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -26px;
+			text-decoration:none;
+		}
+/*###################### Image Uploading End ###########################*/
