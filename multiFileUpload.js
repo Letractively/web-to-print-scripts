@@ -51,13 +51,10 @@ $(document).ready(function() {
     var newForm = $(e).clone(true);
     $(newForm).attr('id','hiddenFileUpload'+randomFormId);
 
-    if ($.browser.msie) {
-    //msie bug workaround
     var real=$('.file',e);
     var cloned = real.clone(true);
     cloned.insertAfter(real);
     real.appendTo($(newForm));
-    }
 
     $(newForm).css('display','none');
     $(newForm).attr('target','hiddenFileUploadIframe'+randomFormId);
