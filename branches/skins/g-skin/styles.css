@@ -1333,7 +1333,6 @@ div.tab2-content, ul.tab2-content /* Tabs content */
 		border-top:1px solid #c3d9ff;
 		position:relative;
 		top:5px;
-		overflow:hidden;
 	}
 
 #ulPreviewPageTabs .last /* Reset */
