@@ -164,7 +164,11 @@ $(document).ready(function() {
       $('.uploadStatusId'+uploadQueue[0]).each(function() {
         $(this).html("Uploading: ");
       });
+      $('input[type=submit]').attr('disabled', 'disabled');
       $('#hiddenFileUpload'+uploadQueue[0]).submit();
+    }
+    if (!uploadInProgress&&uploadQueue.length==0) {
+      $('input[type=submit]').removeAttr('disabled');
     }
   }
 
