@@ -8,11 +8,11 @@ var imageEditorHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop();
 var imageEditorPath = '/java/dev';
 var imageEditorUpdateURL = imageEditorHost;
 var imageEditorId = window.location.href.match(/imageId=([^?]*?)\?/).pop();
-var imageEditorZpURL=imageEditorHost;
+var editor_image_url_template = imageEditorHost + '/photothumbs/image-guid.image-ext';
 var imageEditorDelimeter=';';
 var imageEditorQueryAppend=';Xml=1';
 </script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="jcrop/jquery-jcrop.min.js"></script>
 <script type="text/javascript" src="zp-image-edit.js"></script>
 
