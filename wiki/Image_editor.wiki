@@ -6,7 +6,7 @@ Image editor, allows basic editing of uploaded images. At the moment it is possi
 
 = Installation =
 
-Login with your printer account and navigate to Branding->Layout options. In "JavaScript URLs" field insert (If jQuery not included already) [http://zetaprints.com/java/dev/jquery.min.js http://zetaprints.com/java/dev/jquery.min.js] for latest jQuery and [http://zetaprints.com/java/dev/imageEditor.js http://zetaprints.com/java/dev/imageEditor.js] for latest image editor dev build (one per line).
+Login with your printer account and navigate to Branding->Layout options. In "JavaScript URLs" field insert (If jQuery not included already) [http://zetaprints.com/java/dev/jquery.min.js http://YOUR DOMAIN/java/dev/jquery.min.js] for latest jQuery and [http://zetaprints.com/java/dev/imageEditor.js http://YOUR DOMAIN/java/dev/imageEditor.js] for latest image editor dev build (one per line).
 
 = Using editor =
 
