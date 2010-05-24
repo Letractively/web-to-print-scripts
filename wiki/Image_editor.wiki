@@ -21,3 +21,7 @@ There are 4 main files you may want to look into.
   * [http://zetaprints.com/java/dev/imageEditor.html imageEditor.html] - main editor layout
   * [http://zetaprints.com/java/dev/zp-image-edit.css zp-image-edit.css] - editor CSS file
   * [http://zetaprints.com/java/dev/zp-image-edit.js zp-image-edit.js] - editor itself
+
+= Activity Diagram =
+
+http://zp.pro24.lv/docs/editor-triggered-v2.png
