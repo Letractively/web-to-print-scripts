@@ -15,3 +15,9 @@ After editor is installed, navigate to my images tab, or to uploaded image strip
 = Customization =
 
 Feel free to customize editor if you want to. Latest source code is always available in [http://code.google.com/p/web-to-print-scripts/source/browse/#svn/branches/image_editor image_editor] branch. Please note, that you will probably need knowledge of HTML, JavaScript to customize it.
+
+There are 4 main files you may want to look into.
+  * [http://zetaprints.com/java/dev/imageEditor.js imageEditor.js] - adds hooks to image stripe and my images tabs. You may want to change imageEditorPath variable.
+  * [http://zetaprints.com/java/dev/imageEditor.html imageEditor.html] - main editor layout
+  * [http://zetaprints.com/java/dev/zp-image-edit.css zp-image-edit.css] - editor CSS file
+  * [http://zetaprints.com/java/dev/zp-image-edit.js zp-image-edit.js] - editor itself
