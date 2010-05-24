@@ -1,4 +1,5 @@
 var imageEditorHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop();
+//path to image editor JS file, no trailing slash
 var imageEditorPath = '/java/dev';
 
 jQuery(document).ready(function ($) {
@@ -32,16 +33,6 @@ jQuery(document).ready(function ($) {
           'titleShow': false
         });
       }
-  }
-
-  function scroll_strip (panel, currentCheckedImage) {
-    $(panel).find('img:first').load(function () {
-      $(panel).scrollLeft(0);
-      var position = $('input[value=' + currentCheckedImage + ']',panel).parent('td').position();
-      if (position)
-        $(panel).scrollLeft(position.left - 100);
-    });
-    return true;
   }
 
   //loading fancybox
