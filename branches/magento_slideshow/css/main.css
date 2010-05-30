@@ -1,0 +1,155 @@
+#slideMain {
+  margin: auto
+  width: 705px;
+  font-family: Arial !important;
+}
+
+/* Fix slideshow position on magento homepage */
+div.col-main #slideMain {
+  margin-left: -10px;
+}
+
+#slideMain #slideContent {
+  float: left;
+  width: 100%;
+  border: 1px solid #CCCCCC;
+  background: #FFFFFF;
+}
+#slideMain #slideLeftContainer {
+  float: left;
+  width: 243px;
+  margin-left: -260px;
+  *margin-left: -300px;
+}
+#slideMain #slideRightContainer {
+  float: right;
+  width: 425px;
+  margin-right: 20px;
+  background: url(../images/right-cont-center.png);
+}
+#slideMain .slideRightTop {
+  float: left;
+  width: 425px;
+  height: 10px;
+  background: url(../images/right-cont-top.png) no-repeat;
+}
+#slideMain .slideRightBott {
+  float: right;
+  margin-right: 20px;
+  width: 425px;
+  height: 70px;
+  margin-top: -35px;
+  margin-bottom: -35px;
+  background: url(../images/right-cont-bott.png) no-repeat;
+  position: relative;
+  z-index: 1;
+}
+#slideMain #slideMenuText {
+  float: left;
+  margin: -1px 0 0;
+  padding: 0;
+}
+#slideMain #slideMenuText span, #slideMain #slideMenuText img, #slideMain #slideMenuText div {
+  display: none;
+}
+#slideMain #slideLeftContainer #slideMenuText li h2 {
+  font-size: 12px !important;
+  font-family: Arial !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-weight: normal;
+  line-height: 36px;
+  color: #000000;
+}
+#slideMain #slideLeftContainer #slideMenuText li {
+  background: url("../images/line.png") no-repeat scroll right center transparent;
+  cursor: pointer;
+  float: left;
+  font-size: 12px;
+  height: 33px;
+  list-style-type: none;
+  list-style-image: none;
+  line-height: 33px;
+  padding-left: 10px;
+  width: 234px;
+}
+#slideMain #slideLeftContainer #slideMenuText li:hover {
+  background: url(../images/hover.png) no-repeat center right;
+}
+#slideMain #slideLeftContainer #slideMenuText li.slideCaptionSelected {
+  background: url(../images/active.png) no-repeat center right;
+}
+#slideMain #slideLeftContainer #slideMenuText li.slideCaptionSelected h2 {
+  color: #FFFFFF;
+}
+#slideMain #slideDescription {
+  float: left;
+  background: #F8F7F5;
+  margin: 0 1px;
+  padding: 10px;
+  color: #0a263c;
+  font-size: 12px;
+}
+#slideMain #slideDescriptionText {
+  padding-top: 15px;
+}
+#slideMain #slideCaptionText {
+  color: #f73d43;
+  font-size: 18px;
+  font-weight: bold;
+}
+#slideMain #slideReadMore {
+  color: #e26703;
+  float: right;
+  margin-right: 40px;
+}
+#slideMain .slideScreen {
+  position: relative;
+  float: left;
+  width: 699px;
+  border: 1px solid #CCCCCC;
+  margin-top: 5px;
+  padding: 3px;
+  background: url("../images/ajax-loader.gif") no-repeat scroll 50% 100px transparent;
+  /*to avoid blinking*/
+  height: 514px;
+  overflow:hidden;
+
+}
+#slideMain .slideScreen img {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+#slideMain .slideWatchButton {
+  float: left;
+  width: 100%;
+  border-left: 2px solid #FFFFFF;
+  border-right: 2px solid #FFFFFF;
+  background: #FFFFFF;
+  padding-bottom: 5px;
+}
+#slideMain .slideWatchInner {
+  float: right;
+  margin-top: -2px;
+  border-top: 1px solid transparent;
+  width: 134px;
+  height: 31px;
+  background: url(../images/demo_button.png) no-repeat;
+}
+#slideMain .slideWatchInner a {
+  float: left;
+  text-decoration: none;
+  color: #FFF;
+  font-size: 12px;
+  margin-left: 45px;
+  margin-top: 5px;
+}
+#slideMain .slideClear {
+  clear: both;
+}
+/*for correct height calc*/
+#slideMain .slideDescriptionSrc {
+  width: 403px;
+  line-height: normal;
+}
