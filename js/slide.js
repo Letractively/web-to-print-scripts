@@ -22,12 +22,12 @@ jQuery(document).ready(function($) {
   });
 
   //content max height
-  $('.slideDescriptionSrc').each(function(){
-    if ($(this).height()>maxContentHeight) {
-      maxContentHeight=$(this).height();
-      $('#slideDescriptionText').height(maxContentHeight);
-    }
-  });
+  //$('.slideDescriptionSrc').each(function(){
+  //  if ($(this).height()>maxContentHeight) {
+  //    maxContentHeight=$(this).height();
+  //    $('#slideDescriptionText').height(maxContentHeight);
+  //  }
+  //});
 
   function applyContent(e) {
     //make li active
