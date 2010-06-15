@@ -41,8 +41,8 @@ $(document).ready(function() {
       if($.browser.msie && $.browser.version == 6){
         // Remove double slash at the next line to show messagebox
         //alert("Sorry, but you can't to use AJAX uploading in IE 6.");
-        document.getElementById("newFileFormForm").target = '';
-        return false; // if IE6 exit without post
+        //document.getElementById("newFileFormForm").target = '';
+        return true; // If IE6 submit with standart ZP code
       }
       addToQueue($(this).parents('#newFileFormForm'));
     }
