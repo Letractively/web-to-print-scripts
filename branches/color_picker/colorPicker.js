@@ -161,7 +161,13 @@ function trackDrag(node, handler) {
         // x = (x - nodePageCoords.x) + document.documentElement.scrollLeft;
         // y = (y - nodePageCoords.y) + document.documentElement.scrollTop;
         x = (x - nodePageCoords.x) + parseInt(document.body.scrollLeft, 10);
-        y = (y - nodePageCoords.y) + parseInt(document.body.scrollTop, 10);
+				// old BUG code
+        //y = (y - nodePageCoords.y) - parseInt(document.body.scrollTop, 10);
+        // calculate scroll top
+        scrTop = parseInt(window.pageYOffset ||
+                (document.documentElement && document.documentElement.scrollTop) ||
+                (document.body && document.body.scrollTop), 10);
+        y = (y - nodePageCoords.y) + scrTop; // new y coord
         if (x < 0) x = 0;
         if (y < 0) y = 0;
         if (x > node.offsetWidth - 1) x = node.offsetWidth - 1;
@@ -820,18 +826,20 @@ XDragDrop.prototype = {
         }
     }
 }
-function getScrollWidth() {
-    var w = window.pageXOffset ||
-        document.body.scrollLeft ||
-        document.documentElement.scrollLeft;
+function getScrollWidth()
+{
+   var w = window.pageXOffset ||
+           document.body.scrollLeft ||
+           document.documentElement.scrollLeft;
 
-    return w ? w : 0;
+   return w ? w : 0;
 }
 
-function getScrollHeight() {
-    var h = window.pageYOffset ||
-        document.body.scrollTop ||
-        document.documentElement.scrollTop;
+function getScrollHeight()
+{
+   var h = window.pageYOffset ||
+           document.body.scrollTop ||
+           document.documentElement.scrollTop;
 
-    return h ? h : 0;
+   return h ? h : 0;
 }
