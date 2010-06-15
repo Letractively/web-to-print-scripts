@@ -13,11 +13,9 @@ $(document).ready(function() {
 	
   //assign onclick event to submit button
   $('#newFileFormForm .submit').click(function(){
-      // START: update by 14.06.2010 - disable in IE6
-	  if($.browser.msie && $.browser.version == 6){
-		  return false;
-	  }
-	  // END: update by 14.06.2010
+    if($.browser.msie && $.browser.version == 6){
+      return false; // If IE6 exit without post
+    }
     if ($('#newFileFormForm .file').val().length>0){
       addToQueue($(this).parents('#newFileFormForm'));
 	}
