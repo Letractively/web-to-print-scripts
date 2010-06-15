@@ -14,7 +14,7 @@ $(document).ready(function() {
   //assign onclick event to submit button
   $('#newFileFormForm .submit').click(function(){
     if($.browser.msie && $.browser.version == 6){
-      return false; // If IE6 exit without post
+      return true; // If IE6 submit with standart ZP code
     }
     if ($('#newFileFormForm .file').val().length>0){
       addToQueue($(this).parents('#newFileFormForm'));
@@ -150,5 +150,9 @@ $(document).ready(function() {
 
 //overwrite existing function
 function SubmitNewFile() {
-document.getElementById('newFileFormForm').reset();
+  if($.browser.msie && $.browser.version == 6){
+    FileSubmitFormHide(); // If IE6, use standart ZP upload
+  }else{
+    document.getElementById('newFileFormForm').reset();
+  }
 }
