@@ -6,11 +6,21 @@
 var uploadQueue = new Array();
 var uploadInProgress = false;
 
+// Update by 14.06.2010 - if true messagebox has been showed
+var alertFlag = false;
+
 $(document).ready(function() {
+	
   //assign onclick event to submit button
   $('#newFileFormForm .submit').click(function(){
-    if ($('#newFileFormForm .file').val().length>0)
+      // START: update by 14.06.2010 - disable in IE6
+	  if($.browser.msie && $.browser.version == 6){
+		  return false;
+	  }
+	  // END: update by 14.06.2010
+    if ($('#newFileFormForm .file').val().length>0){
       addToQueue($(this).parents('#newFileFormForm'));
+	}
     //do not submit form
     return false;
   });
