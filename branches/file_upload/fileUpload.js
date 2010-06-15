@@ -6,10 +6,25 @@
 var uploadQueue = new Array();
 var uploadInProgress = false;
 
+// Update by 14.06.2010 - if true messagebox has been showed
+var alertFlag = false;
+
 $(document).ready(function() {
 
   $('.tab-img-u').each(function(){
-    var Nr = parseInt($(this).parent().attr('id').replace('divImgStripUpload',''));
+	// START: update by 14.06.2010 - disable in IE6
+	if($.browser.msie && $.browser.version == 6){
+		// If client is using IE 6, don't use async upload
+		// Remove double slash at the next four lines to show messagebox
+		// if(!alertFlag){
+		// 	alert("Sorry, but you can't to use AJAX uploading in IE 6.");
+		// 	alertFlag = true;
+		// }
+		return;
+	}
+	// END: update by 14.06.2010
+
+	var Nr = parseInt($(this).parent().attr('id').replace('divImgStripUpload',''));
     var radioID = $('.file',this).attr('name');
     $(this).html('<div id="newFileFormForm' + Nr + '">\n'
     +'  <input type="file" name="$new-file" class="file" \/>\n'
@@ -25,8 +40,18 @@ $(document).ready(function() {
 
   //assign onclick event to submit button
   $('#newFileFormForm .submit').click(function(){
-    if ($('#newFileFormForm .file').val().length>0)
+    if ($('#newFileFormForm .file').val().length>0){
+	// START: update by 14.06.2010 - disable in IE6
+	if($.browser.msie && $.browser.version == 6){
+		// If client is using IE 6, don't use async upload
+		// Remove double slash at the next line to show messagebox
+		//alert("Sorry, but you can't to use AJAX uploading in IE 6.");
+		document.getElementById("newFileFormForm").target = '';
+		return false;
+	}
+	// END: update by 14.06.2010
       addToQueue($(this).parents('#newFileFormForm'));
+	}
     //do not submit form
     return false;
   });
