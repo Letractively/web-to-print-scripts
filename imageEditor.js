@@ -1,5 +1,5 @@
 var imageEditorHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop();
-//path to image editor JS file, no trailing slash
+//path to image editor JS file, not trailing slash
 var imageEditorPath = '/java/dev';
 
 jQuery(document).ready(function ($) {
@@ -35,12 +35,15 @@ jQuery(document).ready(function ($) {
       }
   }
 
-  //loading fancybox
-  //css first
-  includeCSS(imageEditorPath + '/fancybox/jquery.fancybox-1.3.1.css');
-  $.getScript(imageEditorHost + imageEditorPath + '/fancybox/jquery.fancybox-1.3.1.pack.js', function () {
-    imageEditorAssignFancybox();
-  });
+  // don't load scripts if IE6
+  if(!($.browser.msie && $.browser.version == 6)){
+    //loading fancybox
+    //css first
+    includeCSS(imageEditorPath + '/fancybox/jquery.fancybox-1.3.1.css');
+    $.getScript(imageEditorHost + imageEditorPath + '/fancybox/jquery.fancybox-1.3.1.pack.js', function () {
+      imageEditorAssignFancybox();
+    });
+  }
 });
 
 function includeCSS (p_file) {
@@ -49,4 +52,12 @@ function includeCSS (p_file) {
   v_css.type = 'text/css';
   v_css.href = p_file;
   document.getElementsByTagName('head')[0].appendChild(v_css);
+}
+
+// rewrite existing function if IE6
+if($.browser.msie && $.browser.version == 6){
+  BeginEditImage = function(id, origH, origW){
+    alert("Sorry, but image editor don't works in IE6");
+    return;
+  }
 }
