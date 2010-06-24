@@ -18,7 +18,6 @@ These scripts have been deployed to production and should be referenced from the
  * */java/jcrop/`*`* - jCrop plugin
  * */java/fancybox/`*`* - fancybox plugin
  * */java/image-edit/`*`* - images for fancybox image editing menu
- * */java/fancybox/`*`* - fancybox plugin
 
 == Documentation requirements ==
 
