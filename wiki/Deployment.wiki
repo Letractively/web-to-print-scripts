@@ -71,9 +71,3 @@ Production scripts used in the core system are copied from their test location t
 Most sites will link to this new production location. Early adopters may keep the links to the test location, so we have to maintain both.
 
 HTTP client cache: 1 day
-
-=== Pre-requisites ===
- # Every script has a corresponding wiki page
- # Dependencies are listed in the wiki
- # The dependencies are in subfolders or in /java/
- # No script modifications are needed to change the location
