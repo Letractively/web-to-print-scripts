@@ -1,0 +1,27 @@
+#summary Rules for development, testing and production deployment
+
+= Introduction =
+
+Most scripts developed here end up in http://zetaprints.com/java as explained in this [http://www.zetaprints.com/help/list-of-web-to-print-scripts/ help post]. You need to follow certain rules of deployment to make it work.
+
+
+= Development =
+
+
+= Testing =
+
+
+= Production =
+
+Production scripts used in the core system are copied from their test location to /java/ by the sysadmin once they are approved. Usually it happens after some time of being used from the test location directly.
+
+# the files are copied to /java/ "as-is", with all the subfolders and satellite files
+# the original test location remains with all the files in there
+# the links to the scripts are published in the [http://www.zetaprints.com/help/list-of-web-to-print-scripts/ list of available scripts]
+
+Most sites will link to this new production location. Early adopters may keep the links to the test location, so we have to maintain both.
+
+HTTP client cache: 1 day
+
+
+
