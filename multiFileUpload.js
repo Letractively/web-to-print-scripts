@@ -1,13 +1,18 @@
 /*
-<li class="uploadQueue"><span class="uploadStatus">Waiting: </span>filename <span class="cancelUpload">Cancel</span></li>
-*/
-//Global variables
-//array of Queue id's
-var uploadQueue = new Array();
-var uploadInProgress = false;
+ * WIKI page
+ * http://code.google.com/p/web-to-print-scripts/wiki/ImageUpload
+ *
+ * multiFileUpload.js dependencies
+ *   imageEditor.js
+ */
 
-// Update by 14.06.2010 - if true messagebox has been showed
-var alertFlag = false;
+/*
+ * Global variables
+ */
+var uploadQueue = new Array(); /* array of Queue id's */
+var uploadInProgress = false;
+var alertFlag = false; /* if true messagebox has been showed */
+/******************/
 
 $(document).ready(function() {
 	
@@ -18,7 +23,7 @@ $(document).ready(function() {
     }
     if ($('#newFileFormForm .file').val().length>0){
       addToQueue($(this).parents('#newFileFormForm'));
-	}
+    }
     //do not submit form
     return false;
   });
@@ -52,7 +57,7 @@ $(document).ready(function() {
     uploadInProgress = true;
   }
 
-  /*Creates hidden form with custom id*/
+  /* Creates hidden form with custom id */
   function cloneUploadForm(e,randomFormId) {
 
     //creating hidden form
