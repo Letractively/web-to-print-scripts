@@ -1,13 +1,20 @@
 /*
-<li class="uploadQueue"><span class="uploadStatus">Waiting: </span>filename <span class="cancelUpload">Cancel</span></li>
-*/
-//Global variables
-//array of Queue id's
-var uploadQueue = new Array();
-var uploadInProgress = false;
+ * WIKI page
+ * http://code.google.com/p/web-to-print-scripts/wiki/ImageUpload
+ *
+ * fileUpload.js dependencies
+ *   imageEditor.js
+ */
 
-// Update by 14.06.2010 - if true messagebox has been showed
-var alertFlag = false;
+/*
+ * Global variables
+ */
+var thumbHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop(); /* http host */
+var thumbPath = thumbHost + '/photothumbs/';                           /* path to uploaded files */
+var alertFlag = false;                                                 /* if true messagebox has been showed */
+var uploadQueue = new Array();                                         /* array of Queue id's */
+var uploadInProgress = false;
+/******************/
 
 $(document).ready(function() {
 
@@ -18,7 +25,7 @@ $(document).ready(function() {
       //   alert("Sorry, but you can't to use AJAX uploading in IE 6.");
       //   alertFlag = true;
       // }
-      return; // exit if IE6
+      return; /* exit if IE6 */
     }
 
     var Nr = parseInt($(this).parent().attr('id').replace('divImgStripUpload',''));
@@ -35,66 +42,53 @@ $(document).ready(function() {
     });
   });
 
-  //assign onclick event to submit button
+  /* assign onclick event to submit button */
   $('#newFileFormForm .submit').click(function(){
     if ($('#newFileFormForm .file').val().length>0){
       if($.browser.msie && $.browser.version == 6){
         // Remove double slash at the next line to show messagebox
         //alert("Sorry, but you can't to use AJAX uploading in IE 6.");
-        //document.getElementById("newFileFormForm").target = '';
-        return true; // If IE6 submit with standart ZP code
+        return true; /* If IE6 submit with standart ZP code */
       }
       addToQueue($(this).parents('#newFileFormForm'));
     }
-    //do not submit form
-    return false;
+    return false; /* do not submit form */
   });
 
   function addToQueue(id) {
     var e=$('#newFileFormForm' + id);
     randomFormId=Math.floor(Math.random()*1000001);
-    //add file name to list
+    /* add file name to list */
     $('.list',e).append('<li class="uploadQueue uploadQueueId'+randomFormId+'"><span class="uploadStatus uploadStatusId'+randomFormId+'">Waiting: </span>'+$('.file',e).val()+' <span class="cancelUpload" id="cancelUpload'+randomFormId+'">Cancel</span></li>');
-    //cancel handler
+    /* cancel handler */
     $('#cancelUpload'+randomFormId).click(function(){
       var currentNr=$(this).attr('id');
       var Nr = parseInt(currentNr.replace('cancelUpload',''));
       uploadQueue=removeArrayElement(uploadQueue,Nr);
       $('.uploadQueueId'+Nr).remove();
       $('iframe[name=hiddenFileUploadIframe'+Nr+']').attr('src','about:blank');
-      //upload not in progress anymore
-      uploadInProgress = false;
-      //enable form
+      uploadInProgress = false; /* upload not in progress anymore */
+      /* enable form */
       $('.file',e).removeAttr('disabled');
       $('.file',e).val('');
-      //start next upload
-      startUpload();
+      startUpload(); /* start next upload */
     });
     cloneUploadForm(e,randomFormId,id);
     startUpload();
     uploadInProgress = true;
   }
 
-  /*Creates hidden form with custom id*/
+  /* Creates hidden form with custom id */
   function cloneUploadForm(e,randomFormId,id) {
-
-    //creating hidden form
-    //var newForm = $(e).clone(true);
     var newForm = $('<form action="?page=img-new" enctype="multipart/form-data" method="post"><input type="hidden" name="Xml" value="1"></form>');
     $(newForm).attr('id','hiddenFileUpload'+randomFormId);
-
-    //if ($.browser.msie) {
-    //msie bug workaround
     var real=$('.file',e);
     var cloned = real.clone(true);
     cloned.insertAfter(real);
     real.appendTo($(newForm));
-    //}
-
     $(newForm).css('display','none');
     $(newForm).attr('target','hiddenFileUploadIframe'+randomFormId);
     $('body').append($(newForm));
-
     //creating iframe
     $('body').append('<iframe name="hiddenFileUploadIframe'+randomFormId+'" style="display:none"></iframe>');
     //add iframe onload event handler
@@ -128,7 +122,7 @@ $(document).ready(function() {
         });
         uploadInProgress = false;
 
-        var src = 'http://realestate.zetaprints.com/photothumbs/' + response.match(/thumb="([^"]*?)"/i).pop();
+        var src = thumbPath + response.match(/thumb="([^"]*?)"/i).pop();
         src = src.replace(/\.(jpg)/i, "_0x100.jpg");
         var imageid = response.match(/imageid="([^"]*?)"/i).pop();
         var td = '<td nowrap="nowrap"><input type="radio" value="' + imageid + '"><span>#1</span><div><a href="" target="_blank"><img height="100px" style="display:block" src="' + src + '"/></a></div></td>';
@@ -209,6 +203,4 @@ $(document).ready(function() {
       });
     }
   }
-
-
 });
