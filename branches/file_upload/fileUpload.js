@@ -11,6 +11,7 @@
  */
 var thumbHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop(); /* http host */
 var thumbPath = thumbHost + '/photothumbs/';                           /* path to uploaded files */
+var ajaxLoaderImg = '/java/dev/20100625/ajax-loader.gif';              /* path to background image */
 var alertFlag = false;                                                 /* if true messagebox has been showed */
 var uploadQueue = new Array();                                         /* array of Queue id's */
 var uploadInProgress = false;
@@ -125,7 +126,7 @@ $(document).ready(function() {
         var src = thumbPath + response.match(/thumb="([^"]*?)"/i).pop();
         src = src.replace(/\.(jpg)/i, "_0x100.jpg");
         var imageid = response.match(/imageid="([^"]*?)"/i).pop();
-        var td = '<td nowrap="nowrap"><input type="radio" value="' + imageid + '"><span>#1</span><div><a href="" target="_blank"><img height="100px" style="display:block" src="' + src + '"/></a></div></td>';
+        var td = '<td nowrap="nowrap"><input type="radio" value="' + imageid + '"><span>#1</span><div style="background-image:url('+ajaxLoaderImg+'); background-position:center center; background-repeat:no-repeat;"><a href="" target="_blank"><img height="100px" style="display:block" src="' + src + '"/></a></div></td>';
         if ($("div[id*=divImgStripLibrary]").length==0) {
           //1st time upload, need to create image container first
           var currentStripCounter1 = 0;
