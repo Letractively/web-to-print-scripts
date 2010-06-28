@@ -34,7 +34,7 @@ jQuery(document).ready(function ($) {
       /* replace <span>Edit</span> to <a href="...">Edit</a> for using FancyBox plug-in */
       $('.image-menu li span').html('<a href="'+imageEditorHost + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
       $('.image-menu li span a').click(function () {
-        $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).parent().parent().parent().attr('id').substring(3) + '?iframe');
+        $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).parents('.image-menu').attr('id').substring(3) + '?iframe');
       });
       $('.image-menu li span a').fancybox( {
         'padding': 0,
@@ -82,6 +82,6 @@ function includeCSS (p_file) {
 }
 
 /* rewrite existing function, use only FancyBox plug-in */
-BeginEditImage = function(id, origH, origW){
+function BeginEditImage(id, origH, origW){
   return;
 }
