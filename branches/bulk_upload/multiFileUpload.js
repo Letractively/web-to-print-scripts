@@ -148,6 +148,19 @@ $(document).ready(function() {
         'type': 'iframe',
         'titleShow': false
       });
+      /* replace <span>Edit</span> to <a href="...">Edit</a> for using FancyBox plug-in */
+      $('.image-menu li span').html('<a href="'+imageEditorHost + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
+      $('.image-menu li span a').click(function () {
+        $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).parents('.image-menu').attr('id').substring(3) + '?iframe');
+      });
+      $('.image-menu li span a').fancybox( {
+        'padding': 0,
+        'hideOnOverlayClick': false,
+        'hideOnContentClick': false,
+        'centerOnScroll': false,
+        'type': 'iframe',
+        'titleShow': false
+      });
     }
   }
 
