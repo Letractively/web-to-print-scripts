@@ -31,11 +31,24 @@ jQuery(document).ready(function ($) {
         'type': 'iframe',
         'titleShow': false
       });
+      /* replace <span>Edit</span> to <a href="...">Edit</a> for using FancyBox plug-in */
+      $('.image-menu li span').html('<a href="'+imageEditorHost + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
+      $('.image-menu li span a').click(function () {
+        $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).parent().parent().parent().attr('id').substring(3) + '?iframe');
+      });
+      $('.image-menu li span a').fancybox( {
+        'padding': 0,
+        'hideOnOverlayClick': false,
+        'hideOnContentClick': false,
+        'centerOnScroll': false,
+        'type': 'iframe',
+        'titleShow': false
+      });
     }
     else
       if($(".image-content input:radio").length > 0) {
         $(".image-content input:radio").parent().find('a').has('img').click(function () {
-          $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).parents().find('input:radio').first().attr('value') + '?iframe');
+          $(this).attr('href',imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).parents().find('input:radio').first().attr('value') + '?iframe');
         });
         $(".image-content input:radio").parent().find('a').has('img').attr('href', imageEditorHost+imageEditorPath + '/imageEditor.html?iframe');
         $(".image-content input:radio").parent().find('a').has('img').fancybox( {
@@ -68,10 +81,7 @@ function includeCSS (p_file) {
   document.getElementsByTagName('head')[0].appendChild(v_css);
 }
 
-/* rewrite existing function if IE6 */
-if($.browser.msie && $.browser.version == 6){
-  BeginEditImage = function(id, origH, origW){
-    alert("Sorry, but image editor don't works in IE6");
-    return;
-  }
+/* rewrite existing function, use only FancyBox plug-in */
+BeginEditImage = function(id, origH, origW){
+  return;
 }
