@@ -11,47 +11,23 @@
 /*
  * Global variables
  */
-var imageEditorHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop(); /* http host */
-var imageEditorPath = '/java/dev';                                           /* path to image editor JS file, not trailing slash */
+var imageEditorPath = '/java/dev'; /* path to image editor JS file, not trailing slash */
 /******************/
 
 jQuery(document).ready(function ($) {
 
   function imageEditorAssignFancybox() {
-    if ($('.middle a').length > 0) {
-      $('.middle a').click(function () {
-        $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).children().attr('id').substring(3) + '?iframe');
-      });
-      $('.middle a').attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?iframe');
-      $('.middle a').fancybox( {
-        'padding': 0,
-        'hideOnOverlayClick': false,
-        'hideOnContentClick': false,
-        'centerOnScroll': false,
-        'type': 'iframe',
-        'titleShow': false
-      });
-      /* replace <span>Edit</span> to <a href="...">Edit</a> for using FancyBox plug-in */
-      $('.image-menu li span').html('<a href="'+imageEditorHost + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
-      $('.image-menu li span a').click(function () {
-        $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).parents('.image-menu').attr('id').substring(3) + '?iframe');
-      });
-      $('.image-menu li span a').fancybox( {
-        'padding': 0,
-        'hideOnOverlayClick': false,
-        'hideOnContentClick': false,
-        'centerOnScroll': false,
-        'type': 'iframe',
-        'titleShow': false
-      });
-    }
-    else
-      if($(".image-content input:radio").length > 0) {
-        $(".image-content input:radio").parent().find('a').has('img').click(function () {
-          $(this).attr('href',imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).parents().find('input:radio').first().attr('value') + '?iframe');
+    if($('.middle a').length > 0) { /* My Images page */
+      $('div#imageList > div[id]').each(function(){ /* find all <div> in <div id="imageList"> */
+        id = $(this).attr('id'); /* get ImageID */
+        /* replace image listener */
+				x = $(this).find('.middle a');
+        x.attr('name',id);
+        x.click(function () {
+          $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
         });
-        $(".image-content input:radio").parent().find('a').has('img').attr('href', imageEditorHost+imageEditorPath + '/imageEditor.html?iframe');
-        $(".image-content input:radio").parent().find('a').has('img').fancybox( {
+        x.attr('href', imageEditorPath + '/imageEditor.html?iframe');
+        x.fancybox( {
           'padding': 0,
           'hideOnOverlayClick': false,
           'hideOnContentClick': false,
@@ -59,16 +35,57 @@ jQuery(document).ready(function ($) {
           'type': 'iframe',
           'titleShow': false
         });
-      }
+				/* replace Edit button listener */
+        x = $(this).find("ul[id]"); /* find native image-editor menu */
+        y = x.find('li:first span');
+        if(x.attr('id').substring(0,3)=='mul'){ /* if editable image */
+          y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
+        }else{ 
+          y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Delete</a>');
+        }
+        x.find('li:first').removeAttr("onclick"); /* remove onclick listener */
+        y = y.find('a');
+        y.click(function () {
+          $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
+        });
+        y.fancybox( {
+          'padding': 0,
+          'hideOnOverlayClick': false,
+          'hideOnContentClick': false,
+          'centerOnScroll': false,
+          'type': 'iframe',
+          'titleShow': false
+        });
+				/* hide title editor */
+        $(this).find("td.title input:text").css('display','none');
+      });
+    }else if($(".image-content input:radio").length > 0) { /* Preview page */
+      $("a[id^='img-']").each(function(){ /* find all tags <a id="img-..."> */
+        $(this).click(function(){
+          $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('name') + '?iframe');
+        });
+        $(this).attr('href', imageEditorPath + '/imageEditor.html?iframe');
+        $(this).fancybox( {
+          'padding': 0,
+          'hideOnOverlayClick': false,
+          'hideOnContentClick': false,
+          'centerOnScroll': false,
+          'type': 'iframe',
+          'titleShow': false
+        });
+      });
+    }
   }
 
   /* don't load scripts if IE6 */
   if(!($.browser.msie && $.browser.version == 6)){
     /* loading fancybox */
     includeCSS(imageEditorPath + '/fancybox/jquery.fancybox-1.3.1.css'); /* css first */
-    $.getScript(imageEditorHost + imageEditorPath + '/fancybox/jquery.fancybox-1.3.1.pack.js', function () {
+    $.getScript(imageEditorPath + '/fancybox/jquery.fancybox-1.3.1.pack.js', function () {
       imageEditorAssignFancybox();
     });
+  }else{
+    $('div#imageList > div[id] ul[id]').remove(); /* find native image-editor menu */
   }
 });
 
@@ -79,9 +96,4 @@ function includeCSS (p_file) {
   v_css.type = 'text/css';
   v_css.href = p_file;
   document.getElementsByTagName('head')[0].appendChild(v_css);
-}
-
-/* rewrite existing function, use only FancyBox plug-in */
-function BeginEditImage(id, origH, origW){
-  return;
 }
