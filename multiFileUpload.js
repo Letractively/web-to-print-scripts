@@ -107,7 +107,8 @@ $(document).ready(function() {
         
         uploadInProgress = false;
 
-        imageEditorAssignFancybox();
+        x = $("div:first",'<div>'+response+'</div>');
+        imageEditorAssignFancybox(x.attr('id'));
 
         //start next file upload
         startUpload();
@@ -132,15 +133,15 @@ $(document).ready(function() {
     }
   }
 
-  function imageEditorAssignFancybox() {
-    if (typeof(imageEditorHost)=="undefined")
-      return false;
-    if ($('.middle a').length > 0) {
-      $('.middle a').click(function () {
-        $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).children().attr('id').substring(3) + '?iframe');
+  function imageEditorAssignFancybox(id) {
+    $("div#imageList > div[id='"+id+"']").each(function(){
+      x = $(this).find('.middle a');
+      x.attr('name',id);
+      x.click(function () {
+        $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
       });
-      $('.middle a').attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?iframe');
-      $('.middle a').fancybox( {
+      x.attr('href', imageEditorPath + '/imageEditor.html?iframe');
+      x.fancybox( {
         'padding': 0,
         'hideOnOverlayClick': false,
         'hideOnContentClick': false,
@@ -148,12 +149,19 @@ $(document).ready(function() {
         'type': 'iframe',
         'titleShow': false
       });
-      /* replace <span>Edit</span> to <a href="...">Edit</a> for using FancyBox plug-in */
-      $('.image-menu li span').html('<a href="'+imageEditorHost + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
-      $('.image-menu li span a').click(function () {
-        $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).parents('.image-menu').attr('id').substring(3) + '?iframe');
+      x = $(this).find("ul[id]"); /* find native image-editor menu */
+      y = x.find('li:first span');
+      if(x.attr('id').substring(0,3)=='mul'){ /* if editable image */
+        y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
+      }else{ 
+        y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Delete</a>');
+      }
+      x.find('li:first').removeAttr("onclick"); /* remove onclick listener */
+      y = y.find('a');
+      y.click(function () {
+        $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
       });
-      $('.image-menu li span a').fancybox( {
+      y.fancybox( {
         'padding': 0,
         'hideOnOverlayClick': false,
         'hideOnContentClick': false,
@@ -161,7 +169,9 @@ $(document).ready(function() {
         'type': 'iframe',
         'titleShow': false
       });
-    }
+      /* hide title editor */
+      $(this).find("td.title input:text").css('display','none');
+    });
   }
 
 });
@@ -170,6 +180,9 @@ $(document).ready(function() {
 function SubmitNewFile() {
   if($.browser.msie && $.browser.version == 6){
     FileSubmitFormHide(); // If IE6, use standart ZP upload
+    $('iframe[name=newFileFrame]').load(function(){
+      $('div#imageList > div[id] ul[id]').remove(); /* find native image-editor menu */
+    });
   }else{
     document.getElementById('newFileFormForm').reset();
   }
