@@ -9,8 +9,7 @@
 /*
  * Global variables
  */
-var thumbHost = window.location.href.match(/(http:\/\/[^\/]*)/).pop(); /* http host */
-var thumbPath = thumbHost + '/photothumbs/';                           /* path to uploaded files */
+var thumbPath = '/photothumbs/';                                       /* path to uploaded files */
 var ajaxLoaderImg = '/java/dev/20100625/ajax-loader.gif';              /* path to background image */
 var alertFlag = false;                                                 /* if true messagebox has been showed */
 var uploadQueue = new Array();                                         /* array of Queue id's */
@@ -123,10 +122,11 @@ $(document).ready(function() {
         });
         uploadInProgress = false;
 
+        var libLength = $("div[id=divImgStripLibrary1] table td").length - 1; /* get count images in the first scroll*/
         var src = thumbPath + response.match(/thumb="([^"]*?)"/i).pop();
         src = src.replace(/\.(jpg)/i, "_0x100.jpg");
         var imageid = response.match(/imageid="([^"]*?)"/i).pop();
-        var td = '<td nowrap="nowrap"><input type="radio" value="' + imageid + '"><span>#1</span><div style="background-image:url('+ajaxLoaderImg+'); background-position:center center; background-repeat:no-repeat;"><a href="" target="_blank"><img height="100px" style="display:block" src="' + src + '"/></a></div></td>';
+        var td = '<td nowrap="nowrap"><input type="radio" value="' + imageid + '"><span>#' + libLength + '</span><div style="background-image:url('+ajaxLoaderImg+'); background-position:center center; background-repeat:no-repeat;display:block;height:100px;min-width:100px;"><a href="" name="'+imageid+'" target="_blank"><img height="100px" style="display:block" src="' + src + '"/></a></div></td>';
         if ($("div[id*=divImgStripLibrary]").length==0) {
           //1st time upload, need to create image container first
           var currentStripCounter1 = 0;
@@ -150,11 +150,12 @@ $(document).ready(function() {
           $('input[type=radio]',currentStrip).attr('name',$('#radioID', currentStrip).html());
           if ($(this).attr('id') != "divImgStripLibrary" + currentStripCounter) {
             $('img', td).load(function () {
+							$(this).attr('display','block');
               $(currentStrip).scrollLeft($(currentStrip).scrollLeft() + $('input[value='+imageid+']').parent().outerWidth());
             });
           }
         });
-        imageEditorAssignFancybox();
+        imageEditorAssignFancybox(imageid, libLength); /* find by ImageID */
         $('#divImgStripLibrary' + currentStripCounter).find('input[value*=-]:radio').first().attr('checked', 'true');
         tabToggleTabbedMenuBlockImg('liTabImgLibrary' + currentStripCounter, 'divImgStripLibrary' + currentStripCounter);
         //start next file upload
@@ -186,15 +187,14 @@ $(document).ready(function() {
     }
   }
 
-  function imageEditorAssignFancybox() {
-    if (typeof(imageEditorHost)=="undefined")
-      return false;
-    if($(".image-content input:radio").length > 0) {
-      $(".image-content input:radio").parent().find('a').has('img').click(function () {
-        $(this).attr('href', imageEditorHost + imageEditorPath + '/imageEditor.html?imageId=' + $(this).parents().find('input:radio').first().attr('value') + '?iframe');
+  function imageEditorAssignFancybox(id,libNum) {
+    $("a[name='"+id+"']").each(function(i){
+      $(this).click(function(){
+        $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('name') + '?iframe');
       });
-      $(".image-content input:radio").parent().find('a').has('img').attr('href', imageEditorHost+imageEditorPath + '/imageEditor.html?iframe');
-      $(".image-content input:radio").parent().find('a').has('img').fancybox( {
+      $(this).attr('href', imageEditorPath + '/imageEditor.html?iframe');
+      $(this).attr('id', 'img-l-' + (i + 1) + '-' + libNum);
+      $(this).fancybox( {
         'padding': 0,
         'hideOnOverlayClick': false,
         'hideOnContentClick': false,
@@ -202,6 +202,6 @@ $(document).ready(function() {
         'type': 'iframe',
         'titleShow': false
       });
-    }
+    });
   }
 });
