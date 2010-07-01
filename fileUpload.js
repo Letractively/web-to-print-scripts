@@ -150,7 +150,6 @@ $(document).ready(function() {
           $('input[type=radio]',currentStrip).attr('name',$('#radioID', currentStrip).html());
           if ($(this).attr('id') != "divImgStripLibrary" + currentStripCounter) {
             $('img', td).load(function () {
-							$(this).attr('display','block');
               $(currentStrip).scrollLeft($(currentStrip).scrollLeft() + $('input[value='+imageid+']').parent().outerWidth());
             });
           }
