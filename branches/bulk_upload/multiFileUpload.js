@@ -169,8 +169,6 @@ $(document).ready(function() {
         'type': 'iframe',
         'titleShow': false
       });
-      /* hide title editor */
-      $(this).find("td.title input:text").css('display','none');
     });
   }
 

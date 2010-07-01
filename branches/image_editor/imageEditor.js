@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
       $('div#imageList > div[id]').each(function(){ /* find all <div> in <div id="imageList"> */
         id = $(this).attr('id'); /* get ImageID */
         /* replace image listener */
-				x = $(this).find('.middle a');
+        x = $(this).find('.middle a');
         x.attr('name',id);
         x.click(function () {
           $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
           'type': 'iframe',
           'titleShow': false
         });
-				/* replace Edit button listener */
+        /* replace Edit button listener */
         x = $(this).find("ul[id]"); /* find native image-editor menu */
         y = x.find('li:first span');
         if(x.attr('id').substring(0,3)=='mul'){ /* if editable image */
@@ -56,8 +56,6 @@ jQuery(document).ready(function ($) {
           'type': 'iframe',
           'titleShow': false
         });
-				/* hide title editor */
-        $(this).find("td.title input:text").css('display','none');
       });
     }else if($(".image-content input:radio").length > 0) { /* Preview page */
       $("a[id^='img-']").each(function(){ /* find all tags <a id="img-..."> */
