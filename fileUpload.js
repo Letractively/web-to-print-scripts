@@ -189,6 +189,7 @@ $(document).ready(function() {
   function imageEditorAssignFancybox(id,libNum) {
     $("a[name='"+id+"']").each(function(i){
       $(this).click(function(){
+        $("input:radio[value='" + $(this).attr('name') + "']").attr('checked','checked');
         $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('name') + '?iframe');
       });
       $(this).attr('href', imageEditorPath + '/imageEditor.html?iframe');
