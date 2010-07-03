@@ -15,7 +15,7 @@ var imageEditorPath = '/java/dev'; /* path to image editor JS file, not trailing
 /******************/
 
 jQuery(document).ready(function ($) {
-
+  
   function imageEditorAssignFancybox() {
     if($('.middle a').length > 0) { /* My Images page */
       $('div#imageList > div[id]').each(function(){ /* find all <div> in <div id="imageList"> */
@@ -27,6 +27,7 @@ jQuery(document).ready(function ($) {
           $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
         });
         x.attr('href', imageEditorPath + '/imageEditor.html?iframe');
+        x.attr('title', "Click to edit");
         x.fancybox( {
           'padding': 0,
           'hideOnOverlayClick': false,
@@ -59,18 +60,36 @@ jQuery(document).ready(function ($) {
       });
     }else if($(".image-content input:radio").length > 0) { /* Preview page */
       $("a[id^='img-']").each(function(){ /* find all tags <a id="img-..."> */
-        $(this).click(function(){
-          $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('name') + '?iframe');
-        });
-        $(this).attr('href', imageEditorPath + '/imageEditor.html?iframe');
-        $(this).fancybox( {
-          'padding': 0,
-          'hideOnOverlayClick': false,
-          'hideOnContentClick': false,
-          'centerOnScroll': false,
-          'type': 'iframe',
-          'titleShow': false
-        });
+        if(this.id.indexOf('img-s-')<0){
+          /* user's image */
+          $(this).click(function(){
+            $("input:radio[value='" + $(this).attr('name') + "']").attr('checked','checked');
+            $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('name') + '?iframe');
+          });
+          $(this).attr('href', imageEditorPath + '/imageEditor.html?iframe');
+          $(this).fancybox( {
+            'padding': 0,
+            'hideOnOverlayClick': false,
+            'hideOnContentClick': false,
+            'centerOnScroll': false,
+            'type': 'iframe',
+            'titleShow': false
+          });
+        }else{
+          /* stock image */
+          $(this).click(function(){
+            $("input:radio[value='" + $(this).attr('name') + "']").attr('checked','checked');
+          });
+          $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('href') + '?iframe');
+          $(this).fancybox( {
+            'padding': 0,
+            'hideOnOverlayClick': false,
+            'hideOnContentClick': false,
+            'centerOnScroll': false,
+            'type': 'iframe',
+            'titleShow': false
+          });
+        }
       });
     }
   }

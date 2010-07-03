@@ -73,20 +73,25 @@ jQuery(document).ready(function ($) {
 
   //initial image load
   function imageEditorLoadImage () {
-    parent.jQuery.fancybox.showActivity();
-    $.ajax({
-      url: imageEditorUpdateURL + '?page=img-props' + imageEditorDelimeter + 'ImageID=' + imageEditorId + imageEditorQueryAppend,
-      type: 'POST',
-      datatype: 'XML',
-      data: 'zetaprints-action=img&zetaprints-ImageID=' + imageEditorId + imageEditorQueryAppend,
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-          alert(zetaprints_trans('Can\'t load image:') + ' ' + textStatus);
-        },
-      success: function (data, textStatus) {
-        imageEditorApplyImage(data);
-        imageEditorInfoBox('Image Loaded');
-      }
-    });
+    if(imageEditorId.indexOf('.')>=0){
+      /* load image without XMLHttpRequest (stock image) */
+      imageEditorApplyStockImage(imageEditorId);
+    }else{
+      parent.jQuery.fancybox.showActivity();
+      $.ajax({
+        url: imageEditorUpdateURL + '?page=img-props' + imageEditorDelimeter + 'ImageID=' + imageEditorId + imageEditorQueryAppend,
+        type: 'POST',
+        datatype: 'XML',
+        data: 'zetaprints-action=img&zetaprints-ImageID=' + imageEditorId + imageEditorQueryAppend,
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert(zetaprints_trans('Can\'t load image:') + ' ' + textStatus);
+          },
+        success: function (data, textStatus) {
+          imageEditorApplyImage(data);
+          imageEditorInfoBox('Image Loaded');
+        }
+      });
+    }
   }
 
   //perform image rotate
@@ -105,6 +110,22 @@ jQuery(document).ready(function ($) {
         imageEditorInfoBox('Image Rotated');
       }
     });
+  }
+
+  // load stock image
+  function imageEditorApplyStockImage (src) {
+    $('#imageEditorPreview').hide();
+    $('#imageEditorPreview').attr("src", "");
+    $('#imageEditorCaption').hide();
+    parent.jQuery.fancybox.showActivity();
+
+    $('#imageEditorRestore').hide();
+    $('#imageEditorRotateRight').hide();
+    $('#imageEditorRotateLeft').hide();
+    $('#imageEditorCrop').hide();
+    $('#imageEditorDelete').hide();
+
+    $('#imageEditorPreview').attr("src", imageEditorHost + '/' + src);
   }
 
   //parse xml output and change image
@@ -127,6 +148,12 @@ jQuery(document).ready(function ($) {
     else {
       $('#imageEditorRestore').show();
       $('#imageEditorLeft #imageEditorRestore').attr('title', zetaprints_trans('Undo all changes') + '. ' + zetaprints_trans('Original size') + ': ' + uw + ' x ' + uh + ' px.');
+    }
+    mime=getRegexpValue(xml, /MIME="([^"]*?)"/);
+    if(mime=='image/tif'){
+      $('#imageEditorRotateRight').hide();
+      $('#imageEditorRotateLeft').hide();
+      $('#imageEditorCrop').hide();
     }
     if (!h || !w) {
       alert(zetaprints_trans('Unknown error occured'));
@@ -232,6 +259,14 @@ jQuery(document).ready(function ($) {
   //image load handler. Fade in on load, hide loading icon, show image caption
   $('#imageEditorPreview').load(function(){
     $('#imageEditorPreview').fadeIn().ready( function () {
+      /* for stock images: get width & height and set fancybox window size */
+      var h = $('#imageEditorPreview').height();
+      var w = $('#imageEditorPreview').width();
+      $('#imageEditorHeightInfo').html(h + ' px');
+      $('#imageEditorWidthInfo').html(w + ' px');
+      imageEditorApplySize(w, h);
+      imageEditorInfoBox('Image Loaded');
+
       parent.jQuery('#fancybox-loading').fadeOut();
       $('#imageEditorCaption').show();
     });
