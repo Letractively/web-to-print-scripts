@@ -141,6 +141,7 @@ $(document).ready(function() {
         $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
       });
       x.attr('href', imageEditorPath + '/imageEditor.html?iframe');
+      x.attr('title', "Click to edit");
       x.fancybox( {
         'padding': 0,
         'hideOnOverlayClick': false,
