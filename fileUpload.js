@@ -9,10 +9,10 @@
 /*
  * Global variables
  */
-var thumbPath = '/photothumbs/';                                       /* path to uploaded files */
-var ajaxLoaderImg = '/java/dev/20100625/ajax-loader.gif';              /* path to background image */
-var alertFlag = false;                                                 /* if true messagebox has been showed */
-var uploadQueue = new Array();                                         /* array of Queue id's */
+var thumbPath = '/photothumbs/';            /* path to uploaded files */
+var ajaxLoaderImg = 'img/ajax-loader.gif';  /* path to background image */
+var alertFlag = false;                      /* if true messagebox has been showed */
+var uploadQueue = new Array();              /* array of Queue id's */
 var uploadInProgress = false;
 /******************/
 
