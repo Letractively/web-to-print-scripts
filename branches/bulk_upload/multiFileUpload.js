@@ -107,6 +107,8 @@ $(document).ready(function() {
         
         uploadInProgress = false;
 
+        frm = $("div[id='asyncFrame']",'<div>'+response+'</div>').html();
+        //$('#imageFramesAndForms').append(frm);
         x = $("div:first",'<div>'+response+'</div>');
         imageEditorAssignFancybox(x.attr('id'));
 
@@ -134,55 +136,95 @@ $(document).ready(function() {
   }
 
   function imageEditorAssignFancybox(id) {
-    $("div#imageList > div[id='"+id+"']").each(function(){
-      x = $(this).find('.middle a');
-      x.attr('name',id);
-      x.click(function () {
-        $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
-      });
-      x.attr('href', imageEditorPath + '/imageEditor.html?iframe');
-      x.attr('title', "Click to edit");
-      x.fancybox( {
-        'padding': 0,
-        'hideOnOverlayClick': false,
-        'hideOnContentClick': false,
-        'centerOnScroll': false,
-        'type': 'iframe',
-        'titleShow': false
-      });
-      x = $(this).find("ul[id]"); /* find native image-editor menu */
-      y = x.find('li:first span');
-      if(x.attr('id').substring(0,3)=='mul'){ /* if editable image */
-        y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
-      }else{ 
-        y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Delete</a>');
-      }
-      x.find('li:first').removeAttr("onclick"); /* remove onclick listener */
-      y = y.find('a');
-      y.click(function () {
-        $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
-      });
-      y.fancybox( {
-        'padding': 0,
-        'hideOnOverlayClick': false,
-        'hideOnContentClick': false,
-        'centerOnScroll': false,
-        'type': 'iframe',
-        'titleShow': false
-      });
-    });
+    replaceOldImageEditor(id);
   }
 
 });
 
-//overwrite existing function
+function replaceOldImageEditor(id){
+  $("div#imageList > div[id='"+id+"']").each(function(){
+    if($.browser.msie && $.browser.version == 6){
+      $("div#imageList > div[id='"+id+"'] ul[id]").remove(); /* find native image-editor menu */
+      $("div#imageList > div[id='"+id+"'] input:text").attr('disabled','disabled'); /* find native image-editor menu */
+      return;
+    }
+    x = $(this).find('.middle a');
+    x.attr('name',id);
+    x.click(function () {
+      $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
+    });
+    x.attr('href', imageEditorPath + '/imageEditor.html?iframe');
+    x.attr('title', "Click to edit");
+    x.fancybox( {
+      'padding': 0,
+      'hideOnOverlayClick': false,
+      'hideOnContentClick': false,
+      'centerOnScroll': false,
+      'type': 'iframe',
+      'titleShow': false
+    });
+    x = $(this).find("ul[id]"); /* find native image-editor menu */
+    y = x.find('li:first span');
+    if(x.attr('id').substring(0,3)=='mul'){ /* if editable image */
+      y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
+    }else{ 
+      y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Delete</a>');
+    }
+    x.find('li:first').removeAttr("onclick"); /* remove onclick listener */
+    y = y.find('a');
+    y.click(function () {
+      $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
+    });
+    y.fancybox( {
+      'padding': 0,
+      'hideOnOverlayClick': false,
+      'hideOnContentClick': false,
+      'centerOnScroll': false,
+      'type': 'iframe',
+      'titleShow': false
+    });
+  });
+}
+//overwrite existing functions
 function SubmitNewFile() {
   if($.browser.msie && $.browser.version == 6){
     FileSubmitFormHide(); // If IE6, use standart ZP upload
-    $('iframe[name=newFileFrame]').load(function(){
-      $('div#imageList > div[id] ul[id]').remove(); /* find native image-editor menu */
-    });
   }else{
     document.getElementById('newFileFormForm').reset();
   }
+}
+
+function ReplaceElementHTML(id, newHTML, origH, origW){
+  var elem = document.getElementById(id);
+  if (elem) {
+    elem.innerHTML=newHTML;
+    //if (origH) BeginEditImage(id, origH, origW)
+    replaceOldImageEditor(id);
+  }
+}
+function InsertElementHTML(newID, insertBeforeID, newHTML, newHTMLframe){
+  //create new FORM and IFRAME
+  var newFormFrameDiv=document.getElementById('imageFramesAndForms');
+  var div=document.createElement("DIV");
+  div.innerHTML=newHTMLframe;
+  newFormFrameDiv.appendChild(div);
+  //create the new div 
+  div=document.createElement("DIV");
+  div.id=newID;
+  div.innerHTML=newHTML;
+  var parent=document.getElementById('imageList');
+  var oldDiv=document.getElementById(insertBeforeID);
+  if (oldDiv){
+    parent.insertBefore(div,oldDiv); //insert before the old one
+  }else{
+    //insert at the beginning
+    var fc=parent.firstChild;
+    if (fc){
+      parent.insertBefore(div, parent.firstChild);
+    }else{
+      parent.appendChild(div);
+    }
+  }
+  replaceOldImageEditor(newID);
+  FileSubmitFormShow();
 }

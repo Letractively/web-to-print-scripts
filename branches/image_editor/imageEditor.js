@@ -20,43 +20,7 @@ jQuery(document).ready(function ($) {
     if($('.middle a').length > 0) { /* My Images page */
       $('div#imageList > div[id]').each(function(){ /* find all <div> in <div id="imageList"> */
         id = $(this).attr('id'); /* get ImageID */
-        /* replace image listener */
-        x = $(this).find('.middle a');
-        x.attr('name',id);
-        x.click(function () {
-          $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
-        });
-        x.attr('href', imageEditorPath + '/imageEditor.html?iframe');
-        x.attr('title', "Click to edit");
-        x.fancybox( {
-          'padding': 0,
-          'hideOnOverlayClick': false,
-          'hideOnContentClick': false,
-          'centerOnScroll': false,
-          'type': 'iframe',
-          'titleShow': false
-        });
-        /* replace Edit button listener */
-        x = $(this).find("ul[id]"); /* find native image-editor menu */
-        y = x.find('li:first span');
-        if(x.attr('id').substring(0,3)=='mul'){ /* if editable image */
-          y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
-        }else{ 
-          y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Delete</a>');
-        }
-        x.find('li:first').removeAttr("onclick"); /* remove onclick listener */
-        y = y.find('a');
-        y.click(function () {
-          $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
-        });
-        y.fancybox( {
-          'padding': 0,
-          'hideOnOverlayClick': false,
-          'hideOnContentClick': false,
-          'centerOnScroll': false,
-          'type': 'iframe',
-          'titleShow': false
-        });
+        replaceOldImageEditor(id);
       });
     }else if($(".image-content input:radio").length > 0) { /* Preview page */
       $("a[id^='img-']").each(function(){ /* find all tags <a id="img-..."> */
@@ -103,6 +67,7 @@ jQuery(document).ready(function ($) {
     });
   }else{
     $('div#imageList > div[id] ul[id]').remove(); /* find native image-editor menu */
+    $("div#imageList > div[id] input:text").attr('disabled','disabled'); /* find native image-editor menu */
   }
 });
 
@@ -113,4 +78,53 @@ function includeCSS (p_file) {
   v_css.type = 'text/css';
   v_css.href = p_file;
   document.getElementsByTagName('head')[0].appendChild(v_css);
+}
+
+function replaceOldImageEditor(id){
+  $("div#imageList > div[id='"+id+"']").each(function(){
+    x = $(this).find('.middle a');
+    x.attr('name',id);
+    x.click(function () {
+      $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
+    });
+    x.attr('href', imageEditorPath + '/imageEditor.html?iframe');
+    x.attr('title', "Click to edit");
+    x.fancybox( {
+      'padding': 0,
+      'hideOnOverlayClick': false,
+      'hideOnContentClick': false,
+      'centerOnScroll': false,
+      'type': 'iframe',
+      'titleShow': false
+    });
+    x = $(this).find("ul[id]"); /* find native image-editor menu */
+    y = x.find('li:first span');
+    if(x.attr('id').substring(0,3)=='mul'){ /* if editable image */
+      y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Edit</a>');
+    }else{ 
+      y.html('<a name="'+id+'" href="' + imageEditorPath + '/imageEditor.html?iframe'+'">Delete</a>');
+    }
+    x.find('li:first').removeAttr("onclick"); /* remove onclick listener */
+    y = y.find('a');
+    y.click(function () {
+      $(this).attr('href', imageEditorPath + '/imageEditor.html?imageId=' + this.name + '?iframe');
+    });
+    y.fancybox( {
+      'padding': 0,
+      'hideOnOverlayClick': false,
+      'hideOnContentClick': false,
+      'centerOnScroll': false,
+      'type': 'iframe',
+      'titleShow': false
+    });
+  });
+}
+//overwrite existing functions
+function ReplaceElementHTML(id, newHTML, origH, origW){
+  var elem = document.getElementById(id);
+  if (elem) {
+    elem.innerHTML=newHTML;
+    //if (origH) BeginEditImage(id, origH, origW)
+    replaceOldImageEditor(id);
+  }
 }
