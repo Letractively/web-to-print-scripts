@@ -1560,7 +1560,6 @@ span#designed-by a /* [Previous orders] button*/
 		font-size:9pt;
 		width:120px;
 		height:28px;
-		position:relative;
 		top:1px;
 	}
 	#newFileFormForm .submit:hover
@@ -2530,3 +2529,11 @@ fieldset#order-fs-rego /* "New user registration" box in order form */
 			text-decoration:none;
 		}
 /*###################### Image Uploading End ###########################*/
+.preview_loader{
+  background-image:url(img/ajax-loader.gif);
+  background-position:center center;
+  background-repeat:no-repeat;
+  display:block;
+  height:100px;
+  min-width:100px;
+}
