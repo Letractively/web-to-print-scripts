@@ -11,7 +11,6 @@
  */
 var uploadQueue = new Array(); /* array of Queue id's */
 var uploadInProgress = false;
-var alertFlag = false; /* if true messagebox has been showed */
 /******************/
 
 $(document).ready(function() {
@@ -198,8 +197,11 @@ function ReplaceElementHTML(id, newHTML, origH, origW){
   var elem = document.getElementById(id);
   if (elem) {
     elem.innerHTML=newHTML;
-    //if (origH) BeginEditImage(id, origH, origW)
-    replaceOldImageEditor(id);
+    if($.browser.msie && $.browser.version == 6){
+      if (origH) BeginEditImage(id, origH, origW)
+    }else{
+      replaceOldImageEditor(id);
+    }
   }
 }
 function InsertElementHTML(newID, insertBeforeID, newHTML, newHTMLframe){
@@ -225,6 +227,8 @@ function InsertElementHTML(newID, insertBeforeID, newHTML, newHTMLframe){
       parent.appendChild(div);
     }
   }
-  replaceOldImageEditor(newID);
+  if(!($.browser.msie && $.browser.version == 6)){
+    replaceOldImageEditor(newID);
+  }
   FileSubmitFormShow();
 }
