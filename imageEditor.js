@@ -11,7 +11,7 @@
 /*
  * Global variables
  */
-var imageEditorPath = '/java/dev'; /* path to image editor JS file, not trailing slash */
+var imageEditorPath = '/java/dev/20100707/image-editor'; /* path to image editor JS file, not trailing slash */
 /******************/
 
 jQuery(document).ready(function ($) {
@@ -65,9 +65,6 @@ jQuery(document).ready(function ($) {
     $.getScript(imageEditorPath + '/fancybox/jquery.fancybox-1.3.1.pack.js', function () {
       imageEditorAssignFancybox();
     });
-  }else{
-    $('div#imageList > div[id] ul[id]').remove(); /* find native image-editor menu */
-    $("div#imageList > div[id] input:text").attr('disabled','disabled'); /* find native image-editor menu */
   }
 });
 
@@ -124,7 +121,10 @@ function ReplaceElementHTML(id, newHTML, origH, origW){
   var elem = document.getElementById(id);
   if (elem) {
     elem.innerHTML=newHTML;
-    //if (origH) BeginEditImage(id, origH, origW)
-    replaceOldImageEditor(id);
+    if($.browser.msie && $.browser.version == 6){
+      if (origH) BeginEditImage(id, origH, origW)
+    }else{
+      replaceOldImageEditor(id);
+    }
   }
 }

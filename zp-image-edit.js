@@ -150,7 +150,7 @@ jQuery(document).ready(function ($) {
       $('#imageEditorLeft #imageEditorRestore').attr('title', zetaprints_trans('Undo all changes') + '. ' + zetaprints_trans('Original size') + ': ' + uw + ' x ' + uh + ' px.');
     }
     mime=getRegexpValue(xml, /MIME="([^"]*?)"/);
-    if(mime=='image/tif'){
+    if(mime=='image/tif' || mime=='application/eps'){
       $('#imageEditorRotateRight').hide();
       $('#imageEditorRotateLeft').hide();
       $('#imageEditorCrop').hide();
