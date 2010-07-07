@@ -11,7 +11,6 @@
  */
 var thumbPath = '/photothumbs/';            /* path to uploaded files */
 var ajaxLoaderImg = 'img/ajax-loader.gif';  /* path to background image */
-var alertFlag = false;                      /* if true messagebox has been showed */
 var uploadQueue = new Array();              /* array of Queue id's */
 var uploadInProgress = false;
 /******************/
@@ -20,11 +19,6 @@ $(document).ready(function() {
 
   $('.tab-img-u').each(function(){
     if($.browser.msie && $.browser.version == 6){
-      // Remove double slash at the next four lines to show messagebox
-      // if(!alertFlag){
-      //   alert("Sorry, but you can't to use AJAX uploading in IE 6.");
-      //   alertFlag = true;
-      // }
       return; /* exit if IE6 */
     }
 
