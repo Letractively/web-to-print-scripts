@@ -1360,4 +1360,14 @@ input.font-button
 		border-color:#547d4d; 
 		border-width:1px; 
 	}
-	
+/* cancel upload */
+.cancelUpload{
+  cursor:pointer;
+  font-size:12px; 
+  font-weight:bold; 
+  font-family:Verdana; 
+  color:#ffffff; 
+  background:#b74b3c; 
+  border:1px solid #a12110;
+  padding:2px 6px 2px 6px;
+}
