@@ -273,3 +273,14 @@ background-color:transparent;
 padding-top:0px; 
 padding-bottom:3px; 
 }
+/* cancel upload */
+.cancelUpload{
+  cursor:pointer;
+  font-size:12px;
+  font-weight:bold;
+  font-family:Verdana;
+  color:#FFF;
+  background:#6a9f6a;
+  border:1px solid #336633;
+  padding:3px 6px 3px 6px;
+}

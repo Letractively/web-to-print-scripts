@@ -1346,3 +1346,13 @@ background-color:#8e6e95;
 color:white;
 float: right;
 }
+/* cancel upload */
+.cancelUpload{
+  cursor:pointer;
+  color: #FFF;
+  font-weight:bold;
+  background-color:#8E6E95;
+  border:1px solid #492855;
+  border-color: #D0BACC #492855 #492855 #D0BACC;
+  padding:2px 8px 2px 8px;
+}
