@@ -1,0 +1,79 @@
+.slideshow {
+  font-family: arial;
+  font-size: 12px;
+}
+ul.slideshow {
+  list-style: none;
+  width: 450px;
+  height: 333px;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+ul.slideshow li {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 0 !important;
+}
+ul.slideshow li.show {
+  z-index: 500;
+}
+ul.slideshow li.showBack {
+  z-index: 505;
+  display:none;
+}
+ul img {
+  border: none;
+}
+#slideshowFade{
+  width: 450px;
+  height: 333px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 600;
+  background: transparent !important;
+}
+#slideshowCaption {
+  width: 450px;
+  height: 66px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #FFFFFF;
+  background: #000000 !important;
+  z-index: 1500;
+}
+#slideshowButton {
+  width: 97px;
+  height: 23px;
+  position: absolute;
+  bottom: 0;
+  left: -97px;
+  margin-left: 100%;
+  color: #fff;
+  background: url('./button.png') !important;
+  z-index: 1500;
+  font-size: 16px;
+  text-align: center;
+  line-height: 26px;
+}
+#slideshowButton a {
+  text-decoration:none;
+  color: #FFFFFF;
+}
+#slideshowCaption div {
+  padding: 5px 10px;
+  z-index: 1000;
+}
+#slideshowCaption h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+#slideshowCaption p {
+  margin: 5px 0 0 0;
+  padding: 0;
+}
