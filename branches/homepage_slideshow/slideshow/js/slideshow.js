@@ -1,8 +1,9 @@
-var alphaPath = '/images/fade/'; //path to fade images
+var alphaPath = '/common/slideshow/fade/'; // path to fade images
 
-var slideSpeed = 2000;           //delay time (default:2 sec)
-var alphaImgs = [];              //fade images
-var iCurrStep = 0;               //step of fading
+var slideSpeed = 2000;                     // delay time (default:2 sec)
+var alphaImgs = [];                        // fade images
+var iCurrStep = 0;                         // step of fading
+var slideCount = 0;                        // count of slides
 var showSlides = false;
 
 $(document).ready(function() {
@@ -10,16 +11,19 @@ $(document).ready(function() {
 });
 
 // check images load
-function checkImg(){
+function checkImg(fadeNext){
   var imgCounter=0;
   $('ul.slideshow li img').each(function(){
-    if(this.complete==true) imgCounter++;
+    if(this.complete==true && this.width>0) imgCounter++;
   });
-  if(imgCounter>50){
+  if(imgCounter>=slideCount){
     showSlides = true;
-    setTimeout('gallery()',slideSpeed);
+    if(fadeNext==true)
+      setTimeout('fade()',slideSpeed);
+    else
+      setTimeout('gallery()',slideSpeed);
   }else
-    timer = setTimeout(checkImg,500);
+    timer = setTimeout('checkImg('+fadeNext+')',500);
 }
 // fade image
 function fade(){
@@ -51,6 +55,9 @@ function slideShow(speed) {
   alphaImgs[3].src = alphaPath + 'fade_35.png';
   alphaImgs[4].src = alphaPath + 'fade_50.png';
   
+  // get count of slides
+  var slideCount = $('ul.slideshow').children().size();
+  
   //show first LI
   var current = $('ul.slideshow li:first');
   current.addClass('show');
@@ -73,6 +80,14 @@ function slideShow(speed) {
   //Display the button
   $('#slideshowButton').css({opacity: 1.0, bottom:0});
 
+  var href = current.find('a').attr('href');
+  if(current.next().attr('id') == 'slideshowCaption'){
+    var next = $('ul.slideshow li:first');
+  }else{
+    var next = current.next();
+  }
+  var nextHref = next.find('a').attr('href');
+
   //pause the slideshow on mouse over
   $('ul.slideshow').hover(
     function () {
@@ -83,7 +98,7 @@ function slideShow(speed) {
     }
   );
   slideSpeed = speed;
-  checkImg();
+  checkImg(href!=nextHref ? true : false);
 }
 
 function gallery() {
