@@ -23,37 +23,39 @@ jQuery(document).ready(function ($) {
         replaceOldImageEditor(id);
       });
     }else if($(".image-content input:radio").length > 0) { /* Preview page */
-      $("a[id^='img-']").each(function(){ /* find all tags <a id="img-..."> */
-        if(this.id.indexOf('img-s-')<0){
-          /* user's image */
-          $(this).click(function(){
-            $("input:radio[value='" + $(this).attr('name') + "']").attr('checked','checked');
-            $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('name') + '?iframe');
-          });
-          $(this).attr('href', imageEditorPath + '/imageEditor.html?iframe');
-          $(this).fancybox( {
-            'padding': 0,
-            'hideOnOverlayClick': false,
-            'hideOnContentClick': false,
-            'centerOnScroll': false,
-            'type': 'iframe',
-            'titleShow': false
-          });
-        }else{
-          /* stock image */
-          $(this).click(function(){
-            $("input:radio[value='" + $(this).attr('name') + "']").attr('checked','checked');
-          });
-          $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('href') + '?iframe');
-          $(this).fancybox( {
-            'padding': 0,
-            'hideOnOverlayClick': false,
-            'hideOnContentClick': false,
-            'centerOnScroll': false,
-            'type': 'iframe',
-            'titleShow': false
-          });
-        }
+      $("div[id^='divImgStripLibrary']").each(function(i){
+        $(this).find("a[id^='img-']").each(function(){ /* find all tags <a id="img-..."> */
+          if(this.id.indexOf('img-s-')<0){
+            /* user's image */
+            $(this).click(function(){
+              $("div#divImgStripLibrary"+(i + 1)+" input:radio[value='" + $(this).attr('name') + "']").attr('checked','checked');
+              $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('name') + '?iframe');
+            });
+            $(this).attr('href', imageEditorPath + '/imageEditor.html?iframe');
+            $(this).fancybox( {
+              'padding': 0,
+              'hideOnOverlayClick': false,
+              'hideOnContentClick': false,
+              'centerOnScroll': false,
+              'type': 'iframe',
+              'titleShow': false
+            });
+          }else{
+            /* stock image */
+            $(this).click(function(){
+              $("div#divImgStripLibrary"+(i + 1)+" input:radio[value='" + $(this).attr('name') + "']").attr('checked','checked');
+            });
+            $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('href') + '?iframe');
+            $(this).fancybox( {
+              'padding': 0,
+              'hideOnOverlayClick': false,
+              'hideOnContentClick': false,
+              'centerOnScroll': false,
+              'type': 'iframe',
+              'titleShow': false
+            });
+          }
+        });
       });
     }
   }
