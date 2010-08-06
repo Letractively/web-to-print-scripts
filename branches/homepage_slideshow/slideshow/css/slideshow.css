@@ -1,8 +1,8 @@
-.slideshow {
+#slideshow {
   font-family: arial;
   font-size: 12px;
 }
-ul.slideshow {
+#slideshow {
   list-style: none;
   width: 450px;
   height: 333px;
@@ -12,16 +12,16 @@ ul.slideshow {
   padding: 0;
   display:none;
 }
-ul.slideshow li {
+#slideshow li {
   position: absolute;
   left: 0;
   right: 0;
   padding: 0 !important;
 }
-ul.slideshow li.show {
+#slideshow li.show {
   z-index: 500;
 }
-ul.slideshow li.showBack {
+#slideshow li.showBack {
   z-index: 505;
   display:none;
 }
@@ -51,9 +51,9 @@ ul img {
   width: 97px;
   height: 23px;
   position: absolute;
-  bottom: 0;
-  left: -97px;
-  margin-left: 100%;
+  bottom: 0px;
+  margin-left:100%;
+  left:-97px !important;
   color: #fff;
   background: url('./button.png') !important;
   z-index: 1500;

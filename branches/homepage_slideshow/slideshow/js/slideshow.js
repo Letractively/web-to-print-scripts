@@ -13,7 +13,7 @@ $(document).ready(function() {
 // check images load
 function checkImg(fadeNext){
   var imgCounter=0;
-  $('ul.slideshow li img').each(function(){
+  $('ul#slideshow li img').each(function(){
     if(this.complete==true && this.width>0) imgCounter++;
   });
   if(imgCounter>=slideCount){
@@ -56,24 +56,24 @@ function slideShow(speed) {
   alphaImgs[4].src = alphaPath + 'fade_50.png';
   
   // get count of slides
-  var slideCount = $('ul.slideshow').children().size();
+  var slideCount = $('ul#slideshow').children().size();
   
   //show first LI
-  var current = $('ul.slideshow li:first');
+  var current = $('ul#slideshow li:first');
   current.addClass('show');
   
   //append a LI item to the UL list for displaying caption
-  $('ul.slideshow').append('<li id="slideshowCaption"><div><h3></h3><p></p></div></li>');
-  $('ul.slideshow').append('<li id="slideshowButton"><a></a><p></p></li>');
-  $('ul.slideshow').append('<li id="slideshowFade"><a><img src="'+alphaImgs[0].src+'" /></a></li>');
-  $('ul.slideshow').show();
+  $('ul#slideshow').append('<li id="slideshowCaption"><div><h3></h3><p></p></div></li>');
+  $('ul#slideshow').append('<li id="slideshowButton"><a></a><p></p></li>');
+  $('ul#slideshow').append('<li id="slideshowFade"><a><img src="'+alphaImgs[0].src+'" /></a></li>');
+  $('ul#slideshow').show();
 
   //Get the caption of the first image from REL attribute and display it
-  $('#slideshowCaption h3').html($('ul.slideshow a:first').find('img').attr('title'));
-  $('#slideshowCaption p').html($('ul.slideshow a:first').find('img').attr('alt'));
-  $('#slideshowButton a').html($('ul.slideshow a:first').attr('title'));
-  $('#slideshowButton a').attr('href',$('ul.slideshow a:first').attr('href'));
-  $('#slideshowFade a').attr('href',$('ul.slideshow a:first').attr('href'));
+  $('#slideshowCaption h3').html($('ul#slideshow a:first').find('img').attr('title'));
+  $('#slideshowCaption p').html($('ul#slideshow a:first').find('img').attr('alt'));
+  $('#slideshowButton a').html($('ul#slideshow a:first').attr('title'));
+  $('#slideshowButton a').attr('href',$('ul#slideshow a:first').attr('href'));
+  $('#slideshowFade a').attr('href',$('ul#slideshow a:first').attr('href'));
 
   //Display the caption
   $('#slideshowCaption').css({opacity: 0.7, bottom:0});
@@ -82,14 +82,14 @@ function slideShow(speed) {
 
   var href = current.find('a').attr('href');
   if(current.next().attr('id') == 'slideshowCaption'){
-    var next = $('ul.slideshow li:first');
+    var next = $('ul#slideshow li:first');
   }else{
     var next = current.next();
   }
   var nextHref = next.find('a').attr('href');
 
   //pause the slideshow on mouse over
-  $('ul.slideshow').hover(
+  $('ul#slideshow').hover(
     function () {
       showSlides = false;
     },
@@ -107,9 +107,9 @@ function gallery() {
     return;
   }
   //if no IMGs have the show class, grab the first image
-  var current = ($('ul.slideshow li.show')?  $('ul.slideshow li.show') : $('ul.slideshow li:first'));
+  var current = ($('ul#slideshow li.show')?  $('ul#slideshow li.show') : $('ul#slideshow li:first'));
   if(current.next().attr('id') == 'slideshowCaption'){
-    var next = $('ul.slideshow li:first');
+    var next = $('ul#slideshow li:first');
   }else{
     var next = current.next();
   }
@@ -120,7 +120,7 @@ function gallery() {
   var href = next.find('a').attr('href');
 
   if(next.next().attr('id') == 'slideshowCaption'){
-    var nextnext = $('ul.slideshow li:first');
+    var nextnext = $('ul#slideshow li:first');
   }else{
     var nextnext = next.next();
   }
