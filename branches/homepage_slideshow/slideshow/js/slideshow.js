@@ -1,14 +1,21 @@
-var alphaPath = '/common/slideshow/fade/'; // path to fade images
+var alphaPath    = '/common/slideshow/fade/';  // path to fade images
 
-var slideSpeed = 2000;                     // delay time (default:2 sec)
-var alphaImgs = [];                        // fade images
-var iCurrStep = 0;                         // step of fading
-var slideCount = 0;                        // count of slides
-var showSlides = false;
+var slideSpeed   = 0;                          // delay time
+var slideWidth   = 0;                          // slide width
+var slideHeight  = 0;                          // slide height
+var alphaImgs    = [];                         // fade images
+var iCurrStep    = 0;                          // step of fading
+var slideCount   = 0;                          // count of slides
+var showSlides   = false;
 
-$(document).ready(function() {
-  slideShow(window.slideshow_speed ? window.slideshow_speed : 3000);
-});
+function slideShow(delay,widthSlide,heightSlide){
+  $(document).ready(function() {
+    slideSpeed  = delay;
+    slideWidth  = widthSlide;
+    slideHeight = heightSlide;
+    startShow();
+  });
+}
 
 // check images load
 function checkImg(fadeNext){
@@ -17,6 +24,7 @@ function checkImg(fadeNext){
     if(this.complete==true && this.width>0) imgCounter++;
   });
   if(imgCounter>=slideCount){
+    $('#slideshowFade img').attr('src',alphaImgs[0].src);
     showSlides = true;
     if(fadeNext==true)
       setTimeout('fade()',slideSpeed);
@@ -42,18 +50,20 @@ function fade(){
   }
 }
 
-function slideShow(speed) {
+function startShow() {
   // load fade images
   alphaImgs[0] = new Image();
   alphaImgs[1] = new Image();
   alphaImgs[2] = new Image();
   alphaImgs[3] = new Image();
   alphaImgs[4] = new Image();
+  alphaImgs[5] = new Image();
   alphaImgs[0].src = alphaPath + 'fade_0.png';
   alphaImgs[1].src = alphaPath + 'fade_10.png';
   alphaImgs[2].src = alphaPath + 'fade_20.png';
   alphaImgs[3].src = alphaPath + 'fade_35.png';
   alphaImgs[4].src = alphaPath + 'fade_50.png';
+  alphaImgs[5].src = alphaPath + 'fade_100.png';
   
   // get count of slides
   var slideCount = $('ul#slideshow').children().size();
@@ -65,7 +75,7 @@ function slideShow(speed) {
   //append a LI item to the UL list for displaying caption
   $('ul#slideshow').append('<li id="slideshowCaption"><div><h3></h3><p></p></div></li>');
   $('ul#slideshow').append('<li id="slideshowButton"><a></a><p></p></li>');
-  $('ul#slideshow').append('<li id="slideshowFade"><a><img src="'+alphaImgs[0].src+'" /></a></li>');
+  $('ul#slideshow').append('<li id="slideshowFade"><a><img src="'+alphaImgs[5].src+'" width="'+slideWidth+'" height="'+slideHeight+'" border="0" /></a></li>');
   $('ul#slideshow').show();
 
   //Get the caption of the first image from REL attribute and display it
@@ -97,7 +107,6 @@ function slideShow(speed) {
       showSlides = true;
     }
   );
-  slideSpeed = speed;
   checkImg(href!=nextHref ? true : false);
 }
 
