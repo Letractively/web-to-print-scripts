@@ -930,7 +930,7 @@ div.tags a /* Tag links */
 
 div#container hr /* Horizontal line override */
 	{
-		display:none;
+		border:1px solid transparent;
 	}
 
 ul.embed /* EMBED pop-up table on Catalog page*/
@@ -1684,6 +1684,7 @@ span#designed-by a /* [Previous orders] button*/
 		padding-top:7px;
 		padding-left:15px;
 		padding-right:15px;
+		text-decoration:none;
 	}
 	#tabCheckout span.clickable:hover
 		{
@@ -1910,23 +1911,20 @@ span.help-show /* Printer PDF settings page help show/hide */
 
 input.finalise-order /* Checkout button on a multipage template Preview page */
 	{
-		color:#ffffff;
-		width:100px;
+		color:#000000;
+		width:120px;
 		font-size:10pt;
-		background:url(img/checkout_btn.png) no-repeat;
-		background-color:#be2a20;
-		border:solid 1px #9d0a02;
-		background-position:4px 6px;
-		padding:5px;
-		padding-left:25px;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -49px;
 		font-family:Arial;
+		font-weight:normal;
+		height:32px;
 		text-decoration:none;
 	}
 	input.finalise-order:hover
 		{
-			background:url(img/checkout_btn.png) no-repeat;
-			background-color:#be2a20;
-			background-position:4px -21px;
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -79px;
 		}
 
 #tblBulkEdit .clickable /* Update butons on Bulk Edit page */
@@ -1949,13 +1947,26 @@ input.finalise-order /* Checkout button on a multipage template Preview page */
 
 input.status /* Change status button */
 	{
-		cursor:pointer;
-		color:#ffffff;
+		color:#000000;
+		width:120px;
+		font-size:10pt;
+		background:url(img/btns.png) no-repeat;
+		background-position:0px -171px;
+		border:none;
 		font-family:Arial;
-		background:#000000;
-		border:solid 1px #727272;
+		font-weight:normal;
+		height:24px;
+		text-decoration:none;
 	}
-
+	input.status:hover
+		{
+			background:url(img/btns.png) no-repeat;
+			background-position:0px -197px;
+		}
+a.padded sup
+	{
+		text-decoration:none;
+	}
 table#rego th, table#rego .submit /*Register form email*/
 	{
 		vertical-align: middle;
@@ -2075,12 +2086,17 @@ table.image-thumb /* My images table grid */
 		height:300px;
 	}
 
+ul.image-menu li
+	{
+		list-style-position:outside;
+	}
 ul.image-menu li span /* Edit image link */
 	{
 		color:#2a5db0;
 		border:solid 1px #c3d9ff;
 		background-color:#c3d9ff;
 		padding:3px;
+		margin:0;
 	}
 	ul.image-menu li span:hover
 	{
@@ -2137,10 +2153,14 @@ table.image-thumb td.title-folder a /* Image folder inside thumbs on My Images p
 table.image-thumb td.title input /* Image title field inside thumbs on My Images page */
 	{
 		color:#000000;
+		border:1px solid #c6c4c5;
+		width:200px;
 	}
 	table.image-thumb td.title input.edit
 		{
 			border-color:#c6c4c5;
+			width:200px !important;
+			padding:1px;
 		}
 
 ul.drop ul /* Images folders drop-down */
