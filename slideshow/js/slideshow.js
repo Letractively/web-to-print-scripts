@@ -7,6 +7,7 @@ var iCurrStep    = 0;                          // step of fading
 var iCurrSlide   = 0;                          // step of fading
 var slideCount   = 0;                          // count of slides
 var showSlides   = false;
+var iCorrFrame   = 0;
 
 
 function slideShow(delay,widthSlide,heightSlide){
@@ -60,7 +61,8 @@ function prepareSlideShow(delay,widthSlide,heightSlide) {
   $('ul#slideshow').append('<li id="slideshowCaption" style="width:'+widthSlide+'px;"><div><h3></h3><p></p></div></li>');
   $('ul#slideshow').append('<li id="slideshowButton"><a></a></li>');
   $('ul#slideshow').append('<li id="slideshowFade"><a><img src="'+alphaImgs[0].src+'" width="'+widthSlide+'" height="'+heightSlide+'" border="0" /></a></li>');
-  $('ul#slideshow').append('<li id="slideshowSlide"><img src="'+slides[0].src+'" width="'+widthSlide+'" height="'+heightSlide+'" border="0" /></li>');
+  $('ul#slideshow').append('<li id="slideshowSlide1"><img src="'+slides[0].src+'" width="'+widthSlide+'" height="'+heightSlide+'" border="0" /></li>');
+  $('ul#slideshow').append('<li id="slideshowSlide2"><img src="'+slides[1].src+'" width="'+widthSlide+'" height="'+heightSlide+'" border="0" /></li>');
   $('ul#slideshow').show();
 
   //Get the caption of the first image from REL attribute and display it
@@ -101,7 +103,8 @@ function checkImg(fadeNext){
   }
   n = (slideCount>5 ? 5 : slideCount);
   if(imgCounter-6>=n){
-    $('#slideshowSlide').addClass('show');
+    $('#slideshowSlide1').addClass('show');
+    iCorrFrame = 1;
     showSlides = true;
     if(fadeNext==true)
       setTimeout('fade()',slideSpeed);
@@ -133,6 +136,7 @@ function gallery() {
     return;
   }
 
+  $('#slideshowSlide'+iCorrFrame).removeClass('show');
   iCurrSlide++;
   if(iCurrSlide>=slideCount) iCurrSlide = 0;
   //Get next image caption
@@ -140,25 +144,29 @@ function gallery() {
   var desc = slides[iCurrSlide].descr;
   var button = slides[iCurrSlide].button;
   var href = slides[iCurrSlide].href;
-  var src = slides[iCurrSlide].src;
 
   var next = iCurrSlide + 1;
   if(next>=slideCount) next = 0;
   var nextLink = slides[next].href;
+  var nextImg  = slides[next].src;
 
   $('#slideshowCaption h3').html(title);
   $('#slideshowCaption p').html(desc);
   $('#slideshowButton a').html(button);
   $('#slideshowButton a').attr('href',href);
   $('#slideshowFade a').attr('href',href);
-  $('#slideshowSlide img').attr('src',src);
 
   if(preload.length<slideCount){
     preload[iCurrSlide+4] = new Image();
     preload[iCurrSlide+4] = slides[iCurrSlide+4].src;
   }
   
-  setTimeout('fade_wait('+(nextLink==href)+')',50);
+  $('#slideshowSlide'+iCorrFrame+' img').attr('src',nextImg);
+  iCorrFrame++;
+  if(iCorrFrame>2) iCorrFrame = 1;
+  $('#slideshowSlide'+iCorrFrame).addClass('show');
+
+  fade_wait(nextLink==href);
 }
 
 function fade_wait(flag){
