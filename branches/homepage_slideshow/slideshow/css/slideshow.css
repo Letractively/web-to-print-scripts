@@ -11,10 +11,12 @@
   display:none;
   background: url('./spinner.gif') no-repeat center !important;
 }
-#slideshowSlide {
+#slideshowSlide1,
+#slideshowSlide2 {
   display:none;
 }
-#slideshowSlide.show {
+#slideshowSlide1.show,
+#slideshowSlide2.show {
   position: absolute;
   left: 0;
   right: 0;
