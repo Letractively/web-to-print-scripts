@@ -3,6 +3,10 @@
 //Try to place this script below jQuery(may be with plugins) 
 //and above others custom scripts.
 
+
+		
+jQuery(document).ready(function(){
+
 rePlace = { //This is root object. Do not rename, untill you know what you do.
 //All objects in root object are selector-replacement pairs. Example: 
 //object_name :{selector: jQuery Selector, replace: text for replace};
@@ -13,10 +17,9 @@ rePlace = { //This is root object. Do not rename, untill you know what you do.
 	obj05 : {
 		selector: 'ul.ulclass1 li:nth(1)', //replace n-th child of list.First index is 0, 
 		replace: 'LIST N-TH'}              //so we replace second item here.   
-};
-		
-jQuery(document).ready(function(){
-    for(obj in rePlace){
+};    
+
+for(obj in rePlace){
 		$(rePlace[obj].selector).text(rePlace[obj].replace);	
-	}	
+		}	
 });
