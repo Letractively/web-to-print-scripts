@@ -25,9 +25,6 @@ jQuery.each(rePlace.split(/,/),
 	function(i,n){
 			pair = n.split(/---/);
 			line = pair[0].replace(/^\s*/g,'').replace(/\s$/,'');
-		console.log(pair);
-		console.log(line);
-
 			jQuery.each(tags,function(i,m){
 					selector = m+':contains('+line+')';
 					console.log(selector);
