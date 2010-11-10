@@ -3,23 +3,36 @@
 //Try to place this script below jQuery(may be with plugins) 
 //and above others custom scripts.
 
+//test version
 
-		
 jQuery(document).ready(function(){
+//Do not edit line below. Begin editing after empty line.
+//You can add as many pairs as you want. But all of them
+//All strings must be separated by comma. All strings must
+//be in 'STRING TO REPLACE---REPLACEMENT' format.
+rePlace = (<r><![CDATA[
 
-rePlace = { //This is root object. Do not rename, untill you know what you do.
-//All objects in root object are selector-replacement pairs. Example: 
-//object_name :{selector: jQuery Selector, replace: text for replace};
-//All these objects may have any name you want, but this name must be unique.
-	obj01 : {selector: '#header1', replace: 'REPLACED HEADER'}, //replace by id
-	obj02 : {selector: '#header2', replace: 'ANOTHER REPLACED HEADER'},
-	obj04 : {selector: '#li1', replace: 'LIST #1'},
-	obj05 : {
-		selector: 'ul.ulclass1 li:nth(1)', //replace n-th child of list.First index is 0, 
-		replace: 'LIST N-TH'}              //so we replace second item here.   
-};    
+HEADER1 --- ANOTHER 1,
+HEADER2 --- A N O T H E R2 ,
+HE ADER3 --- AN OTHER3,
+THIS STRING: THAT STRING	
 
-for(obj in rePlace){
-		$(rePlace[obj].selector).text(rePlace[obj].replace);	
-		}	
-});
+]]></r>).toString();
+
+var tags =['a','h1','h2','h3','h4'];
+
+jQuery.each(rePlace.split(/,/),
+	function(i,n){
+			pair = n.split(/---/);
+			line = pair[0].replace(/^\s*/g,'').replace(/\s$/,'');
+		console.log(pair);
+		console.log(line);
+
+			jQuery.each(tags,function(i,m){
+					selector = m+':contains('+line+')';
+					console.log(selector);
+					jQuery(selector).text(pair[1]);
+			});
+	});
+});		
+
