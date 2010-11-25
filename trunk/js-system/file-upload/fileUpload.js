@@ -120,14 +120,23 @@ $(document).ready(function() {
         var src = thumbPath + response.match(/thumb="([^"]*?)"/i).pop();
         src = src.replace(/\.(jpg)/i, "_0x100.jpg");
         var imageid = response.match(/imageid="([^"]*?)"/i).pop();
-        var td = '<td nowrap="nowrap"><input type="radio" value="' + imageid + '"><span>#' + libLength + '</span><div style="background-image:url('+ajaxLoaderImg+'); background-position:center center; background-repeat:no-repeat;display:block;height:100px;min-width:100px;"><a href="" name="'+imageid+'" target="_blank"><img height="100px" style="display:block" src="' + src + '"/></a></div></td>';
+
+        var radioGroupName = '';
         if ($("div[id*=divImgStripLibrary]").length==0) {
           //1st time upload, need to create image container first
           var currentStripCounter1 = 0;
           $("div[id*=divImageContentContainer]").each(function () {
             currentStripCounter1=$(this).attr('id').substring($(this).attr('id').length - 1);
+            radioGroupName = $('#radioID', '#divImgStripUpload' + currentStripCounter1).html();
             //creating blank image container
-            $(this).append('<div id="divImgStripLibrary' + currentStripCounter1 + '" class="tab3-content" style="display:none"><table><tbody><tr><td nowrap="nowrap" class="blank-img-l"><input type="radio" checked="checked" name="' + $('#radioID', '#divImgStripUpload' + currentStripCounter1).html() + '" value=""><b>BLANK <\/b><div><span class="info"><a href="?page=images" title="Manage my image library" class="calm-padded">Manage images<\/a><\/span><\/div><\/td><\/tr><\/tbody><\/table><\/div>');
+            var bl = '<div id="divImgStripLibrary' + currentStripCounter1 + '" class="tab3-content" style="display:none">';
+            bl += '<table><tbody><tr><td nowrap="nowrap" class="blank-img-l">';
+            bl += '<div><span class="info"><a href="?page=images" title="Manage my image library" class="calm-padded">Manage images<\/a><\/span><\/div>';
+            bl += '<\/td><\/tr><\/tbody><\/table><\/div>';
+            var blank = '<input class="blank-option" type="radio" name="' + radioGroupName + '" value=""><strong>BLANK <\/strong>';
+            $(this).append(bl); // add thumb contaner
+            var cell = $(this).find('td.blank-img-l').first();
+            cell.html(blank);
             //creating my images tab (only if upload tab exists)
             $('#liTabImgLibrary' + currentStripCounter1).show();
             //make upload tab class active
@@ -136,12 +145,18 @@ $(document).ready(function() {
             });
           $('#liTabImgLibrary' + currentStripCounter).addClass('active');
         }
+        var td = '<td nowrap="nowrap"></td>';
         $("div[id*=divImgStripLibrary]").each(function () {
           var currentStrip = $(this).parent();
           var pos = $(currentStrip).scrollLeft();
-          $(td).insertAfter($(this).find('td:eq(0)'));
-          
-          $('input[type=radio]',currentStrip).attr('name',$('#radioID', currentStrip).html());
+          var t = $(td).insertAfter($(this).find('td:eq(0)'));
+          radioGroupName = $('#radioID', currentStrip).html();
+          var td_input = '<input type="radio" value="' + imageid + '" name="' + radioGroupName + '">';
+          td_input += '  <span>#' + libLength + '</span>';
+          td_input += '  <div style="background-image:url('+ajaxLoaderImg+'); background-position:center center; background-repeat:no-repeat;display:block;height:100px;min-width:100px;">';
+          td_input += '   <a href="" name="'+imageid+'" target="_blank"><img height="100px" style="display:block" src="' + src + '"/></a>';
+          td_input += '  </div>';
+          t.html(td_input);
           if ($(this).attr('id') != "divImgStripLibrary" + currentStripCounter) {
             $('img', td).load(function () {
               $(currentStrip).scrollLeft($(currentStrip).scrollLeft() + $('input[value='+imageid+']').parent().outerWidth());
@@ -149,7 +164,12 @@ $(document).ready(function() {
           }
         });
         imageEditorAssignFancybox(imageid, libLength); /* find by ImageID */
-        $('#divImgStripLibrary' + currentStripCounter).find('input[value*=-]:radio').first().attr('checked', 'true');
+        var first = $('#divImgStripLibrary' + currentStripCounter).find('input[value*=-]:radio').first();
+        if(first){
+          first.attr('checked', 'true');
+          //attempt to fix IE7 problem with radio button not switching
+//          var blank = $('#divImgStripLibrary' + currentStripCounter).find('input.blank-option').first().attr('checked', 'false').removeAttr('checked');
+        }
         tabToggleTabbedMenuBlockImg('liTabImgLibrary' + currentStripCounter, 'divImgStripLibrary' + currentStripCounter);
         //start next file upload
         startUpload();
@@ -183,7 +203,7 @@ $(document).ready(function() {
   function imageEditorAssignFancybox(id,libNum) {
     $("a[name='"+id+"']").each(function(i){
       $(this).click(function(){
-        $("input:radio[value='" + $(this).attr('name') + "']").attr('checked','checked');
+        $("div#divImgStripLibrary"+(i + 1)+" input:radio[value='" + $(this).attr('name') + "']").attr('checked','checked');
         $(this).attr('href',imageEditorPath + '/imageEditor.html?imageId=' + $(this).attr('name') + '?iframe');
       });
       $(this).attr('href', imageEditorPath + '/imageEditor.html?iframe');
@@ -199,3 +219,6 @@ $(document).ready(function() {
     });
   }
 });
+
+// original file location http://zetaprints.com/java/dev/20100707/fileUpload.js
+// working file location http://ec2-174-129-95-130.compute-1.amazonaws.com/wp-content/themes/classic/js/fileUpload.js
