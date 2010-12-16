@@ -1,3 +1,5 @@
+//"Shows Twetter and FB like under the preview image on template preview pages." 
+
 $('#formPreviewUpdate table').addClass('width50');
 $('.width50').width('50%');
 var reg = /(htm)|(TemplateID)/; // our "keywords" in url
