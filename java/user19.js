@@ -16,6 +16,14 @@ function genReplaceElementHTML(id, newHTML)
 		elem.innerHTML=newHTML;
 
 	}
+	enhance_form(elem);
+}
+
+function enhance_form(elem)
+{
+	$(elem).find('.combobox').each(function(){
+		$(this).wrap('<div class="zp-combobox-wrapper" />').combobox();
+	});
 }
 
 function genToggleBlock(id)
