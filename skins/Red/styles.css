@@ -1005,6 +1005,8 @@ fieldset
 	{
 		color: white; 
 		background-image: url(img/btn_bg.png);
+		background-color:#a74141;
+		border-color: #cb6565;
 	} /* Changes */
 
 #tabManage .menu-line a
