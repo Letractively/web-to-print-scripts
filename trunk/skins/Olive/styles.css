@@ -392,7 +392,8 @@ a:hover { color:#000 }
 h1 
 	{ 
 		color:#336633; 
-		background:url(img/h1_bgr.png) repeat-y left; 
+		background:url(img/h1_bgr.png) repeat-y left;
+		background-position:0% 0%;
 		font-family:Arial; text-decoration:none; font-size:28px; font-weight:normal;
 		margin:0; padding:0 10px 0 15px; line-height:49px; 
 		border-bottom:1px solid #caca97;  
@@ -1459,11 +1460,41 @@ div#locator ul
 			color: #336633;
 		}
 
+	table#order-rego span.clickable /* "New user registration" box in order form */
+		{
+			background:none;
+			padding:0px;
+			color:#8e8e5b;
+			border:none;
+			font-weight:bold;
+			font-size:7pt;
+		}
+		table#order-rego span.clickable:hover
+			{
+				background:none;
+				padding:0px;
+				color:#8e8e5b;
+				border:none;
+				text-decoration:underline;
+			}
+	table#order-rego input.order
+		{
+			background:#969663;
+			color:#ffffff;
+			border:solid 1px #78784c;
+			padding:0px;
+			margin-right:0px;
+		}
+	label#fs-title-rego
+		{
+			background:#ffffde;
+		}
+
 div#linkHome
 	{
 		filter:alpha(opacity=0);
 	}
-		
+
 /*Remove the folowing segment of the code to get squared buttons with icons*/
 
 #onePagePreviewButton
@@ -1515,14 +1546,3 @@ div.mnuOder
 	{
 		padding-left:15px;
 	}
-/* cancel upload */
-.cancelUpload{
-  cursor:pointer;
-  font-size:12px;
-  font-weight:bold;
-  font-family:Verdana;
-  color:#FFF;
-  background:#669999;
-  border:1px solid #336666;
-  padding:3px 6px 3px 6px;
-}
