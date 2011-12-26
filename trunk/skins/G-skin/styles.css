@@ -494,9 +494,10 @@ h2#zetaprints1 /* Powered by bottom of left menu */
 div#register a /* Register now button - visible when logged out */
 	{
 		font-size:9pt;
-		border:solid 1px #c6c4c5;
+		border:solid 1px #6694e3;
 		color:#6694e3;
 		background:url(img/register_btn.png) no-repeat;
+		background-color:#e0ecff;
 		background-position:5px -18px;
 		padding:4px;
 		padding-left:25px;
@@ -506,6 +507,7 @@ div#register a /* Register now button - visible when logged out */
 			text-decoration:none;
 			color:#6694e3;
 			background:url(img/register_btn.png) no-repeat;
+			background-color:#e0ecff;
 			background-position:5px -18px;
 		}
 	div#register
