@@ -36,19 +36,6 @@ $(document).ready(function() {
     });
   });
 
-  /* assign onclick event to submit button */
-  $('#newFileFormForm .submit').click(function(){
-    if ($('#newFileFormForm .file').val().length>0){
-      if($.browser.msie && $.browser.version == 6){
-        // Remove double slash at the next line to show messagebox
-        //alert("Sorry, but you can't to use AJAX uploading in IE 6.");
-        return true; /* If IE6 submit with standart ZP code */
-      }
-      addToQueue($(this).parents('#newFileFormForm'));
-    }
-    return false; /* do not submit form */
-  });
-
   function addToQueue(id) {
     var e=$('#newFileFormForm' + id);
     randomFormId=Math.floor(Math.random()*1000001);
@@ -120,27 +107,22 @@ $(document).ready(function() {
         var src = thumbPath + response.match(/thumb="([^"]*?)"/i).pop();
         src = src.replace(/\.(jpg)/i, "_0x100.jpg");
         var imageid = response.match(/imageid="([^"]*?)"/i).pop();
-        var radioGroupName = ''; // create group name variable, it is easier to track what is used this way
+
+        var radioGroupName = '';
         if ($("div[id*=divImgStripLibrary]").length==0) {
           //1st time upload, need to create image container first
           var currentStripCounter1 = 0;
           $("div[id*=divImageContentContainer]").each(function () {
             currentStripCounter1=$(this).attr('id').substring($(this).attr('id').length - 1);
-            radioGroupName = $('#radioID', '#divImgStripUpload' + currentStripCounter1).html(); // give value to option group name
+            radioGroupName = $('#radioID', '#divImgStripUpload' + currentStripCounter1).html();
             //creating blank image container
-            var bl = '<div id="divImgStripLibrary' + currentStripCounter1 + '" class="tab3-content" style="display:none">'; // having all code in one line is very hard to read
-            bl += '<table><tbody><tr><td nowrap="nowrap" class="blank-img-l">';                                             // so span it across lines
+            var bl = '<div id="divImgStripLibrary' + currentStripCounter1 + '" class="tab3-content" style="display:none">';
+            bl += '<table><tbody><tr><td nowrap="nowrap" class="blank-img-l">';
             bl += '<div><span class="info"><a href="?page=images" title="Manage my image library" class="calm-padded">Manage images<\/a><\/span><\/div>';
             bl += '<\/td><\/tr><\/tbody><\/table><\/div>';
-            // IE has great troubles with adding form elements using DOM, so we need to add the element using innerHTML instead
-            // so first we create element html string, it is MANDATORY to have name assigned to the input upon inserting it
-            // if we first insert the element and then set its name, it will not work in IE at all.
             var blank = '<input class="blank-option" type="radio" name="' + radioGroupName + '" value=""><strong>BLANK <\/strong>';
-            // appned its container html to document
             $(this).append(bl); // add thumb contaner
-            // find immidiate input parent
             var cell = $(this).find('td.blank-img-l').first();
-            // add option input to innerHTML
             cell.html(blank);
             //creating my images tab (only if upload tab exists)
             $('#liTabImgLibrary' + currentStripCounter1).show();
@@ -150,20 +132,18 @@ $(document).ready(function() {
             });
           $('#liTabImgLibrary' + currentStripCounter).addClass('active');
         }
-        var td = '<td nowrap="nowrap"></td>'; // create empty TD element so that we can simply set its inner html not worriing about overwriting stuff
+        var td = '<td nowrap="nowrap"></td>';
         $("div[id*=divImgStripLibrary]").each(function () {
           var currentStrip = $(this).parent();
           var pos = $(currentStrip).scrollLeft();
-          var t = $(td).insertAfter($(this).find('td:eq(0)')); // add our empty cell after first cell
-          radioGroupName = $('#radioID', currentStrip).html(); // find corresponding option group name
-          var td_input = '<input type="radio" value="' + imageid + '" name="' + radioGroupName + '">'; // create option input html, see blank option input about details
-          td_input += '  <span>#' + libLength + '</span>'; // add label (by the way label numbering is not making much sence here), and other elements needed
+          var t = $(td).insertAfter($(this).find('td:eq(0)'));
+          radioGroupName = $('#radioID', currentStrip).html();
+          var td_input = '<input type="radio" value="' + imageid + '" name="' + radioGroupName + '">';
+          td_input += '  <span>#' + libLength + '</span>';
           td_input += '  <div style="background-image:url('+ajaxLoaderImg+'); background-position:center center; background-repeat:no-repeat;display:block;height:100px;min-width:100px;">';
           td_input += '   <a href="" name="'+imageid+'" target="_blank"><img height="100px" style="display:block" src="' + src + '"/></a>';
           td_input += '  </div>';
-          t.html(td_input); // set empty cell innerHTML
-          // no further changes made regarding IE7 issue
-          // -------------------------------------------          
+          t.html(td_input);
           if ($(this).attr('id') != "divImgStripLibrary" + currentStripCounter) {
             $('img', td).load(function () {
               $(currentStrip).scrollLeft($(currentStrip).scrollLeft() + $('input[value='+imageid+']').parent().outerWidth());
@@ -174,6 +154,8 @@ $(document).ready(function() {
         var first = $('#divImgStripLibrary' + currentStripCounter).find('input[value*=-]:radio').first();
         if(first){
           first.attr('checked', 'true');
+          //attempt to fix IE7 problem with radio button not switching
+//          var blank = $('#divImgStripLibrary' + currentStripCounter).find('input.blank-option').first().attr('checked', 'false').removeAttr('checked');
         }
         tabToggleTabbedMenuBlockImg('liTabImgLibrary' + currentStripCounter, 'divImgStripLibrary' + currentStripCounter);
         //start next file upload
